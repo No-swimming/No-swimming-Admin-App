@@ -15,11 +15,6 @@ migrate_working_dir/
 *.ipr
 *.iws
 .idea/
-/build/
-/lib/firebase_options.dart
-ios/Runner/GoogleService-info.plist
-ios/firebase_app_id_file.json
-android/app/google-services.json
 
 
 # The .vscode folder contains launch configuration and tasks you configure in
@@ -37,6 +32,10 @@ android/app/google-services.json
 .pub-cache/
 .pub/
 /build/
+/lib/firebase_options.dart
+ios/Runner/GoogleService-info.plist
+ios/firebase_app_id_file.json
+android/app/google-services.json
 
 # Symbolication related
 app.*.symbols
