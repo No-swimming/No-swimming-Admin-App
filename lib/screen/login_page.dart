@@ -46,7 +46,10 @@ class LoginPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(99),
                     )),
                 onPressed: () {},
-                child: Text('로그인'),
+                child: Text(
+                  '로그인',
+                  style: TextStyle(fontFamily: 'LINE Seed Sans KR'),
+                ),
               ),
             ),
             Padding(
