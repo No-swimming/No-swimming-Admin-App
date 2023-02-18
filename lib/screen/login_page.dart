@@ -40,6 +40,7 @@ class LoginPage extends StatelessWidget {
               width: MediaQuery.of(context).size.width - 20,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
+                    elevation: 0.0,
                     backgroundColor: Colors.black,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(99),
