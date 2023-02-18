@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  LoginPage({Key? key}) : super(key: key);
+  bool isClicked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,9 @@ class LoginPage extends StatelessWidget {
                       border: Border.all(width: 1, color: Colors.black12),
                     ),
                     child: TextField(
-                      decoration: InputDecoration(border: InputBorder.none),
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                      ),
                     ),
                   ),
                 ],
@@ -58,7 +61,16 @@ class LoginPage extends StatelessWidget {
                       border: Border.all(width: 1, color: Colors.black12),
                     ),
                     child: TextField(
-                      decoration: InputDecoration(border: InputBorder.none),
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        suffixIcon: IconButton(
+                            onPressed: () {
+                              isClicked ? false : true;
+                            },
+                            icon: isClicked
+                                ? Icon(Icons.remove_red_eye)
+                                : Icon(Icons.remove_red_eye_outlined)),
+                      ),
                     ),
                   ),
                 ],
