@@ -51,7 +51,13 @@ class LoginPage extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 32.0),
-              child: Center(child: Text("계정을 발급받으려면 관리자에게 문의하십시오")),
+              child: Center(
+                  child: Text(
+                "계정을 발급받으려면 관리자에게 문의하십시오",
+                style: TextStyle(
+                  fontFamily: 'LINE Seed Sans KR',
+                ),
+              )),
             ),
           ],
         ),
