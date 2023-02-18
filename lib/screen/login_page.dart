@@ -70,12 +70,15 @@ class _LoginPageState extends State<LoginPage> {
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         suffixIcon: IconButton(
-                            onPressed: () {
-                              isClicked ? false : true;
-                            },
-                            icon: isClicked
-                                ? Icon(Icons.remove_red_eye)
-                                : Icon(Icons.remove_red_eye_outlined)),
+                          onPressed: () {
+                            setState(() {
+                              isClicked ? isClicked = false : isClicked = true;
+                            });
+                          },
+                          icon: isClicked
+                              ? Icon(Icons.remove_red_eye)
+                              : Icon(Icons.add),
+                        ),
                       ),
                     ),
                   ),
