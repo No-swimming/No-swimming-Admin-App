@@ -16,26 +16,25 @@ class LoginPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('아이디'),
-                  SizedBox(height: 4),
-                  const TextField(
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide(width: 1, color: Colors.black),
-                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                        borderSide: BorderSide(width: 1, color: Colors.black),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                        borderSide: BorderSide(width: 1, color: Colors.black),
+                  Text('아이디',
+                      style: TextStyle(fontFamily: 'LINE Seed Sans KR')),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(Radius.circular(8)),
+                      border: Border.all(width: 1, color: Colors.black12),
+                    ),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        border: InputBorder.none
                       ),
                     ),
                   ),
                 ],
               ),
+            ),
+            SizedBox(
+              height: 100,
             ),
             SizedBox(
               width: 380.0.w,
@@ -50,7 +49,8 @@ class LoginPage extends StatelessWidget {
                 onPressed: () {},
                 child: Text(
                   '로그인',
-                  style: TextStyle(fontFamily: 'LINE Seed Sans KR'),
+                  style: TextStyle(
+                      fontFamily: 'LINE Seed Sans KR', fontSize: 15.0.sp),
                 ),
               ),
             ),
