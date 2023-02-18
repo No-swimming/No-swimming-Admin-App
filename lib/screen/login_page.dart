@@ -37,9 +37,34 @@ class LoginPage extends StatelessWidget {
                 ],
               ),
             ),
+            SizedBox(height: 32.0.h),
             SizedBox(
-              height: 100,
+              width: 380.0.w,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    ' 비밀번호',
+                    style: TextStyle(
+                      fontFamily: 'LINE Seed Sans KR',
+                      color: Color(0xff7F7F7F),
+                    ),
+                  ),
+                  SizedBox(height: 10.0.h),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(Radius.circular(8)),
+                      border: Border.all(width: 1, color: Colors.black12),
+                    ),
+                    child: TextField(
+                      decoration: InputDecoration(border: InputBorder.none),
+                    ),
+                  ),
+                ],
+              ),
             ),
+            SizedBox(height: 32.0.h),
             SizedBox(
               width: 380.0.w,
               height: 33.0.h,
