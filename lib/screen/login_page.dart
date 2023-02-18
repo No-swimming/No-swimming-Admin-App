@@ -5,6 +5,42 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: MediaQuery.of(context).size.width - 20,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('아이디'),
+                  SizedBox(height: 4),
+                  const TextField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(width: 1, color: Colors.black),
+                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                        borderSide: BorderSide(width: 1, color: Colors.black),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                        borderSide: BorderSide(width: 1, color: Colors.black),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            MaterialButton(onPressed: () {}),
+            Text('data'),
+          ],
+        ),
+      ),
+    );
   }
 }
