@@ -37,7 +37,7 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             MaterialButton(onPressed: () {}),
-            Text('data'),
+            Text("계정을 발급받으려면 관리자에게 문의하십시오"),
           ],
         ),
       ),
