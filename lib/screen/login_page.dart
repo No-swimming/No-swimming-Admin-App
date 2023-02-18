@@ -16,8 +16,14 @@ class LoginPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('아이디',
-                      style: TextStyle(fontFamily: 'LINE Seed Sans KR')),
+                  Text(
+                    ' 아이디',
+                    style: TextStyle(
+                      fontFamily: 'LINE Seed Sans KR',
+                      color: Color(0xff7F7F7F),
+                    ),
+                  ),
+                  SizedBox(height: 10.0.h),
                   Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -25,9 +31,7 @@ class LoginPage extends StatelessWidget {
                       border: Border.all(width: 1, color: Colors.black12),
                     ),
                     child: TextField(
-                      decoration: InputDecoration(
-                        border: InputBorder.none
-                      ),
+                      decoration: InputDecoration(border: InputBorder.none),
                     ),
                   ),
                 ],
