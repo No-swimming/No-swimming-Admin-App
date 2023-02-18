@@ -36,7 +36,18 @@ class LoginPage extends StatelessWidget {
                 ],
               ),
             ),
-            MaterialButton(onPressed: () {}),
+            SizedBox(
+              width: MediaQuery.of(context).size.width - 20,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.black,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(99),
+                    )),
+                onPressed: () {},
+                child: Text('로그인'),
+              ),
+            ),
             Text("계정을 발급받으려면 관리자에게 문의하십시오"),
           ],
         ),
