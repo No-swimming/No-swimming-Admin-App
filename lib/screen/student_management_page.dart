@@ -9,13 +9,10 @@ class StudentManagementPage extends StatefulWidget {
 }
 
 class _StudentManagementPageState extends State<StudentManagementPage> {
-  late List<bool> isButton;
-
-  bool isButton0 = false;
-
-  bool isButton1 = false;
-
-  bool isButton2 = false;
+  List<String> selectedCategory = List.empty(growable: true);
+  String category0 = '1학년';
+  String category1 = '2학년';
+  String category2 = '3학년';
 
   @override
   Widget build(BuildContext context) {
@@ -36,42 +33,64 @@ class _StudentManagementPageState extends State<StudentManagementPage> {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  width: 68.0.w,
-                  height: 38.0.h,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: const BorderRadius.all(Radius.circular(57)),
-                    border: Border.all(width: 1, color: Colors.black12),
-                  ),
-                  child: Center(
-                      child: Text(
-                    '1학년',
-                    style: TextStyle(
-                      fontFamily: 'LINE Seed Sans KR',
-                      color: Color(0xff7F7F7F),
-                      fontSize: 16.0.sp,
+                InkWell(
+                  onTap: () {
+                    selectedCategory = List.empty(growable: true);
+                    selectedCategory.add(category0);
+                  },
+                  child: Container(
+                    width: 68.0.w,
+                    height: 38.0.h,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: const BorderRadius.all(Radius.circular(57)),
+                      border: Border.all(
+                          width: selectedCategory.contains(category0) ? 2 : 1,
+                          color: selectedCategory.contains(category0)
+                              ? Colors.black
+                              : Colors.black12),
                     ),
-                  )),
+                    child: Center(
+                      child: Text(
+                        '1학년',
+                        style: TextStyle(
+                          fontFamily: 'LINE Seed Sans KR',
+                          color: Color(0xff7F7F7F),
+                          fontSize: 16.0.sp,
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
                 SizedBox(width: 12.0.w),
-                Container(
-                  width: 68.0.w,
-                  height: 38.0.h,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: const BorderRadius.all(Radius.circular(57)),
-                    border: Border.all(width: 1, color: Colors.black12),
-                  ),
-                  child: Center(
-                      child: Text(
-                    '2학년',
-                    style: TextStyle(
-                      fontFamily: 'LINE Seed Sans KR',
-                      color: Color(0xff7F7F7F),
-                      fontSize: 16.0.sp,
+                InkWell(
+                  onTap: () {
+                    selectedCategory = List.empty(growable: true);
+                    selectedCategory.add(category1);
+                  },
+                  child: Container(
+                    width: 68.0.w,
+                    height: 38.0.h,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: const BorderRadius.all(Radius.circular(57)),
+                      border: Border.all(
+                          width: selectedCategory.contains(category1) ? 2 : 1,
+                          color: selectedCategory.contains(category1)
+                              ? Colors.black
+                              : Colors.black12),
                     ),
-                  )),
+                    child: Center(
+                      child: Text(
+                        '2학년',
+                        style: TextStyle(
+                          fontFamily: 'LINE Seed Sans KR',
+                          color: Color(0xff7F7F7F),
+                          fontSize: 16.0.sp,
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),
