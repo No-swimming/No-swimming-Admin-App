@@ -35,8 +35,10 @@ class _StudentManagementPageState extends State<StudentManagementPage> {
               children: [
                 InkWell(
                   onTap: () {
-                    selectedCategory = List.empty(growable: true);
-                    selectedCategory.add(category0);
+                    setState(() {
+                      selectedCategory = List.empty(growable: true);
+                      selectedCategory.add(category0);
+                    });
                   },
                   child: Container(
                     width: 68.0.w,
@@ -65,8 +67,10 @@ class _StudentManagementPageState extends State<StudentManagementPage> {
                 SizedBox(width: 12.0.w),
                 InkWell(
                   onTap: () {
-                    selectedCategory = List.empty(growable: true);
-                    selectedCategory.add(category1);
+                    setState(() {
+                      selectedCategory = List.empty(growable: true);
+                      selectedCategory.add(category1);
+                    });
                   },
                   child: Container(
                     width: 68.0.w,
