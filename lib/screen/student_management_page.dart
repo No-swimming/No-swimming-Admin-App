@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:no_swimming_admin_app/widget/school_year_button.dart';
+import 'package:no_swimming_admin_app/widget/school_room_button.dart';
 
 class StudentManagementPage extends StatefulWidget {
   StudentManagementPage({Key? key}) : super(key: key);
@@ -10,9 +11,13 @@ class StudentManagementPage extends StatefulWidget {
 }
 
 class _StudentManagementPageState extends State<StudentManagementPage> {
-  String category0 = '1학년';
-  String category1 = '2학년';
-  String category2 = '3학년';
+  String grade1 = '1학년';
+  String grade2 = '2학년';
+  String grade3 = '3학년';
+  String room1 = '1반';
+  String room2 = '2반';
+  String room3 = '3반';
+  String room4 = '4반';
 
   @override
   Widget build(BuildContext context) {
@@ -33,13 +38,26 @@ class _StudentManagementPageState extends State<StudentManagementPage> {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SchoolYearButton(category: category0),
+                SchoolYearButton(category: grade1),
                 SizedBox(width: 12.0.w),
-                SchoolYearButton(category: category1),
+                SchoolYearButton(category: grade2),
                 SizedBox(width: 12.0.w),
-                SchoolYearButton(category: category2),
+                SchoolYearButton(category: grade3),
               ],
             ),
+            SizedBox(height: 12.0.h),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SchoolRoomButton(category: room1),
+                SizedBox(width: 12.0.w),
+                SchoolRoomButton(category: room2),
+                SizedBox(width: 12.0.w),
+                SchoolRoomButton(category: room3),
+                SizedBox(width: 12.0.w),
+                SchoolRoomButton(category: room4),
+              ],
+            )
           ],
         ),
       ),
