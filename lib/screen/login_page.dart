@@ -24,7 +24,7 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     ' 아이디',
                     style: TextStyle(
                       fontFamily: 'LINE Seed Sans KR',
@@ -35,10 +35,10 @@ class _LoginPageState extends State<LoginPage> {
                   Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.all(Radius.circular(8)),
+                      borderRadius: const BorderRadius.all(Radius.circular(8)),
                       border: Border.all(width: 1, color: Colors.black12),
                     ),
-                    child: TextField(
+                    child: const TextField(
                       decoration: InputDecoration(
                         border: InputBorder.none,
                       ),
@@ -53,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     ' 비밀번호',
                     style: TextStyle(
                       fontFamily: 'LINE Seed Sans KR',
@@ -64,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
                   Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.all(Radius.circular(8)),
+                      borderRadius: const BorderRadius.all(Radius.circular(8)),
                       border: Border.all(width: 1, color: Colors.black12),
                     ),
                     child: TextField(
@@ -77,8 +77,8 @@ class _LoginPageState extends State<LoginPage> {
                             });
                           },
                           icon: isClicked
-                              ? Icon(FluentIcons.eye_24_regular)
-                              : Icon(FluentIcons.eye_off_24_regular),
+                              ? const Icon(FluentIcons.eye_24_regular)
+                              : const Icon(FluentIcons.eye_off_24_regular),
                         ),
                       ),
                     ),
@@ -105,8 +105,8 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 32.0),
+            const Padding(
+              padding: EdgeInsets.only(top: 32.0),
               child: Center(
                   child: Text(
                 "계정을 발급받으려면 관리자에게 문의하십시오",
