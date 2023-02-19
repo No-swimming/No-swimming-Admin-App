@@ -56,10 +56,14 @@ class _StudentManagementPageState extends State<StudentManagementPage> {
                       child: Text(
                         '1학년',
                         style: TextStyle(
-                          fontFamily: 'LINE Seed Sans KR',
-                          color: Color(0xff7F7F7F),
-                          fontSize: 16.0.sp,
-                        ),
+                            fontFamily: 'LINE Seed Sans KR',
+                            color: selectedCategory.contains(category0)
+                                ? Colors.black
+                                : Color(0xff7F7F7F),
+                            fontSize: 16.0.sp,
+                            fontWeight: selectedCategory.contains(category0)
+                                ? FontWeight.bold
+                                : FontWeight.normal),
                       ),
                     ),
                   ),
