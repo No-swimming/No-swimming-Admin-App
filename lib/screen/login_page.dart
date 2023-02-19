@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key? key}) : super(key: key);
@@ -9,7 +10,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  bool isClicked = false;
+  bool isClicked = true;
 
   @override
   Widget build(BuildContext context) {
@@ -76,8 +77,8 @@ class _LoginPageState extends State<LoginPage> {
                             });
                           },
                           icon: isClicked
-                              ? Icon(Icons.remove_red_eye)
-                              : Icon(Icons.add),
+                              ? Icon(FluentIcons.eye_24_regular)
+                              : Icon(FluentIcons.eye_off_24_regular),
                         ),
                       ),
                     ),
