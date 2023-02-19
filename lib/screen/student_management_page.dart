@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:no_swimming_admin_app/widget/school_year_button.dart';
 
 class StudentManagementPage extends StatefulWidget {
   StudentManagementPage({Key? key}) : super(key: key);
@@ -9,7 +10,7 @@ class StudentManagementPage extends StatefulWidget {
 }
 
 class _StudentManagementPageState extends State<StudentManagementPage> {
-  List<String> selectedCategory = List.empty(growable: true);
+  static List<String> selectedCategory = List.empty(growable: true);
   String category0 = '1학년';
   String category1 = '2학년';
   String category2 = '3학년';
@@ -33,73 +34,11 @@ class _StudentManagementPageState extends State<StudentManagementPage> {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                InkWell(
-                  onTap: () {
-                    setState(() {
-                      selectedCategory = List.empty(growable: true);
-                      selectedCategory.add(category0);
-                    });
-                  },
-                  child: Container(
-                    width: 68.0.w,
-                    height: 38.0.h,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: const BorderRadius.all(Radius.circular(57)),
-                      border: Border.all(
-                          width: selectedCategory.contains(category0) ? 2 : 1,
-                          color: selectedCategory.contains(category0)
-                              ? Colors.black
-                              : Colors.black12),
-                    ),
-                    child: Center(
-                      child: Text(
-                        '1학년',
-                        style: TextStyle(
-                            fontFamily: 'LINE Seed Sans KR',
-                            color: selectedCategory.contains(category0)
-                                ? Colors.black
-                                : Color(0xff7F7F7F),
-                            fontSize: 16.0.sp,
-                            fontWeight: selectedCategory.contains(category0)
-                                ? FontWeight.bold
-                                : FontWeight.normal),
-                      ),
-                    ),
-                  ),
-                ),
+                SchoolYearButton(
+                    category: category0, selectedCategory: selectedCategory),
                 SizedBox(width: 12.0.w),
-                InkWell(
-                  onTap: () {
-                    setState(() {
-                      selectedCategory = List.empty(growable: true);
-                      selectedCategory.add(category1);
-                    });
-                  },
-                  child: Container(
-                    width: 68.0.w,
-                    height: 38.0.h,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: const BorderRadius.all(Radius.circular(57)),
-                      border: Border.all(
-                          width: selectedCategory.contains(category1) ? 2 : 1,
-                          color: selectedCategory.contains(category1)
-                              ? Colors.black
-                              : Colors.black12),
-                    ),
-                    child: Center(
-                      child: Text(
-                        '2학년',
-                        style: TextStyle(
-                          fontFamily: 'LINE Seed Sans KR',
-                          color: Color(0xff7F7F7F),
-                          fontSize: 16.0.sp,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                SchoolYearButton(
+                    category: category1, selectedCategory: selectedCategory),
               ],
             ),
           ],
