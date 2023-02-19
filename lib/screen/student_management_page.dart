@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class StudentManagementPage extends StatelessWidget {
+class StudentManagementPage extends StatefulWidget {
   StudentManagementPage({Key? key}) : super(key: key);
+
+  @override
+  State<StudentManagementPage> createState() => _StudentManagementPageState();
+}
+
+class _StudentManagementPageState extends State<StudentManagementPage> {
   late List<bool> isButton;
+
   bool isButton0 = false;
+
   bool isButton1 = false;
+
   bool isButton2 = false;
 
   @override
@@ -23,6 +32,7 @@ class StudentManagementPage extends StatelessWidget {
                   fontSize: 30.0.sp,
                   fontWeight: FontWeight.bold),
             ),
+            SizedBox(height: 12.0.h),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
