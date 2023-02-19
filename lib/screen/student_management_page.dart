@@ -44,6 +44,25 @@ class StudentManagementPage extends StatelessWidget {
                     ),
                   )),
                 ),
+                SizedBox(width: 12.0.w),
+                Container(
+                  width: 68.0.w,
+                  height: 38.0.h,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: const BorderRadius.all(Radius.circular(57)),
+                    border: Border.all(width: 1, color: Colors.black12),
+                  ),
+                  child: Center(
+                      child: Text(
+                    '2학년',
+                    style: TextStyle(
+                      fontFamily: 'LINE Seed Sans KR',
+                      color: Color(0xff7F7F7F),
+                      fontSize: 16.0.sp,
+                    ),
+                  )),
+                ),
               ],
             ),
           ],
