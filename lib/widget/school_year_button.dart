@@ -42,7 +42,7 @@ class _SchoolYearButtonState extends State<SchoolYearButton> {
         ),
         child: Center(
           child: Text(
-            '1학년',
+            widget.category.toString(),
             style: TextStyle(
                 fontFamily: 'LINE Seed Sans KR',
                 color: schoolYearListProvider.selectedCategory
