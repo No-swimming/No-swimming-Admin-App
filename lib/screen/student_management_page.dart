@@ -10,7 +10,6 @@ class StudentManagementPage extends StatefulWidget {
 }
 
 class _StudentManagementPageState extends State<StudentManagementPage> {
-  static List<String> selectedCategory = List.empty(growable: true);
   String category0 = '1학년';
   String category1 = '2학년';
   String category2 = '3학년';
@@ -34,11 +33,9 @@ class _StudentManagementPageState extends State<StudentManagementPage> {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SchoolYearButton(
-                    category: category0, selectedCategory: selectedCategory),
+                SchoolYearButton(category: category0),
                 SizedBox(width: 12.0.w),
-                SchoolYearButton(
-                    category: category1, selectedCategory: selectedCategory),
+                SchoolYearButton(category: category1),
               ],
             ),
           ],
