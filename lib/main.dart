@@ -22,11 +22,11 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(420, 930),
       builder: (context, child) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          home: ChangeNotifierProvider(
-            create: (context) => SchoolYearListProvider(),
-            child: LoginPage(),
+        return ChangeNotifierProvider<SchoolYearListProvider>(
+          create: (context) => SchoolYearListProvider(),
+          child: MaterialApp(
+            debugShowCheckedModeBanner: false,
+            home: LoginPage(),
           ),
         );
       },
