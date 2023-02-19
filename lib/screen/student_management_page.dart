@@ -57,7 +57,14 @@ class _StudentManagementPageState extends State<StudentManagementPage> {
                 SizedBox(width: 12.0.w),
                 SchoolRoomButton(category: room4),
               ],
-            )
+            ),
+            SizedBox(height: 20.0.h),
+            Divider(
+              height: 20.0.h,
+              thickness: 1,
+              color: Color(0xffBFBFBF),
+              endIndent: 20,
+            ),
           ],
         ),
       ),
