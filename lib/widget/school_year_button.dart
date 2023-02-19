@@ -2,24 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SchoolYearButton extends StatefulWidget {
-  const SchoolYearButton({Key? key}) : super(key: key);
+  SchoolYearButton({Key? key, required this.category}) : super(key: key);
+
+  List<String> selectedCategory = List.empty(growable: true);
+  String category;
 
   @override
   State<SchoolYearButton> createState() => _SchoolYearButtonState();
 }
 
 class _SchoolYearButtonState extends State<SchoolYearButton> {
-
-  List<String> selectedCategory = List.empty(growable: true);
-  String category0 = '1학년';
-
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
         setState(() {
-          selectedCategory = List.empty(growable: true);
-          selectedCategory.add(category0);
+          widget.selectedCategory = List.empty(growable: true);
+          widget.selectedCategory.add(widget.category);
         });
       },
       child: Container(
@@ -29,8 +28,8 @@ class _SchoolYearButtonState extends State<SchoolYearButton> {
           color: Colors.white,
           borderRadius: const BorderRadius.all(Radius.circular(57)),
           border: Border.all(
-              width: selectedCategory.contains(category0) ? 2 : 1,
-              color: selectedCategory.contains(category0)
+              width: widget.selectedCategory.contains(widget.category) ? 2 : 1,
+              color: widget.selectedCategory.contains(widget.category)
                   ? Colors.black
                   : Colors.black12),
         ),
@@ -39,17 +38,16 @@ class _SchoolYearButtonState extends State<SchoolYearButton> {
             '1학년',
             style: TextStyle(
                 fontFamily: 'LINE Seed Sans KR',
-                color: selectedCategory.contains(category0)
+                color: widget.selectedCategory.contains(widget.category)
                     ? Colors.black
                     : Color(0xff7F7F7F),
                 fontSize: 16.0.sp,
-                fontWeight: selectedCategory.contains(category0)
+                fontWeight: widget.selectedCategory.contains(widget.category)
                     ? FontWeight.bold
                     : FontWeight.normal),
           ),
         ),
       ),
-    )
-    ,
+    );
   }
 }
