@@ -53,7 +53,7 @@ class _SchoolYearButtonState extends State<SchoolYearButton> {
                     color: schoolYearListProvider.selectedCategory
                             .contains(widget.category)
                         ? Colors.black
-                        : Color(0xff7F7F7F),
+                        : const Color(0xff7F7F7F),
                     fontSize: 16.0.sp,
                     fontWeight: schoolYearListProvider.selectedCategory
                             .contains(widget.category)
@@ -66,7 +66,7 @@ class _SchoolYearButtonState extends State<SchoolYearButton> {
                   '72명',
                   style: TextStyle(
                       fontFamily: 'LINE Seed Sans KR',
-                      color: Color(0xff7F7F7F),
+                      color: const Color(0xff7F7F7F),
                       fontSize: 16.0.sp,
                       fontWeight: FontWeight.normal),
                 ),
