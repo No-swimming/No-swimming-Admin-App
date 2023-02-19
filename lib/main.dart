@@ -3,6 +3,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:no_swimming_admin_app/screen/login_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+import 'package:no_swimming_admin_app/provider/school_year_list_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,7 +24,10 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: LoginPage(),
+          home: ChangeNotifierProvider(
+            create: (context) => SchoolYearListProvider(),
+            child: LoginPage(),
+          ),
         );
       },
     );
