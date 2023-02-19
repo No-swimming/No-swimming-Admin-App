@@ -21,8 +21,8 @@ class _SchoolRoomButtonState extends State<SchoolRoomButton> {
     return InkWell(
       onTap: () {
         setState(() {
-          schoolListProvider.emptyGrageList();
-          schoolListProvider.addSelectedGradeList(widget.category);
+          schoolListProvider.emptyRoomList();
+          schoolListProvider.addSelectedRoomList(widget.category);
         });
       },
       child: Container(
@@ -32,10 +32,10 @@ class _SchoolRoomButtonState extends State<SchoolRoomButton> {
           color: Colors.white,
           borderRadius: const BorderRadius.all(Radius.circular(57)),
           border: Border.all(
-              width: schoolListProvider.selectedGrade.contains(widget.category)
+              width: schoolListProvider.selectedRoom.contains(widget.category)
                   ? 2
                   : 1,
-              color: schoolListProvider.selectedGrade.contains(widget.category)
+              color: schoolListProvider.selectedRoom.contains(widget.category)
                   ? Colors.black
                   : Colors.black12),
         ),
@@ -47,12 +47,12 @@ class _SchoolRoomButtonState extends State<SchoolRoomButton> {
                 widget.category.toString(),
                 style: TextStyle(
                     fontFamily: 'LINE Seed Sans KR',
-                    color: schoolListProvider.selectedGrade
+                    color: schoolListProvider.selectedRoom
                             .contains(widget.category)
                         ? Colors.black
                         : const Color(0xff7F7F7F),
                     fontSize: 16.0.sp,
-                    fontWeight: schoolListProvider.selectedGrade
+                    fontWeight: schoolListProvider.selectedRoom
                             .contains(widget.category)
                         ? FontWeight.bold
                         : FontWeight.normal),
