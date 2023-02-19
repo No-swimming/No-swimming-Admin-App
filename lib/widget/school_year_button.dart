@@ -25,7 +25,9 @@ class _SchoolYearButtonState extends State<SchoolYearButton> {
         });
       },
       child: Container(
-        width: 68.0.w,
+        width: schoolYearListProvider.selectedCategory.contains(widget.category)
+            ? 118.0.w
+            : 72.0.w,
         height: 38.0.h,
         decoration: BoxDecoration(
           color: Colors.white,
@@ -41,19 +43,34 @@ class _SchoolYearButtonState extends State<SchoolYearButton> {
                   : Colors.black12),
         ),
         child: Center(
-          child: Text(
-            widget.category.toString(),
-            style: TextStyle(
-                fontFamily: 'LINE Seed Sans KR',
-                color: schoolYearListProvider.selectedCategory
-                        .contains(widget.category)
-                    ? Colors.black
-                    : Color(0xff7F7F7F),
-                fontSize: 16.0.sp,
-                fontWeight: schoolYearListProvider.selectedCategory
-                        .contains(widget.category)
-                    ? FontWeight.bold
-                    : FontWeight.normal),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Text(
+                widget.category.toString(),
+                style: TextStyle(
+                    fontFamily: 'LINE Seed Sans KR',
+                    color: schoolYearListProvider.selectedCategory
+                            .contains(widget.category)
+                        ? Colors.black
+                        : Color(0xff7F7F7F),
+                    fontSize: 16.0.sp,
+                    fontWeight: schoolYearListProvider.selectedCategory
+                            .contains(widget.category)
+                        ? FontWeight.bold
+                        : FontWeight.normal),
+              ),
+              if (schoolYearListProvider.selectedCategory
+                  .contains(widget.category))
+                Text(
+                  '72명',
+                  style: TextStyle(
+                      fontFamily: 'LINE Seed Sans KR',
+                      color: Color(0xff7F7F7F),
+                      fontSize: 16.0.sp,
+                      fontWeight: FontWeight.normal),
+                ),
+            ],
           ),
         ),
       ),
