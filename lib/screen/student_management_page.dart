@@ -36,6 +36,8 @@ class _StudentManagementPageState extends State<StudentManagementPage> {
                 SchoolYearButton(category: category0),
                 SizedBox(width: 12.0.w),
                 SchoolYearButton(category: category1),
+                SizedBox(width: 12.0.w),
+                SchoolYearButton(category: category2),
               ],
             ),
           ],
