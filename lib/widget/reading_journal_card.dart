@@ -8,9 +8,13 @@ class ReadingJournalCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(8)),
+        border: Border.all(color: Color(0xffF2F2F2)),
+        color: Colors.white,
+      ),
       width: 380.0.w,
       height: 185.0.h,
-      color: Colors.white,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -39,8 +43,7 @@ class ReadingJournalCard extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(99),
                       )),
-                  onPressed: () {
-                  },
+                  onPressed: () {},
                   child: Text(
                     '내용 열기',
                     style: TextStyle(
@@ -58,8 +61,7 @@ class ReadingJournalCard extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(99),
                       )),
-                  onPressed: () {
-                  },
+                  onPressed: () {},
                   child: Text(
                     '마감으로 표시',
                     style: TextStyle(
