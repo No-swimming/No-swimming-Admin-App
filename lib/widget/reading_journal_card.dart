@@ -30,7 +30,7 @@ class ReadingJournalCard extends StatelessWidget {
           Row(
             children: [
               SizedBox(
-                width: 380.0.w,
+                width: 85.0.w,
                 height: 33.0.h,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -44,12 +44,12 @@ class ReadingJournalCard extends StatelessWidget {
                   child: Text(
                     '내용 열기',
                     style: TextStyle(
-                        fontFamily: 'LINE Seed Sans KR', fontSize: 15.0.sp),
+                        fontFamily: 'LINE Seed Sans KR', fontSize: 13.0.sp),
                   ),
                 ),
               ),
               SizedBox(
-                width: 380.0.w,
+                width: 113.0.w,
                 height: 33.0.h,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -63,7 +63,7 @@ class ReadingJournalCard extends StatelessWidget {
                   child: Text(
                     '마감으로 표시',
                     style: TextStyle(
-                        fontFamily: 'LINE Seed Sans KR', fontSize: 15.0.sp),
+                        fontFamily: 'LINE Seed Sans KR', fontSize: 14.0.sp),
                   ),
                 ),
               ),
