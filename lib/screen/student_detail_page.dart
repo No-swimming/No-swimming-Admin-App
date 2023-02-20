@@ -65,6 +65,24 @@ class StudentDetailPage extends StatelessWidget {
           ],
         ),
       ),
+      floatingActionButton: SizedBox(
+        width: 183.0.w,
+        height: 42.0.h,
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+              elevation: 0.0,
+              backgroundColor: Colors.black,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(99),
+              )),
+          onPressed: () {},
+          child: Text(
+            '모두 마감으로 표시',
+            style:
+                TextStyle(fontFamily: 'LINE Seed Sans KR', fontSize: 18.0.sp),
+          ),
+        ),
+      ),
     );
   }
 }
