@@ -20,10 +20,12 @@ class _SchoolRoomButtonState extends State<SchoolRoomButton> {
 
     return InkWell(
       onTap: () {
-        setState(() {
-          schoolListProvider.emptyRoomList();
-          schoolListProvider.addSelectedRoomList(widget.category);
-        });
+        schoolListProvider.selectedGrade.isEmpty
+            ? null
+            : setState(() {
+                schoolListProvider.emptyRoomList();
+                schoolListProvider.addSelectedRoomList(widget.category);
+              });
       },
       child: Container(
         width: 50.0.w,
