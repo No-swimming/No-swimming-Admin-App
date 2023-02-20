@@ -18,8 +18,11 @@ class StudentCard extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('주영재'),
-              Text('3학년 6반 2번'),
+              Text('주영재', style: TextStyle(fontFamily: 'LINE Seed Sans KR', fontWeight: FontWeight.bold)),
+              Text(
+                '3학년 6반 2번',
+                style: TextStyle(fontFamily: 'LINE Seed Sans KR', fontWeight: FontWeight.bold),
+              ),
             ],
           ),
         ],
