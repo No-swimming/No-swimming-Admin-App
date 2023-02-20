@@ -61,7 +61,7 @@ class _StudentManagementPageState extends State<StudentManagementPage> {
               ],
             ),
             SizedBox(height: 20.0.h),
-            Divider(
+            const Divider(
               thickness: 1,
               color: Color(0xffBFBFBF),
               endIndent: 20,
