@@ -7,6 +7,7 @@ class BookCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: Color(0xffF2F2F2),
       width: 362.0.w,
       height: 68.0.h,
       child: Row(
