@@ -15,63 +15,66 @@ class ReadingJournalCard extends StatelessWidget {
       ),
       width: 380.0.w,
       height: 185.0.h,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          BookCard(),
-          Row(
-            children: [
-              Text('제출일'),
-              Text('2023/02/23 14:22'),
-            ],
-          ),
-          Row(
-            children: [
-              Text('제출 상태'),
-              Text('통과'),
-            ],
-          ),
-          Row(
-            children: [
-              SizedBox(
-                width: 85.0.w,
-                height: 33.0.h,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      elevation: 0.0,
-                      backgroundColor: Colors.black,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(99),
-                      )),
-                  onPressed: () {},
-                  child: Text(
-                    '내용 열기',
-                    style: TextStyle(
-                        fontFamily: 'LINE Seed Sans KR', fontSize: 13.0.sp),
+      child: Padding(
+        padding: EdgeInsets.all(9.0.r),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            BookCard(),
+            Row(
+              children: [
+                Text('제출일'),
+                Text('2023/02/23 14:22'),
+              ],
+            ),
+            Row(
+              children: [
+                Text('제출 상태'),
+                Text('통과'),
+              ],
+            ),
+            Row(
+              children: [
+                SizedBox(
+                  width: 85.0.w,
+                  height: 33.0.h,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        elevation: 0.0,
+                        backgroundColor: Colors.black,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(99),
+                        )),
+                    onPressed: () {},
+                    child: Text(
+                      '내용 열기',
+                      style: TextStyle(
+                          fontFamily: 'LINE Seed Sans KR', fontSize: 13.0.sp),
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(
-                width: 113.0.w,
-                height: 33.0.h,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      elevation: 0.0,
-                      backgroundColor: Colors.black,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(99),
-                      )),
-                  onPressed: () {},
-                  child: Text(
-                    '마감으로 표시',
-                    style: TextStyle(
-                        fontFamily: 'LINE Seed Sans KR', fontSize: 14.0.sp),
+                SizedBox(
+                  width: 113.0.w,
+                  height: 33.0.h,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        elevation: 0.0,
+                        backgroundColor: Colors.black,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(99),
+                        )),
+                    onPressed: () {},
+                    child: Text(
+                      '마감으로 표시',
+                      style: TextStyle(
+                          fontFamily: 'LINE Seed Sans KR', fontSize: 14.0.sp),
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
