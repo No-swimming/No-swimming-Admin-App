@@ -14,6 +14,7 @@ class StudentCard extends StatelessWidget {
         children: [
           Image.asset('assets/images/noSwimmingIcon.png',
               width: 42.0.w, height: 42.0.h),
+          SizedBox(width: 8.0.w),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
