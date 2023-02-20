@@ -12,7 +12,7 @@ class BookCard extends StatelessWidget {
         color: Color(0xffF2F2F2),
       ),
       width: 362.0.w,
-      height: 68.0.h,
+      height: 66.0.h,
       child: Padding(
         padding: EdgeInsets.all(4.0.r),
         child: Row(
