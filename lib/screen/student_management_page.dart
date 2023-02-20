@@ -62,19 +62,23 @@ class _StudentManagementPageState extends State<StudentManagementPage> {
             ),
             SizedBox(height: 20.0.h),
             Divider(
-              height: 20.0.h,
               thickness: 1,
               color: Color(0xffBFBFBF),
               endIndent: 20,
             ),
-            SizedBox(height: 20.0.h),
             SizedBox(
               width: 380.0.w,
-              height: 600.0.h,
-              child: ListView(
-                children: [
-                  StudentCard(),
-                ],
+              height: 675.0.h,
+              child: ListView.builder(
+                itemCount: 16,
+                itemBuilder: (context, index) {
+                  return Column(
+                    children: [
+                      StudentCard(),
+                      SizedBox(height: 12.0.h),
+                    ],
+                  );
+                },
               ),
             ),
           ],
