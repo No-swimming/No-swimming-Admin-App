@@ -12,8 +12,10 @@ class BookCard extends StatelessWidget {
       child: Row(
         children: [
           Image.asset('assets/images/book.png', width: 41.0.w, height: 60.0.h),
-          Center(
+          Padding(
+            padding: EdgeInsets.only(top: 9.0.h, left: 10.0.w),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   '프로젝트 헤일메리',
