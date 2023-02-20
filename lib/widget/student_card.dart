@@ -12,6 +12,7 @@ class StudentCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: const BorderRadius.all(Radius.circular(8)),
+        border: Border.all(color: Color(0xffF2F2F2)),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
