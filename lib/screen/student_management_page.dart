@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:no_swimming_admin_app/widget/school_year_button.dart';
 import 'package:no_swimming_admin_app/widget/school_room_button.dart';
+import 'package:no_swimming_admin_app/widget/student_card.dart';
 
 class StudentManagementPage extends StatefulWidget {
   StudentManagementPage({Key? key}) : super(key: key);
@@ -22,6 +23,7 @@ class _StudentManagementPageState extends State<StudentManagementPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Padding(
         padding: EdgeInsets.only(top: 70.0.h, left: 20.0.w),
         child: Column(
@@ -64,6 +66,16 @@ class _StudentManagementPageState extends State<StudentManagementPage> {
               thickness: 1,
               color: Color(0xffBFBFBF),
               endIndent: 20,
+            ),
+            SizedBox(height: 20.0.h),
+            SizedBox(
+              width: 380.0.w,
+              height: 600.0.h,
+              child: ListView(
+                children: [
+                  StudentCard(),
+                ],
+              ),
             ),
           ],
         ),
