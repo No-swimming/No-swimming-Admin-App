@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:no_swimming_admin_app/widget/reading_journal_card.dart';
 
 class StudentDetailPage extends StatelessWidget {
   const StudentDetailPage({Key? key}) : super(key: key);
@@ -46,7 +47,20 @@ class StudentDetailPage extends StatelessWidget {
             SizedBox(
               width: 380.0.w,
               height: 725.0.h,
-              child: ListView(),
+              child: ScrollConfiguration(
+                behavior: const ScrollBehavior().copyWith(overscroll: false),
+                child: ListView.builder(
+                  itemCount: 8,
+                  itemBuilder: (context, index) {
+                    return Column(
+                      children: [
+                        ReadingJournalCard(),
+                        SizedBox(height: 12.0.h),
+                      ],
+                    );
+                  },
+                ),
+              ),
             )
           ],
         ),
