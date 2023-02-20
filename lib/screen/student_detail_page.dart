@@ -16,18 +16,24 @@ class StudentDetailPage extends StatelessWidget {
             Text(
               '주영재(3602)',
               style: TextStyle(
-                  fontWeight: FontWeight.bold, fontFamily: 'LINE Seed Sans KR'),
+                fontWeight: FontWeight.bold,
+                fontFamily: 'LINE Seed Sans KR',
+                fontSize: 30.0.sp,
+              ),
             ),
             Row(
               children: [
                 Text('작성한 독서록',
                     style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'LINE Seed Sans KR')),
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'LINE Seed Sans KR',
+                      fontSize: 30.0.sp,
+                    )),
                 Text(
-                  '8건',
+                  ' 8건',
                   style: TextStyle(
                       fontFamily: 'LINE Seed Sans KR',
+                      fontSize: 30.0.sp,
                       color: Color(0xff7F7F7F)),
                 ),
               ],
