@@ -69,16 +69,19 @@ class _StudentManagementPageState extends State<StudentManagementPage> {
             SizedBox(
               width: 380.0.w,
               height: 675.0.h,
-              child: ListView.builder(
-                itemCount: 16,
-                itemBuilder: (context, index) {
-                  return Column(
-                    children: [
-                      StudentCard(),
-                      SizedBox(height: 12.0.h),
-                    ],
-                  );
-                },
+              child: ScrollConfiguration(
+                behavior: const ScrollBehavior().copyWith(overscroll: false),
+                child: ListView.builder(
+                  itemCount: 16,
+                  itemBuilder: (context, index) {
+                    return Column(
+                      children: [
+                        StudentCard(),
+                        SizedBox(height: 12.0.h),
+                      ],
+                    );
+                  },
+                ),
               ),
             ),
           ],
