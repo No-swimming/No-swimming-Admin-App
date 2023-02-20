@@ -13,14 +13,24 @@ class StudentDetailPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('주영재(3602)'),
-            Text.rich(
-              TextSpan(
-                text: '작성한 독서록',
-                children: [
-                  TextSpan(text: '8건'),
-                ],
-              ),
+            Text(
+              '주영재(3602)',
+              style: TextStyle(
+                  fontWeight: FontWeight.bold, fontFamily: 'LINE Seed Sans KR'),
+            ),
+            Row(
+              children: [
+                Text('작성한 독서록',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'LINE Seed Sans KR')),
+                Text(
+                  '8건',
+                  style: TextStyle(
+                      fontFamily: 'LINE Seed Sans KR',
+                      color: Color(0xff7F7F7F)),
+                ),
+              ],
             ),
             Divider(),
             SizedBox(
