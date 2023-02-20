@@ -14,25 +14,46 @@ class ReadingJournalCard extends StatelessWidget {
         color: Colors.white,
       ),
       width: 380.0.w,
-      height: 185.0.h,
+      height: 195.0.h,
       child: Padding(
         padding: EdgeInsets.all(9.0.r),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             BookCard(),
+            SizedBox(height: 8.0.h),
             Row(
               children: [
-                Text('제출일'),
-                Text('2023/02/23 14:22'),
+                Text('제출일',
+                    style: TextStyle(
+                        fontFamily: 'LINE Seed Sans KR',
+                        fontSize: 16.0.sp,
+                        fontWeight: FontWeight.bold)),
+                Text(
+                  ' 2023/02/23 14:22',
+                  style: TextStyle(
+                      fontFamily: 'LINE Seed Sans KR', fontSize: 16.0.sp),
+                ),
               ],
             ),
+            SizedBox(height: 8.0.h),
             Row(
               children: [
-                Text('제출 상태'),
-                Text('통과'),
+                Text('제출 상태',
+                    style: TextStyle(
+                        fontFamily: 'LINE Seed Sans KR',
+                        fontSize: 16.0.sp,
+                        fontWeight: FontWeight.bold)),
+                Text(
+                  ' 통과',
+                  style: TextStyle(
+                    fontFamily: 'LINE Seed Sans KR',
+                    fontSize: 16.0.sp,
+                  ),
+                ),
               ],
             ),
+            SizedBox(height: 8.0.h),
             Row(
               children: [
                 SizedBox(
@@ -53,13 +74,14 @@ class ReadingJournalCard extends StatelessWidget {
                     ),
                   ),
                 ),
+                SizedBox(width: 8.0.w),
                 SizedBox(
                   width: 113.0.w,
                   height: 33.0.h,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                         elevation: 0.0,
-                        backgroundColor: Colors.black,
+                        backgroundColor: Color(0xffF2F2F2),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(99),
                         )),
@@ -67,7 +89,9 @@ class ReadingJournalCard extends StatelessWidget {
                     child: Text(
                       '마감으로 표시',
                       style: TextStyle(
-                          fontFamily: 'LINE Seed Sans KR', fontSize: 14.0.sp),
+                          fontFamily: 'LINE Seed Sans KR',
+                          fontSize: 14.0.sp,
+                          color: Colors.black),
                     ),
                   ),
                 ),
