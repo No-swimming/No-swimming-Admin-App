@@ -45,7 +45,7 @@ class StudentDetailPage extends StatelessWidget {
             ),
             SizedBox(
               width: 380.0.w,
-              height: 655.0.h,
+              height: 725.0.h,
               child: ListView(),
             )
           ],
