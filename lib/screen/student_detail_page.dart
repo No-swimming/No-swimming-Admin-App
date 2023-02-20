@@ -11,7 +11,9 @@ class StudentDetailPage extends StatelessWidget {
       body: Column(
         children: [
           Text('주영재(3602)'),
-          Text('작성한 독서록 8건'),
+          Text.rich(TextSpan(text: '작성한 독서록', children: [
+            TextSpan(text: '8건'),
+          ])),
           Divider(),
           SizedBox(
             width: 380.0.w,
