@@ -11,8 +11,9 @@ void checkPopupCard(context, title, bodyText) {
       ),
       backgroundColor: Colors.white,
       child: Container(
+        padding: EdgeInsets.all(16.0.r),
         width: 372.0.w,
-        height: 155.0.h,
+        height: 170.0.h,
         child: Column(
           children: [
             Text(
@@ -22,6 +23,7 @@ void checkPopupCard(context, title, bodyText) {
                   fontWeight: FontWeight.bold,
                   fontFamily: 'LINE Seed Sans KR'),
             ),
+            SizedBox(height: 16.0.h),
             Text(
               bodyText,
               style: TextStyle(
@@ -29,11 +31,12 @@ void checkPopupCard(context, title, bodyText) {
                 fontFamily: 'LINE Seed Sans KR',
               ),
             ),
+            SizedBox(height: 16.0.h),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  width: 140.0.w,
+                  width: 166.0.w,
                   height: 33.0.h,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
@@ -52,9 +55,9 @@ void checkPopupCard(context, title, bodyText) {
                     ),
                   ),
                 ),
-                SizedBox(width: 5.0.w),
+                SizedBox(width: 8.0.w),
                 SizedBox(
-                  width: 140.0.w,
+                  width: 166.0.w,
                   height: 33.0.h,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
