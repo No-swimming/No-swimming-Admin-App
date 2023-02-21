@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-void checkPopupCard(context, title, bodyText) {
+void checkPopupCard(context, title, bodyText, Function func) {
   showDialog(
     context: context,
     builder: (BuildContext context) => Dialog(
@@ -68,7 +68,10 @@ void checkPopupCard(context, title, bodyText) {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(99),
                         )),
-                    onPressed: () {},
+                    onPressed: () {
+                      func;
+                      Navigator.pop(context);
+                    },
                     child: Text(
                       '확인',
                       style: TextStyle(
