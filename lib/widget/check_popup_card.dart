@@ -36,28 +36,13 @@ void checkPopupCard(context, title, bodyText, Function func) {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
-                  width: 166.0.w,
-                  height: 33.0.h,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        elevation: 0.0,
-                        backgroundColor: Color(0xffF2F2F2),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(99),
-                        )),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: Text(
-                      '취소',
-                      style: TextStyle(
-                          fontFamily: 'LINE Seed Sans KR',
-                          fontSize: 16.0.sp,
-                          color: Colors.black),
-                    ),
-                  ),
-                ),
+                CustomButtom(
+                    buttonText: '취소',
+                    width: 166.0,
+                    height: 33.0,
+                    backgroundColor: Color(0xffF2F2F2),
+                    fontSize: 16.0,
+                    textColor: Colors.black),
                 SizedBox(width: 8.0.w),
                 CustomButtom(
                     buttonText: '확인',
