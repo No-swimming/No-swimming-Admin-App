@@ -45,7 +45,9 @@ void checkPopupCard(context, title, bodyText) {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(99),
                         )),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     child: Text(
                       '취소',
                       style: TextStyle(
