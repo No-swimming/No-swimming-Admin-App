@@ -15,8 +15,20 @@ void checkPopupCard(context, title, bodyText) {
         height: 155.0.h,
         child: Column(
           children: [
-            Text(title),
-            Text(bodyText),
+            Text(
+              title,
+              style: TextStyle(
+                  fontSize: 28.0.sp,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'LINE Seed Sans KR'),
+            ),
+            Text(
+              bodyText,
+              style: TextStyle(
+                fontSize: 16.0.sp,
+                fontFamily: 'LINE Seed Sans KR',
+              ),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
