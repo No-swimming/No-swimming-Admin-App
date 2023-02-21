@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:no_swimming_admin_app/widget/check_popup_card.dart';
 import 'package:no_swimming_admin_app/widget/reading_journal_card.dart';
 
 class StudentDetailPage extends StatelessWidget {
@@ -75,7 +76,9 @@ class StudentDetailPage extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(99),
               )),
-          onPressed: () {},
+          onPressed: () {
+            checkPopupCard(context, 'ㅁㄴㅇㄻㄴㅇㄹ', 'ㅇㅇㅇㅇㅇㅇ');
+          },
           child: Text(
             '모두 마감으로 표시',
             style:
