@@ -77,7 +77,8 @@ class StudentDetailPage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(99),
               )),
           onPressed: () {
-            checkPopupCard(context, '모두 마감으로 표시', '마감으로 표시된 뒤에는 독서록을 수정할 수 없습니다.');
+            checkPopupCard(
+                context, '모두 마감으로 표시', '마감으로 표시된 뒤에는 독서록을 수정할 수 없습니다.', func);
           },
           child: Text(
             '모두 마감으로 표시',
@@ -87,5 +88,9 @@ class StudentDetailPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void func() {
+    debugPrint('함수 실행');
   }
 }

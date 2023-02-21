@@ -69,7 +69,7 @@ void checkPopupCard(context, title, bodyText, Function func) {
                           borderRadius: BorderRadius.circular(99),
                         )),
                     onPressed: () {
-                      func;
+                      func();
                       Navigator.pop(context);
                     },
                     child: Text(
