@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:no_swimming_admin_app/widget/custom_button.dart';
 
 void checkPopupCard(context, title, bodyText, Function func) {
   showDialog(
@@ -58,27 +59,13 @@ void checkPopupCard(context, title, bodyText, Function func) {
                   ),
                 ),
                 SizedBox(width: 8.0.w),
-                SizedBox(
-                  width: 166.0.w,
-                  height: 33.0.h,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        elevation: 0.0,
-                        backgroundColor: Colors.black,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(99),
-                        )),
-                    onPressed: () {
-                      func();
-                      Navigator.pop(context);
-                    },
-                    child: Text(
-                      '확인',
-                      style: TextStyle(
-                          fontFamily: 'LINE Seed Sans KR', fontSize: 16.0.sp),
-                    ),
-                  ),
-                ),
+                CustomButtom(
+                    buttonText: '확인',
+                    width: 166.0,
+                    height: 33.0,
+                    backgroundColor: Colors.black,
+                    fontSize: 16.0,
+                    textColor: Colors.white),
               ],
             ),
           ],
