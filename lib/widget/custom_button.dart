@@ -36,7 +36,7 @@ class CustomButtom extends StatelessWidget {
         child: Text(
           buttonText,
           style:
-              TextStyle(fontFamily: 'LINE Seed Sans KR', fontSize: fontSize.sp),
+              TextStyle(fontFamily: 'LINE Seed Sans KR', fontSize: fontSize.sp, color: textColor),
         ),
       ),
     );
