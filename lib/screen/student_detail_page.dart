@@ -77,7 +77,7 @@ class StudentDetailPage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(99),
               )),
           onPressed: () {
-            checkPopupCard(context, 'ㅁㄴㅇㄻㄴㅇㄹ', 'ㅇㅇㅇㅇㅇㅇ');
+            checkPopupCard(context, '피드백 전송', '학생에게 피드백을 전송할까요?');
           },
           child: Text(
             '모두 마감으로 표시',
