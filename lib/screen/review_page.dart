@@ -12,6 +12,7 @@ class ReviewPage extends StatelessWidget {
       body: Padding(
         padding: EdgeInsets.only(top: 70.0.h, left: 20.0.w, right: 20.0.w),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               '독서록 확인',
