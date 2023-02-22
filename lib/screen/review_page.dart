@@ -65,6 +65,7 @@ class ReviewPage extends StatelessWidget {
               thickness: 1,
               color: Color(0xffBFBFBF),
             ),
+            SizedBox(height: 20.0.h),
             Text(
               ' 피드백',
               style: TextStyle(
@@ -73,7 +74,18 @@ class ReviewPage extends StatelessWidget {
                 color: Color(0xff7F7F7F),
               ),
             ),
-            Text('감동적이다'),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: const BorderRadius.all(Radius.circular(8)),
+                border: Border.all(width: 1, color: Colors.black12),
+              ),
+              child: const TextField(
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                ),
+              ),
+            ),
           ],
         ),
       ),
