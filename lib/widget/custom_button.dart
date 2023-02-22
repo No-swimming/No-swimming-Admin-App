@@ -19,6 +19,7 @@ class CustomButtom extends StatelessWidget {
   double fontSize;
   Color backgroundColor;
   Color textColor;
+  Function? func;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,9 @@ class CustomButtom extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(99),
             )),
-        onPressed: () {},
+        onPressed: () {
+          if (func != null) func!();
+        },
         child: Text(
           buttonText,
           style:
