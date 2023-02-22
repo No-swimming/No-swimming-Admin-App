@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:no_swimming_admin_app/widget/book_card.dart';
 import 'package:no_swimming_admin_app/widget/custom_button.dart';
+import 'package:no_swimming_admin_app/widget/check_popup_card.dart';
 
 class ReadingJournalCard extends StatelessWidget {
   const ReadingJournalCard({Key? key}) : super(key: key);
@@ -64,6 +65,8 @@ class ReadingJournalCard extends StatelessWidget {
                   backgroundColor: Colors.black,
                   fontSize: 14.0,
                   textColor: Colors.white,
+                  func: () => checkPopupCard(context, '마감으로 표시',
+                      '마감으로 표시된 뒤에는 독서록을 수정할 수 없습니다.', func),
                 ),
                 SizedBox(width: 8.0.w),
                 CustomButtom(
@@ -82,3 +85,5 @@ class ReadingJournalCard extends StatelessWidget {
     );
   }
 }
+
+void func() => debugPrint('함수 실행');
