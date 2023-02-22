@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:no_swimming_admin_app/widget/book_card.dart';
+import 'package:no_swimming_admin_app/widget/check_popup_card.dart';
 import 'package:no_swimming_admin_app/widget/custom_button.dart';
 
 class ReviewPage extends StatelessWidget {
@@ -92,25 +93,44 @@ class ReviewPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomButtom(
-                    buttonText: '통과로 표시',
-                    width: 125.0,
-                    height: 42.0,
-                    backgroundColor: Colors.black,
-                    fontSize: 19.0,
-                    textColor: Colors.white),
+                  buttonText: '통과로 표시',
+                  width: 125.0,
+                  height: 42.0,
+                  backgroundColor: Colors.black,
+                  fontSize: 19.0,
+                  textColor: Colors.white,
+                  func: () => checkPopupCard(
+                      context, '통과로 표시', '독서록 상태를 통과로 표시할까요?', func),
+                ),
                 SizedBox(width: 8.0.w),
                 CustomButtom(
-                    buttonText: '피드백 전송',
-                    width: 125.0,
-                    height: 42.0,
-                    backgroundColor: Color(0xffF2F2F2),
-                    fontSize: 19.0,
-                    textColor: Colors.black),
+                  buttonText: '피드백 전송',
+                  width: 125.0,
+                  height: 42.0,
+                  backgroundColor: Color(0xffF2F2F2),
+                  fontSize: 19.0,
+                  textColor: Colors.black,
+                  func: () => checkPopupCard(
+                      context, '피드백 전송', '학생에게 피드백을 전송할까요?', func),
+                ),
               ],
-            )
+            ),
+            SizedBox(height: 8.0.h),
+            CustomButtom(
+              buttonText: '마감으로 표시',
+              width: 143.0,
+              height: 42.0,
+              backgroundColor: Color(0xffF2F2F2),
+              fontSize: 19.0,
+              textColor: Colors.black,
+              func: () => checkPopupCard(
+                  context, '마감으로 표시', '마감으로 표시된 뒤에는 독서록을 수정할 수 없습니다.', func),
+            ),
           ],
         ),
       ),
     );
   }
 }
+
+void func() => debugPrint('함수 실행');
