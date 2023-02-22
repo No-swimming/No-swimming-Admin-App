@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:no_swimming_admin_app/widget/book_card.dart';
+import 'package:no_swimming_admin_app/widget/custom_button.dart';
 
 class ReviewPage extends StatelessWidget {
   const ReviewPage({Key? key}) : super(key: key);
@@ -86,6 +87,27 @@ class ReviewPage extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(height: 12.0.h),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomButtom(
+                    buttonText: '통과로 표시',
+                    width: 125.0,
+                    height: 42.0,
+                    backgroundColor: Colors.black,
+                    fontSize: 19.0,
+                    textColor: Colors.white),
+                SizedBox(width: 8.0.w),
+                CustomButtom(
+                    buttonText: '피드백 전송',
+                    width: 125.0,
+                    height: 42.0,
+                    backgroundColor: Color(0xffF2F2F2),
+                    fontSize: 19.0,
+                    textColor: Colors.black),
+              ],
+            )
           ],
         ),
       ),
