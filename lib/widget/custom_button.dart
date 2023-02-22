@@ -10,7 +10,7 @@ class CustomButtom extends StatelessWidget {
       required this.backgroundColor,
       required this.fontSize,
       required this.textColor,
-      this.func})
+      required this.func})
       : super(key: key);
 
   String buttonText;
@@ -19,7 +19,7 @@ class CustomButtom extends StatelessWidget {
   double fontSize;
   Color backgroundColor;
   Color textColor;
-  Function? func;
+  VoidCallback func;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class CustomButtom extends StatelessWidget {
               borderRadius: BorderRadius.circular(99),
             )),
         onPressed: () {
-          if (func != null) func!();
+          func();
         },
         child: Text(
           buttonText,
