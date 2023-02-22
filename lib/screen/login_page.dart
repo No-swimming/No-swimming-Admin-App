@@ -28,19 +28,19 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 Image.asset(
                   'assets/images/appLogo.png',
-                  width: 118.71.w,
-                  height: 29.0.h,
+                  width: 118.71.r,
+                  height: 29.0.r,
                 ),
-                Text(
-                  '로그인',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'LINE Seed Sans KR',
-                    fontSize: 30.0.sp,
-                  ),
-                ),
+                SizedBox(height: 8.0.h),
+                Text('로그인',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'LINE Seed Sans KR',
+                      fontSize: 30.0.sp,
+                    )),
               ],
             ),
+            SizedBox(height: 34.0.h),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
