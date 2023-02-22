@@ -65,8 +65,6 @@ class ReadingJournalCard extends StatelessWidget {
                   backgroundColor: Colors.black,
                   fontSize: 14.0,
                   textColor: Colors.white,
-                  func: () => checkPopupCard(context, '마감으로 표시',
-                      '마감으로 표시된 뒤에는 독서록을 수정할 수 없습니다.', func),
                 ),
                 SizedBox(width: 8.0.w),
                 CustomButtom(
@@ -76,6 +74,8 @@ class ReadingJournalCard extends StatelessWidget {
                   backgroundColor: Color(0xffF2F2F2),
                   fontSize: 14.0,
                   textColor: Colors.black,
+                  func: () => checkPopupCard(context, '마감으로 표시',
+                      '마감으로 표시된 뒤에는 독서록을 수정할 수 없습니다.', func),
                 ),
               ],
             ),
