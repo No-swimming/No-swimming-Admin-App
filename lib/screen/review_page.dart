@@ -22,8 +22,9 @@ class ReviewPage extends StatelessWidget {
                 fontSize: 30.0.sp,
               ),
             ),
+            SizedBox(height: 22.0.h),
             Text(
-              '선택한 책',
+              ' 선택한 책',
               style: TextStyle(
                 fontFamily: 'LINE Seed Sans KR',
                 fontSize: 16.0.sp,
@@ -31,8 +32,9 @@ class ReviewPage extends StatelessWidget {
               ),
             ),
             BookCard(),
+            SizedBox(height: 11.0.h),
             Text(
-              '담당 선생님',
+              ' 담당 선생님',
               style: TextStyle(
                 fontFamily: 'LINE Seed Sans KR',
                 fontSize: 16.0.sp,
@@ -64,7 +66,7 @@ class ReviewPage extends StatelessWidget {
               color: Color(0xffBFBFBF),
             ),
             Text(
-              '피드백',
+              ' 피드백',
               style: TextStyle(
                 fontFamily: 'LINE Seed Sans KR',
                 fontSize: 16.0.sp,
