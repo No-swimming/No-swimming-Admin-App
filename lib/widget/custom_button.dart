@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:no_swimming_admin_app/widget/check_popup_card.dart';
 
 class CustomButtom extends StatelessWidget {
   CustomButtom(
@@ -10,7 +9,8 @@ class CustomButtom extends StatelessWidget {
       required this.height,
       required this.backgroundColor,
       required this.fontSize,
-      required this.textColor})
+      required this.textColor,
+      this.func})
       : super(key: key);
 
   String buttonText;
@@ -38,8 +38,10 @@ class CustomButtom extends StatelessWidget {
         },
         child: Text(
           buttonText,
-          style:
-              TextStyle(fontFamily: 'LINE Seed Sans KR', fontSize: fontSize.sp, color: textColor),
+          style: TextStyle(
+              fontFamily: 'LINE Seed Sans KR',
+              fontSize: fontSize.sp,
+              color: textColor),
         ),
       ),
     );
