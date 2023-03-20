@@ -36,6 +36,7 @@ migrate_working_dir/
 ios/Runner/GoogleService-info.plist
 ios/firebase_app_id_file.json
 android/app/google-services.json
+lib/baseurl.dart
 
 # Symbolication related
 app.*.symbols
