@@ -68,7 +68,7 @@ class _StudentManagementPageState extends State<StudentManagementPage> {
             ),
             SizedBox(
               width: 380.0.w,
-              height: 675.0.h,
+              height: 668.0.h,
               child: ScrollConfiguration(
                 behavior: const ScrollBehavior().copyWith(overscroll: false),
                 child: ListView.builder(
