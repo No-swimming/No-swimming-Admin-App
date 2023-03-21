@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:no_swimming_admin_app/screen/student_management_page.dart';
+import 'package:no_swimming_admin_app/service/login.dart';
 import 'package:no_swimming_admin_app/widget/custom_button.dart';
 
 class LoginPage extends StatefulWidget {
@@ -117,18 +118,20 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 SizedBox(height: 32.0.h),
                 CustomButtom(
-                  buttonText: '로그인',
-                  width: 380.0,
-                  height: 35.0,
-                  backgroundColor: Colors.black,
-                  fontSize: 17.0,
-                  textColor: Colors.white,
-                  func: () => Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => StudentManagementPage()),
-                      (route) => false),
-                ),
+                    buttonText: '로그인',
+                    width: 380.0,
+                    height: 35.0,
+                    backgroundColor: Colors.black,
+                    fontSize: 17.0,
+                    textColor: Colors.white,
+                    func: () {
+                      login("acusmuwu", "xagtoeuo");
+                      Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => StudentManagementPage()),
+                          (route) => false);
+                    }),
                 const Padding(
                   padding: EdgeInsets.only(top: 32.0),
                   child: Center(
