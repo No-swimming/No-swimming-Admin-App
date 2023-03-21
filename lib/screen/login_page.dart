@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'dart:convert';
+import 'package:no_swimming_admin_app/baseurl.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:no_swimming_admin_app/screen/student_management_page.dart';
-import 'package:no_swimming_admin_app/service/login.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:no_swimming_admin_app/widget/custom_button.dart';
+import 'package:http/http.dart' as http;
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key? key}) : super(key: key);
@@ -13,6 +16,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  TextEditingController idController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   bool isClicked = true;
 
   @override
@@ -65,8 +70,9 @@ class _LoginPageState extends State<LoginPage> {
                               const BorderRadius.all(Radius.circular(8)),
                           border: Border.all(width: 1, color: Colors.black12),
                         ),
-                        child: const TextField(
-                          decoration: InputDecoration(
+                        child: TextField(
+                          controller: idController,
+                          decoration: const InputDecoration(
                             border: InputBorder.none,
                           ),
                         ),
@@ -96,6 +102,7 @@ class _LoginPageState extends State<LoginPage> {
                           border: Border.all(width: 1, color: Colors.black12),
                         ),
                         child: TextField(
+                          controller: passwordController,
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             suffixIcon: IconButton(
@@ -124,13 +131,27 @@ class _LoginPageState extends State<LoginPage> {
                     backgroundColor: Colors.black,
                     fontSize: 17.0,
                     textColor: Colors.white,
-                    func: () {
-                      login("acusmuwu", "xagtoeuo");
-                      Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => StudentManagementPage()),
-                          (route) => false);
+                    func: () async {
+                      var deviceToken =
+                          await FirebaseMessaging.instance.getToken();
+                      var data = {
+                        "email": idController.text,
+                        "password": passwordController.text,
+                        "device_token": deviceToken
+                      };
+                      var body = json.encode(data);
+                      final response = await http.post(
+                          Uri.parse('$baseurl/teacher/device-token'),
+                          headers: {"Content-Type": "application/json"},
+                          body: body);
+                      print(response.body);
+                      if (response.statusCode == 200) {
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => StudentManagementPage()),
+                            (route) => false);
+                      }
                     }),
                 const Padding(
                   padding: EdgeInsets.only(top: 32.0),
