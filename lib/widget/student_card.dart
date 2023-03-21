@@ -16,7 +16,7 @@ class StudentCard extends StatelessWidget {
       },
       child: Container(
         width: 380.0.w,
-        height: 65.0.h,
+        height: 70.0.h,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: const BorderRadius.all(Radius.circular(8)),
@@ -33,15 +33,19 @@ class StudentCard extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('주영재',
-                      style: TextStyle(
-                          fontFamily: 'LINE Seed Sans KR',
-                          fontWeight: FontWeight.bold)),
+                  Text(
+                    '주영재',
+                    style: TextStyle(
+                        fontFamily: 'LINE Seed Sans KR',
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20.0.r),
+                  ),
                   Text(
                     '3학년 6반 2번',
                     style: TextStyle(
                         fontFamily: 'LINE Seed Sans KR',
-                        fontWeight: FontWeight.bold),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18.0.r),
                   ),
                 ],
               ),
