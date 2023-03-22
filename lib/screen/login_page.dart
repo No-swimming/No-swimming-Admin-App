@@ -127,11 +127,11 @@ class _LoginPageState extends State<LoginPage> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 32.0.h),
+                  SizedBox(height: 40.0.h),
                   CustomButtom(
                       buttonText: '로그인',
                       width: 380.0,
-                      height: 35.0,
+                      height: 38.0,
                       backgroundColor: Colors.black,
                       fontSize: 17.0,
                       textColor: Colors.white,
