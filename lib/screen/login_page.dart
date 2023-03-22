@@ -26,7 +26,7 @@ class _LoginPageState extends State<LoginPage> {
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.only(top: 258.0.h, left: 20.0.w, right: 20.0.w),
+          padding: EdgeInsets.only(top: 230.0.h, left: 20.0.w, right: 20.0.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -39,12 +39,14 @@ class _LoginPageState extends State<LoginPage> {
                     height: 29.0.r,
                   ),
                   SizedBox(height: 8.0.h),
-                  Text('로그인',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'LINE Seed Sans KR',
-                        fontSize: 30.0.sp,
-                      )),
+                  Text(
+                    '로그인',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'LINE Seed Sans KR',
+                      fontSize: 30.0.sp,
+                    ),
+                  ),
                 ],
               ),
               SizedBox(height: 34.0.h),
@@ -116,7 +118,8 @@ class _LoginPageState extends State<LoginPage> {
                                 },
                                 icon: isClicked
                                     ? const Icon(FluentIcons.eye_24_regular)
-                                    : const Icon(FluentIcons.eye_off_24_regular),
+                                    : const Icon(
+                                        FluentIcons.eye_off_24_regular),
                               ),
                             ),
                           ),
@@ -150,7 +153,8 @@ class _LoginPageState extends State<LoginPage> {
                           Navigator.pushAndRemoveUntil(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => StudentManagementPage()),
+                                  builder: (context) =>
+                                      StudentManagementPage()),
                               (route) => false);
                         }
                       }),
