@@ -75,10 +75,13 @@ class _LoginPageState extends State<LoginPage> {
                                 const BorderRadius.all(Radius.circular(8)),
                             border: Border.all(width: 1, color: Colors.black12),
                           ),
-                          child: TextField(
-                            controller: idController,
-                            decoration: const InputDecoration(
-                              border: InputBorder.none,
+                          child: Padding(
+                            padding: EdgeInsets.only(left: 15.0.w),
+                            child: TextField(
+                              controller: idController,
+                              decoration: const InputDecoration(
+                                border: InputBorder.none,
+                              ),
                             ),
                           ),
                         ),
@@ -106,23 +109,26 @@ class _LoginPageState extends State<LoginPage> {
                                 const BorderRadius.all(Radius.circular(8)),
                             border: Border.all(width: 1, color: Colors.black12),
                           ),
-                          child: TextField(
-                            controller: passwordController,
-                            obscureText: isClicked ? true : false,
-                            decoration: InputDecoration(
-                              border: InputBorder.none,
-                              suffixIcon: IconButton(
-                                onPressed: () {
-                                  setState(() {
-                                    isClicked
-                                        ? isClicked = false
-                                        : isClicked = true;
-                                  });
-                                },
-                                icon: isClicked
-                                    ? const Icon(FluentIcons.eye_24_regular)
-                                    : const Icon(
-                                        FluentIcons.eye_off_24_regular),
+                          child: Padding(
+                            padding: EdgeInsets.only(left: 15.0.w),
+                            child: TextField(
+                              controller: passwordController,
+                              obscureText: isClicked ? true : false,
+                              decoration: InputDecoration(
+                                border: InputBorder.none,
+                                suffixIcon: IconButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      isClicked
+                                          ? isClicked = false
+                                          : isClicked = true;
+                                    });
+                                  },
+                                  icon: isClicked
+                                      ? const Icon(FluentIcons.eye_24_regular)
+                                      : const Icon(
+                                          FluentIcons.eye_off_24_regular),
+                                ),
                               ),
                             ),
                           ),
