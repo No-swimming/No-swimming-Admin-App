@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:no_swimming_admin_app/service/get_student_list.dart';
 import 'package:no_swimming_admin_app/widget/school_year_button.dart';
 import 'package:no_swimming_admin_app/widget/school_room_button.dart';
 import 'package:no_swimming_admin_app/widget/student_card.dart';
+import 'package:no_swimming_admin_app/model/student_list.dart';
 
 class StudentManagementPage extends StatefulWidget {
   StudentManagementPage({Key? key}) : super(key: key);
@@ -19,6 +21,13 @@ class _StudentManagementPageState extends State<StudentManagementPage> {
   String room2 = '2반';
   String room3 = '3반';
   String room4 = '4반';
+  Future<StudentList>? studentList;
+
+  @override
+  void initState() {
+    super.initState();
+    studentList = getStudentList();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,14 +80,23 @@ class _StudentManagementPageState extends State<StudentManagementPage> {
               height: 668.0.h,
               child: ScrollConfiguration(
                 behavior: const ScrollBehavior().copyWith(overscroll: false),
-                child: ListView.builder(
-                  itemCount: 16,
-                  itemBuilder: (context, index) {
-                    return Column(
-                      children: [
-                        StudentCard(),
-                        SizedBox(height: 12.0.h),
-                      ],
+                child: FutureBuilder(
+                  future: studentList,
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      return ListView.builder(
+                        itemCount: snapshot.data!.studentList!.length,
+                        itemBuilder: (context, index) {
+                          return Column(
+                            children: [
+                              StudentCard(),
+                              SizedBox(height: 12.0.h),
+                            ],
+                          );
+                        },
+                      );
+                    } return const Center(
+                      child: CircularProgressIndicator(),
                     );
                   },
                 ),
