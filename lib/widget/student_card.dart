@@ -3,7 +3,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:no_swimming_admin_app/screen/student_detail_page.dart';
 
 class StudentCard extends StatelessWidget {
-  const StudentCard({Key? key}) : super(key: key);
+  StudentCard(
+      {Key? key,
+      required this.name,
+      required this.gradeNum,
+      required this.classNum,
+      required this.number})
+      : super(key: key);
+
+  String name;
+  int gradeNum, classNum, number;
 
   @override
   Widget build(BuildContext context) {
@@ -34,14 +43,14 @@ class StudentCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    '주영재',
+                    name,
                     style: TextStyle(
                         fontFamily: 'LINE Seed Sans KR',
                         fontWeight: FontWeight.bold,
                         fontSize: 20.0.r),
                   ),
                   Text(
-                    '3학년 6반 2번',
+                    '$gradeNum학년 $classNum반 $number번',
                     style: TextStyle(
                         fontFamily: 'LINE Seed Sans KR',
                         fontWeight: FontWeight.bold,
