@@ -3,10 +3,12 @@ import 'dart:convert';
 import 'package:no_swimming_admin_app/baseurl.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
+import 'package:no_swimming_admin_app/model/login_response.dart';
 import 'package:no_swimming_admin_app/screen/student_management_page.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:no_swimming_admin_app/widget/custom_button.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -129,35 +131,42 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   SizedBox(height: 40.0.h),
                   CustomButtom(
-                      buttonText: '로그인',
-                      width: 380.0,
-                      height: 38.0,
-                      backgroundColor: Colors.black,
-                      fontSize: 17.0,
-                      textColor: Colors.white,
-                      func: () async {
-                        var deviceToken =
-                            await FirebaseMessaging.instance.getToken();
-                        var data = {
-                          "email": idController.text,
-                          "password": passwordController.text,
-                          "device_token": deviceToken
-                        };
-                        var body = json.encode(data);
-                        final response = await http.post(
-                            Uri.parse('$baseurl/teacher/device-token'),
-                            headers: {"Content-Type": "application/json"},
-                            body: body);
-                        print(response.body);
-                        if (response.statusCode == 200) {
-                          Navigator.pushAndRemoveUntil(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      StudentManagementPage()),
-                              (route) => false);
-                        }
-                      }),
+                    buttonText: '로그인',
+                    width: 380.0,
+                    height: 38.0,
+                    backgroundColor: Colors.black,
+                    fontSize: 17.0,
+                    textColor: Colors.white,
+                    func: () async {
+                      var deviceToken =
+                          await FirebaseMessaging.instance.getToken();
+                      var data = {
+                        "email": idController.text,
+                        "password": passwordController.text,
+                        "device_token": deviceToken
+                      };
+                      var body = json.encode(data);
+                      final response = await http.post(
+                          Uri.parse('$baseurl/teacher/device-token'),
+                          headers: {"Content-Type": "application/json"},
+                          body: body);
+                      print(response.body);
+                      if (response.statusCode == 200) {
+                        LoginResponse loginResponse;
+                        loginResponse =
+                            LoginResponse.fromJson(jsonDecode(response.body));
+                        SharedPreferences pref =
+                            await SharedPreferences.getInstance();
+                        pref.setString('access_token',
+                            loginResponse.accessToken.toString());
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => StudentManagementPage()),
+                            (route) => false);
+                      }
+                    },
+                  ),
                   const Padding(
                     padding: EdgeInsets.only(top: 32.0),
                     child: Center(
