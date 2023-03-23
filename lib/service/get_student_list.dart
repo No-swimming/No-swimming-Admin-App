@@ -6,9 +6,9 @@ import 'package:no_swimming_admin_app/baseurl.dart';
 
 Future<StudentList> getStudentList() async {
   final response = await http.get(Uri.parse('$baseurl/student/list'));
-  print(response.body);
   if (response.statusCode == 200) {
-    return StudentList.fromJson(jsonDecode(response.body));
+    print(utf8.decode(response.bodyBytes));
+    return StudentList.fromJson(jsonDecode(utf8.decode(response.bodyBytes)));
   } else {
     throw Exception('예외');
   }
