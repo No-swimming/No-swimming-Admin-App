@@ -108,6 +108,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           child: TextField(
                             controller: passwordController,
+                            obscureText: isClicked ? true : false,
                             decoration: InputDecoration(
                               border: InputBorder.none,
                               suffixIcon: IconButton(
