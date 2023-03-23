@@ -138,42 +138,42 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   SizedBox(height: 40.0.h),
                   CustomButtom(
-                    buttonText: '로그인',
-                    width: 380.0,
-                    height: 38.0,
-                    backgroundColor: Colors.black,
-                    fontSize: 17.0,
-                    textColor: Colors.white,
-                    func: () async {
-                      var deviceToken =
-                          await FirebaseMessaging.instance.getToken();
-                      var data = {
-                        "email": idController.text,
-                        "password": passwordController.text,
-                        "device_token": deviceToken
-                      };
-                      var body = json.encode(data);
-                      final response = await http.post(
-                          Uri.parse('$baseurl/teacher/device-token'),
-                          headers: {"Content-Type": "application/json"},
-                          body: body);
-                      print(response.body);
-                      if (response.statusCode == 200) {
-                        LoginResponse loginResponse;
-                        loginResponse =
-                            LoginResponse.fromJson(jsonDecode(response.body));
-                        SharedPreferences pref =
-                            await SharedPreferences.getInstance();
-                        pref.setString('access_token',
-                            loginResponse.accessToken.toString());
+                      buttonText: '로그인',
+                      width: 380.0,
+                      height: 38.0,
+                      backgroundColor: Colors.black,
+                      fontSize: 17.0,
+                      textColor: Colors.white,
+                      func: () async {
+                        // var deviceToken =
+                        //     await FirebaseMessaging.instance.getToken();
+                        // var data = {
+                        //   "email": idController.text,
+                        //   "password": passwordController.text,
+                        //   "device_token": deviceToken
+                        // };
+                        // var body = json.encode(data);
+                        // final response = await http.post(
+                        //     Uri.parse('$baseurl/teacher/device-token'),
+                        //     headers: {"Content-Type": "application/json"},
+                        //     body: body);
+                        // print(response.body);
+                        //if (response.statusCode == 200) {
+                        //   LoginResponse loginResponse;
+                        //   loginResponse =
+                        //       LoginResponse.fromJson(jsonDecode(response.body));
+                        //   SharedPreferences pref =
+                        //       await SharedPreferences.getInstance();
+                        //   pref.setString('access_token',
+                        //       loginResponse.accessToken.toString());
                         Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => StudentManagementPage()),
                             (route) => false);
                       }
-                    },
-                  ),
+                      // },
+                      ),
                   const Padding(
                     padding: EdgeInsets.only(top: 32.0),
                     child: Center(
