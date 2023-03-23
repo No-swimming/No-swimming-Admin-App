@@ -89,13 +89,25 @@ class _StudentManagementPageState extends State<StudentManagementPage> {
                         itemBuilder: (context, index) {
                           return Column(
                             children: [
-                              StudentCard(),
+                              StudentCard(
+                                  name: snapshot.data!.studentList![index].name
+                                      .toString(),
+                                  gradeNum: snapshot
+                                      .data!.studentList![index].grade!
+                                      .toInt(),
+                                  classNum: snapshot
+                                      .data!.studentList![index].classNum!
+                                      .toInt(),
+                                  number: snapshot
+                                      .data!.studentList![index].number!
+                                      .toInt()),
                               SizedBox(height: 12.0.h),
                             ],
                           );
                         },
                       );
-                    } return const Center(
+                    }
+                    return const Center(
                       child: CircularProgressIndicator(),
                     );
                   },
