@@ -4,9 +4,16 @@ import 'package:no_swimming_admin_app/widget/check_popup_card.dart';
 import 'package:no_swimming_admin_app/widget/reading_journal_card.dart';
 
 class StudentDetailPage extends StatelessWidget {
-  StudentDetailPage({Key? key, required this.studentName}) : super(key: key);
+  StudentDetailPage(
+      {Key? key,
+      required this.studentName,
+      required this.gradeNum,
+      required this.classNum,
+      required this.number})
+      : super(key: key);
 
   String studentName;
+  int gradeNum, classNum, number;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +25,7 @@ class StudentDetailPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              studentName,
+              '$studentName($gradeNum$classNum$number)',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontFamily: 'LINE Seed Sans KR',
