@@ -21,7 +21,12 @@ class StudentCard extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) => StudentDetailPage(studentName: name)),
+            builder: (context) => StudentDetailPage(
+                studentName: name,
+                gradeNum: gradeNum,
+                classNum: classNum,
+                number: number),
+          ),
         );
       },
       child: Container(
