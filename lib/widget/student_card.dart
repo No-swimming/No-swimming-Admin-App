@@ -20,7 +20,8 @@ class StudentCard extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => StudentDetailPage()),
+          MaterialPageRoute(
+              builder: (context) => StudentDetailPage(studentName: name)),
         );
       },
       child: Container(
