@@ -4,7 +4,9 @@ import 'package:no_swimming_admin_app/widget/check_popup_card.dart';
 import 'package:no_swimming_admin_app/widget/reading_journal_card.dart';
 
 class StudentDetailPage extends StatelessWidget {
-  const StudentDetailPage({Key? key}) : super(key: key);
+  StudentDetailPage({Key? key, required this.studentName}) : super(key: key);
+
+  String studentName;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class StudentDetailPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '주영재(3602)',
+              studentName,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontFamily: 'LINE Seed Sans KR',
