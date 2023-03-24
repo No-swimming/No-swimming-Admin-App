@@ -25,7 +25,9 @@ class StudentDetailPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '$studentName($gradeNum$classNum$number)',
+              number > 9
+                  ? '$studentName($gradeNum$classNum$number)'
+                  : '$studentName($gradeNum${classNum}0$number)',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontFamily: 'LINE Seed Sans KR',
