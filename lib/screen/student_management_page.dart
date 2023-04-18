@@ -22,11 +22,12 @@ class _StudentManagementPageState extends State<StudentManagementPage> {
   String room3 = '3반';
   String room4 = '4반';
   Future<StudentList>? studentList;
+  GetStudentList getStudentList = GetStudentList();
 
   @override
   void initState() {
     super.initState();
-    studentList = getStudentList();
+    studentList = getStudentList.getStudentList();
   }
 
   @override
