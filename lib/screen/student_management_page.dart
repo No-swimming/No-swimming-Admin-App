@@ -1,24 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:no_swimming_admin_app/service/get_student_list.dart';
 import 'package:no_swimming_admin_app/widget/school_year_button.dart';
 import 'package:no_swimming_admin_app/widget/school_room_button.dart';
 import 'package:no_swimming_admin_app/widget/student_card.dart';
 import 'package:provider/provider.dart';
 import 'package:no_swimming_admin_app/provider/school_list_provider.dart';
 
-class StudentManagementPage extends StatefulWidget {
+class StudentManagementPage extends StatelessWidget {
   StudentManagementPage({Key? key}) : super(key: key);
-
-  @override
-  State<StudentManagementPage> createState() => _StudentManagementPageState();
-}
-
-class _StudentManagementPageState extends State<StudentManagementPage> {
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
