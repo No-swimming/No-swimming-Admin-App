@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:http/http.dart';
 import 'package:no_swimming_admin_app/provider/school_list_provider.dart';
 import 'package:no_swimming_admin_app/service/get_student_list.dart';
 import 'package:provider/provider.dart';
@@ -26,8 +27,12 @@ class _SchoolYearButtonState extends State<SchoolYearButton> {
         setState(() {
           schoolListProvider.emptyGrageList();
           schoolListProvider.addSelectedGradeList(widget.categoryNum);
-          schoolListProvider.studentList =
-              getStudentList(grade: widget.categoryNum);
+          schoolListProvider.selectedRoom.isEmpty
+              ? schoolListProvider.studentList =
+                  getStudentList(grade: widget.categoryNum)
+              : schoolListProvider.studentList = getStudentList(
+                  grade: widget.categoryNum,
+                  classNum: schoolListProvider.selectedRoom.first);
         });
       },
       child: Container(
