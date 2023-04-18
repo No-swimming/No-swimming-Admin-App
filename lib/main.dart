@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return ChangeNotifierProvider<SchoolListProvider>(
           create: (context) => SchoolListProvider(),
-          child: MaterialApp(
+          child: const MaterialApp(
             debugShowCheckedModeBanner: false,
             home: LoginPage(),
           ),
