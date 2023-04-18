@@ -15,11 +15,6 @@ class StudentManagementPage extends StatefulWidget {
 }
 
 class _StudentManagementPageState extends State<StudentManagementPage> {
-  String room1 = '1반';
-  String room2 = '2반';
-  String room3 = '3반';
-  String room4 = '4반';
-
   @override
   void initState() {
     super.initState();
@@ -56,13 +51,13 @@ class _StudentManagementPageState extends State<StudentManagementPage> {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SchoolRoomButton(category: room1),
+                SchoolRoomButton(categoryText: "1반", categoryNum: 1),
                 SizedBox(width: 12.0.w),
-                SchoolRoomButton(category: room2),
+                SchoolRoomButton(categoryText: "2반", categoryNum: 2),
                 SizedBox(width: 12.0.w),
-                SchoolRoomButton(category: room3),
+                SchoolRoomButton(categoryText: "3반", categoryNum: 3),
                 SizedBox(width: 12.0.w),
-                SchoolRoomButton(category: room4),
+                SchoolRoomButton(categoryText: "4반", categoryNum: 4),
               ],
             ),
             SizedBox(height: 20.0.h),
