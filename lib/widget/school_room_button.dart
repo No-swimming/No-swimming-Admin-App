@@ -2,11 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:no_swimming_admin_app/provider/school_list_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:no_swimming_admin_app/service/get_student_list.dart';
 
 class SchoolRoomButton extends StatefulWidget {
-  SchoolRoomButton({Key? key, required this.category}) : super(key: key);
+  SchoolRoomButton(
+      {Key? key, required this.categoryText, required this.categoryNum})
+      : super(key: key);
 
-  String category;
+  String categoryText;
+  int categoryNum;
 
   @override
   State<SchoolRoomButton> createState() => _SchoolRoomButtonState();
@@ -24,7 +28,12 @@ class _SchoolRoomButtonState extends State<SchoolRoomButton> {
             ? null
             : setState(() {
                 schoolListProvider.emptyRoomList();
-                schoolListProvider.addSelectedRoomList(widget.category);
+                schoolListProvider.addSelectedRoomList(widget.categoryNum);
+                schoolListProvider.studentList = getStudentList(
+                    grade: schoolListProvider.selectedGrade.first,
+                    classNum: widget.categoryNum);
+                print(schoolListProvider.selectedGrade.first);
+                print("반 : ${widget.categoryNum}");
               });
       },
       child: Container(
@@ -34,28 +43,30 @@ class _SchoolRoomButtonState extends State<SchoolRoomButton> {
           color: Colors.white,
           borderRadius: const BorderRadius.all(Radius.circular(57)),
           border: Border.all(
-              width: schoolListProvider.selectedRoom.contains(widget.category)
-                  ? 2
-                  : 1,
-              color: schoolListProvider.selectedRoom.contains(widget.category)
-                  ? Colors.black
-                  : Colors.black12),
+              width:
+                  schoolListProvider.selectedRoom.contains(widget.categoryNum)
+                      ? 2
+                      : 1,
+              color:
+                  schoolListProvider.selectedRoom.contains(widget.categoryNum)
+                      ? Colors.black
+                      : Colors.black12),
         ),
         child: Center(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Text(
-                widget.category.toString(),
+                widget.categoryText,
                 style: TextStyle(
                     fontFamily: 'LINE Seed Sans KR',
                     color: schoolListProvider.selectedRoom
-                            .contains(widget.category)
+                            .contains(widget.categoryNum)
                         ? Colors.black
                         : const Color(0xff7F7F7F),
                     fontSize: 16.0.sp,
                     fontWeight: schoolListProvider.selectedRoom
-                            .contains(widget.category)
+                            .contains(widget.categoryNum)
                         ? FontWeight.bold
                         : FontWeight.normal),
               ),

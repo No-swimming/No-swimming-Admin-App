@@ -25,13 +25,13 @@ class _SchoolYearButtonState extends State<SchoolYearButton> {
       onTap: () {
         setState(() {
           schoolListProvider.emptyGrageList();
-          schoolListProvider.addSelectedGradeList(widget.categoryText);
+          schoolListProvider.addSelectedGradeList(widget.categoryNum);
           schoolListProvider.studentList =
               getStudentList(grade: widget.categoryNum);
         });
       },
       child: Container(
-        width: schoolListProvider.selectedGrade.contains(widget.categoryText)
+        width: schoolListProvider.selectedGrade.contains(widget.categoryNum)
             ? 118.0.w
             : 72.0.w,
         height: 38.0.h,
@@ -40,11 +40,11 @@ class _SchoolYearButtonState extends State<SchoolYearButton> {
           borderRadius: const BorderRadius.all(Radius.circular(57)),
           border: Border.all(
               width:
-                  schoolListProvider.selectedGrade.contains(widget.categoryText)
+                  schoolListProvider.selectedGrade.contains(widget.categoryNum)
                       ? 2
                       : 1,
               color:
-                  schoolListProvider.selectedGrade.contains(widget.categoryText)
+                  schoolListProvider.selectedGrade.contains(widget.categoryNum)
                       ? Colors.black
                       : Colors.black12),
         ),
@@ -57,17 +57,16 @@ class _SchoolYearButtonState extends State<SchoolYearButton> {
                 style: TextStyle(
                     fontFamily: 'LINE Seed Sans KR',
                     color: schoolListProvider.selectedGrade
-                            .contains(widget.categoryText)
+                            .contains(widget.categoryNum)
                         ? Colors.black
                         : const Color(0xff7F7F7F),
                     fontSize: 16.0.sp,
                     fontWeight: schoolListProvider.selectedGrade
-                            .contains(widget.categoryText)
+                            .contains(widget.categoryNum)
                         ? FontWeight.bold
                         : FontWeight.normal),
               ),
-              if (schoolListProvider.selectedGrade
-                  .contains(widget.categoryText))
+              if (schoolListProvider.selectedGrade.contains(widget.categoryNum))
                 Text(
                   "72명",
                   style: TextStyle(
