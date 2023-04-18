@@ -4,7 +4,8 @@ import 'package:no_swimming_admin_app/service/get_student_list.dart';
 import 'package:no_swimming_admin_app/widget/school_year_button.dart';
 import 'package:no_swimming_admin_app/widget/school_room_button.dart';
 import 'package:no_swimming_admin_app/widget/student_card.dart';
-import 'package:no_swimming_admin_app/model/student_list.dart';
+import 'package:provider/provider.dart';
+import 'package:no_swimming_admin_app/provider/school_list_provider.dart';
 
 class StudentManagementPage extends StatefulWidget {
   StudentManagementPage({Key? key}) : super(key: key);
@@ -14,19 +15,14 @@ class StudentManagementPage extends StatefulWidget {
 }
 
 class _StudentManagementPageState extends State<StudentManagementPage> {
-  String grade1 = '1학년';
-  String grade2 = '2학년';
-  String grade3 = '3학년';
   String room1 = '1반';
   String room2 = '2반';
   String room3 = '3반';
   String room4 = '4반';
-  Future<StudentList>? studentList;
 
   @override
   void initState() {
     super.initState();
-    studentList = getStudentList();
   }
 
   @override
@@ -49,11 +45,11 @@ class _StudentManagementPageState extends State<StudentManagementPage> {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SchoolYearButton(category: grade1),
+                SchoolYearButton(categoryText: "1학년", categoryNum: 1),
                 SizedBox(width: 12.0.w),
-                SchoolYearButton(category: grade2),
+                SchoolYearButton(categoryText: "2학년", categoryNum: 2),
                 SizedBox(width: 12.0.w),
-                SchoolYearButton(category: grade3),
+                SchoolYearButton(categoryText: "3학년", categoryNum: 3),
               ],
             ),
             SizedBox(height: 12.0.h),
@@ -81,7 +77,7 @@ class _StudentManagementPageState extends State<StudentManagementPage> {
               child: ScrollConfiguration(
                 behavior: const ScrollBehavior().copyWith(overscroll: false),
                 child: FutureBuilder(
-                  future: studentList,
+                  future: Provider.of<SchoolListProvider>(context).studentList,
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
                       return ListView.builder(
