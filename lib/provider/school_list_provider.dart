@@ -3,8 +3,8 @@ import 'package:no_swimming_admin_app/model/student_list.dart';
 import 'package:no_swimming_admin_app/service/get_student_list.dart';
 
 class SchoolListProvider with ChangeNotifier {
-  List<String> selectedGrade = List.empty(growable: true);
-  List<String> selectedRoom = List.empty(growable: true);
+  List<int> selectedGrade = List.empty(growable: true);
+  List<int> selectedRoom = List.empty(growable: true);
   Future<StudentList>? studentList;
 
   void addStudentList() {
@@ -22,12 +22,12 @@ class SchoolListProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void addSelectedGradeList(String grade) {
+  void addSelectedGradeList(int grade) {
     selectedGrade.add(grade);
     notifyListeners();
   }
 
-  void addSelectedRoomList(String room) {
+  void addSelectedRoomList(int room) {
     selectedRoom.add(room);
     notifyListeners();
   }
