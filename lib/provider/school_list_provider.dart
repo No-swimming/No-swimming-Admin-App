@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:no_swimming_admin_app/model/student_list.dart';
 
 class SchoolListProvider with ChangeNotifier {
   List<String> selectedGrade = List.empty(growable: true);
   List<String> selectedRoom = List.empty(growable: true);
+  Future<StudentList>? studentList;
 
   void emptyGrageList() {
     selectedGrade = List.empty(growable: true);
