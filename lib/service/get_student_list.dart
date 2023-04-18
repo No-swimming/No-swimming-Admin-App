@@ -4,9 +4,8 @@ import 'package:no_swimming_admin_app/model/student_list.dart';
 import 'package:http/http.dart' as http;
 import 'package:no_swimming_admin_app/baseurl.dart';
 
-String url = "$baseurl/student/list";
-
 Future<StudentList> getStudentList({int? grade, int? classNum}) async {
+  String url = "$baseurl/student/list";
   if (grade != null) {
     if (classNum == null) {
       url = "$url?grade=$grade";
