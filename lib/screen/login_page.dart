@@ -6,9 +6,12 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:no_swimming_admin_app/model/login_response.dart';
 import 'package:no_swimming_admin_app/screen/student_management_page.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:no_swimming_admin_app/service/get_student_list.dart';
 import 'package:no_swimming_admin_app/widget/custom_button.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:no_swimming_admin_app/provider/school_list_provider.dart';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -166,6 +169,10 @@ class _LoginPageState extends State<LoginPage> {
                         //       await SharedPreferences.getInstance();
                         //   pref.setString('access_token',
                         //       loginResponse.accessToken.toString());
+                        SchoolListProvider schoolListProvider =
+                            Provider.of<SchoolListProvider>(context,
+                                listen: false);
+                        schoolListProvider.addStudentList();
                         Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(
