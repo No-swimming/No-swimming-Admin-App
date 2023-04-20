@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:http/http.dart';
 import 'package:no_swimming_admin_app/provider/school_list_provider.dart';
 import 'package:no_swimming_admin_app/service/get_student_list.dart';
 import 'package:provider/provider.dart';
 
 class SchoolYearButton extends StatefulWidget {
   SchoolYearButton(
-      {Key? key, required this.categoryText, required this.categoryNum})
+      {Key? key,
+      required this.categoryText,
+      required this.categoryNum,
+      required this.studentLength})
       : super(key: key);
   String categoryText;
-  int categoryNum;
+  int categoryNum, studentLength;
 
   @override
   State<SchoolYearButton> createState() => _SchoolYearButtonState();
@@ -77,7 +79,7 @@ class _SchoolYearButtonState extends State<SchoolYearButton> {
               ),
               if (schoolListProvider.selectedGrade.contains(widget.categoryNum))
                 Text(
-                  "72명",
+                  "${widget.studentLength}명",
                   style: TextStyle(
                       fontFamily: 'LINE Seed Sans KR',
                       color: const Color(0xff7F7F7F),
