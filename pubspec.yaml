@@ -31,8 +31,8 @@ environment:
 flutter_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/images/appLogo.png"
-  
+  image_path: "assets/images/app_logo.png"
+
 dependencies:
   flutter:
     sdk: flutter
