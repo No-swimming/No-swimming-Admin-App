@@ -15,56 +15,57 @@ class StudentManagementPage extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Padding(
         padding: EdgeInsets.only(top: 70.0.h, left: 20.0.w),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              '학생 관리',
-              style: TextStyle(
-                  fontFamily: 'LINE Seed Sans KR',
-                  fontSize: 30.0.sp,
-                  fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 12.0.h),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SchoolYearButton(categoryText: "1학년", categoryNum: 1),
-                SizedBox(width: 12.0.w),
-                SchoolYearButton(categoryText: "2학년", categoryNum: 2),
-                SizedBox(width: 12.0.w),
-                SchoolYearButton(categoryText: "3학년", categoryNum: 3),
-              ],
-            ),
-            SizedBox(height: 12.0.h),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SchoolRoomButton(categoryText: "1반", categoryNum: 1),
-                SizedBox(width: 12.0.w),
-                SchoolRoomButton(categoryText: "2반", categoryNum: 2),
-                SizedBox(width: 12.0.w),
-                SchoolRoomButton(categoryText: "3반", categoryNum: 3),
-                SizedBox(width: 12.0.w),
-                SchoolRoomButton(categoryText: "4반", categoryNum: 4),
-              ],
-            ),
-            SizedBox(height: 20.0.h),
-            const Divider(
-              thickness: 1,
-              color: Color(0xffBFBFBF),
-              endIndent: 20,
-            ),
-            SizedBox(
-              width: 380.0.w,
-              height: 668.0.h,
-              child: ScrollConfiguration(
-                behavior: const ScrollBehavior().copyWith(overscroll: false),
-                child: FutureBuilder(
-                  future: Provider.of<SchoolListProvider>(context).studentList,
-                  builder: (context, snapshot) {
-                    if (snapshot.hasData) {
-                      return ListView.builder(
+        child: FutureBuilder(
+          future: Provider.of<SchoolListProvider>(context).studentList,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    '학생 관리',
+                    style: TextStyle(
+                        fontFamily: 'LINE Seed Sans KR',
+                        fontSize: 30.0.sp,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 12.0.h),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SchoolYearButton(categoryText: "1학년", categoryNum: 1),
+                      SizedBox(width: 12.0.w),
+                      SchoolYearButton(categoryText: "2학년", categoryNum: 2),
+                      SizedBox(width: 12.0.w),
+                      SchoolYearButton(categoryText: "3학년", categoryNum: 3),
+                    ],
+                  ),
+                  SizedBox(height: 12.0.h),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SchoolRoomButton(categoryText: "1반", categoryNum: 1),
+                      SizedBox(width: 12.0.w),
+                      SchoolRoomButton(categoryText: "2반", categoryNum: 2),
+                      SizedBox(width: 12.0.w),
+                      SchoolRoomButton(categoryText: "3반", categoryNum: 3),
+                      SizedBox(width: 12.0.w),
+                      SchoolRoomButton(categoryText: "4반", categoryNum: 4),
+                    ],
+                  ),
+                  SizedBox(height: 20.0.h),
+                  const Divider(
+                    thickness: 1,
+                    color: Color(0xffBFBFBF),
+                    endIndent: 20,
+                  ),
+                  SizedBox(
+                    width: 380.0.w,
+                    height: 668.0.h,
+                    child: ScrollConfiguration(
+                      behavior:
+                          const ScrollBehavior().copyWith(overscroll: false),
+                      child: ListView.builder(
                         itemCount: snapshot.data!.studentList!.length,
                         itemBuilder: (context, index) {
                           return Column(
@@ -85,16 +86,16 @@ class StudentManagementPage extends StatelessWidget {
                             ],
                           );
                         },
-                      );
-                    }
-                    return const Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  },
-                ),
-              ),
-            ),
-          ],
+                      ),
+                    ),
+                  ),
+                ],
+              );
+            }
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          },
         ),
       ),
     );
