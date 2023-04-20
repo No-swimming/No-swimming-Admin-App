@@ -61,7 +61,7 @@ class _SchoolYearButtonState extends State<SchoolYearButton> {
         ),
         child: Center(
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text(
                 widget.categoryText,
