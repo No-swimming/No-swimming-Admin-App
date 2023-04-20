@@ -33,6 +33,10 @@ class _SchoolYearButtonState extends State<SchoolYearButton> {
               : schoolListProvider.studentList = getStudentList(
                   grade: widget.categoryNum,
                   classNum: schoolListProvider.selectedRoom.first);
+          print("학년 : ${schoolListProvider.selectedGrade.first}");
+          if (schoolListProvider.selectedRoom.isNotEmpty) {
+            print("반 : ${schoolListProvider.selectedRoom.first}");
+          }
         });
       },
       child: Container(

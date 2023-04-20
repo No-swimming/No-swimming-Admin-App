@@ -32,7 +32,7 @@ class _SchoolRoomButtonState extends State<SchoolRoomButton> {
                 schoolListProvider.studentList = getStudentList(
                     grade: schoolListProvider.selectedGrade.first,
                     classNum: widget.categoryNum);
-                print(schoolListProvider.selectedGrade.first);
+                print("학년 : ${schoolListProvider.selectedGrade.first}");
                 print("반 : ${widget.categoryNum}");
               });
       },
