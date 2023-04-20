@@ -2,6 +2,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/services.dart';
 import 'firebase_options.dart';
 import 'package:no_swimming_admin_app/screen/login_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -28,9 +29,10 @@ void main() async {
           AndroidFlutterLocalNotificationsPlugin>()
       ?.createNotificationChannel(channel);
   FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
-  FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-    if (message.notification != null) {
-      notiPlugin.show(
+  FirebaseMessaging.onMessage.listen(
+    (RemoteMessage message) {
+      if (message.notification != null) {
+        notiPlugin.show(
           message.hashCode,
           message.notification!.title,
           message.notification!.body,
@@ -41,9 +43,12 @@ void main() async {
               channelDescription: channel.description,
               icon: '@mipmap/ic_launcher',
             ),
-          ));
-    }
-  });
+          ),
+        );
+      }
+    },
+  );
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(const MyApp());
 }
 
