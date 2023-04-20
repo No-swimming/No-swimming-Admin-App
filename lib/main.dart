@@ -31,8 +31,11 @@ void main() async {
       ?.createNotificationChannel(channel);
   FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
   FirebaseMessaging.onMessage.listen(
-    (RemoteMessage message) {
+    (RemoteMessage message) async {
       if (message.notification != null) {
+        final SharedPreferences preferences =
+            await SharedPreferences.getInstance();
+        await preferences.clear();
         notiPlugin.show(
           message.hashCode,
           message.notification!.title,
