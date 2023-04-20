@@ -25,6 +25,8 @@ Future<StudentList> getStudentList({int? grade, int? classNum}) async {
   final response = await http.get(Uri.parse(url));
   if (response.statusCode == 200) {
     print(utf8.decode(response.bodyBytes));
+    await preferences.setString(
+        '${gradeNum * 10 + classNumNum}', utf8.decode(response.bodyBytes));
     return StudentList.fromJson(jsonDecode(utf8.decode(response.bodyBytes)));
   } else {
     throw Exception('예외');
