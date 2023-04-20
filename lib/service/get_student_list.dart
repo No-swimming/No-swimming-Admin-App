@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:no_swimming_admin_app/model/student_list.dart';
 import 'package:http/http.dart' as http;
 import 'package:no_swimming_admin_app/baseurl.dart';
@@ -22,13 +21,18 @@ Future<StudentList> getStudentList({int? grade, int? classNum}) async {
   } else {
     gradeNum = classNumNum = 0;
   }
-  final response = await http.get(Uri.parse(url));
-  if (response.statusCode == 200) {
-    print(utf8.decode(response.bodyBytes));
-    await preferences.setString(
-        '${gradeNum * 10 + classNumNum}', utf8.decode(response.bodyBytes));
-    return StudentList.fromJson(jsonDecode(utf8.decode(response.bodyBytes)));
+  if ((preferences.getString('${gradeNum * 10 + classNumNum}')) != null) {
+    return StudentList.fromJson(
+        jsonDecode(preferences.getString('${gradeNum * 10 + classNumNum}')!));
   } else {
-    throw Exception('예외');
+    final response = await http.get(Uri.parse(url));
+    if (response.statusCode == 200) {
+      print("서버에서 받은 값");
+      await preferences.setString(
+          '${gradeNum * 10 + classNumNum}', utf8.decode(response.bodyBytes));
+      return StudentList.fromJson(jsonDecode(utf8.decode(response.bodyBytes)));
+    } else {
+      throw Exception('예외');
+    }
   }
 }
