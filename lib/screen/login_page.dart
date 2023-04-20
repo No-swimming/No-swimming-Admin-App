@@ -39,7 +39,7 @@ class _LoginPageState extends State<LoginPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Image.asset(
-                    'assets/images/appLogo.png',
+                    'assets/images/width_app_logo.png',
                     width: 118.71.r,
                     height: 29.0.r,
                   ),
