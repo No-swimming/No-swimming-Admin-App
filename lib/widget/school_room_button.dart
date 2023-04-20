@@ -36,13 +36,25 @@ class _SchoolRoomButtonState extends State<SchoolRoomButton> {
                     print("학년 : ${schoolListProvider.selectedGrade.first}");
                     print("반 : ${widget.categoryNum}");
                   })
-                : setState(() {
-                    schoolListProvider.emptyRoomList();
-                    schoolListProvider.studentList = getStudentList(
-                        grade: schoolListProvider.selectedGrade.first);
-                    print("학년 : ${schoolListProvider.selectedGrade.first}");
-                    print("반 리스트 비우기: ${schoolListProvider.selectedRoom.isEmpty}");
-                  });
+                : widget.categoryNum == schoolListProvider.selectedRoom.first
+                    ? setState(() {
+                        schoolListProvider.emptyRoomList();
+                        schoolListProvider.studentList = getStudentList(
+                            grade: schoolListProvider.selectedGrade.first);
+                        print("학년 : ${schoolListProvider.selectedGrade.first}");
+                        print(
+                            "반 리스트 비우기: ${schoolListProvider.selectedRoom.isEmpty}");
+                      })
+                    : setState(() {
+                        schoolListProvider.emptyRoomList();
+                        schoolListProvider
+                            .addSelectedRoomList(widget.categoryNum);
+                        schoolListProvider.studentList = getStudentList(
+                            grade: schoolListProvider.selectedGrade.first,
+                            classNum: widget.categoryNum);
+                        print("학년 : ${schoolListProvider.selectedGrade.first}");
+                        print("반 : ${widget.categoryNum}");
+                      });
       },
       child: Container(
         width: 50.0.w,
