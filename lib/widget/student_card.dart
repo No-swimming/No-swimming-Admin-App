@@ -31,14 +31,14 @@ class StudentCard extends StatelessWidget {
       },
       child: Container(
         width: 380.0.w,
-        height: 70.0.h,
+        height: 75.0.h,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: const BorderRadius.all(Radius.circular(8)),
           border: Border.all(color: Color(0xffF2F2F2)),
         ),
         child: Padding(
-          padding: EdgeInsets.all(8.0.r),
+          padding: EdgeInsets.only(left: 8.0.w, top: 12.0.h),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
