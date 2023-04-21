@@ -15,7 +15,7 @@ void checkPopupCard(context, title, bodyText, Function func) {
           child: Container(
             padding: EdgeInsets.all(16.0.r),
             width: 372.0.w,
-            height: 170.0.h,
+            height: 195.0.h,
             child: Column(
               children: [
                 Text(
