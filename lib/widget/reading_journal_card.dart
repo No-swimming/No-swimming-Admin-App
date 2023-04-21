@@ -61,7 +61,7 @@ class ReadingJournalCard extends StatelessWidget {
               children: [
                 CustomButtom(
                   buttonText: '내용 열기',
-                  width: 90.0,
+                  width: 95.0,
                   height: 33.0,
                   backgroundColor: Colors.black,
                   fontSize: 14.0,
