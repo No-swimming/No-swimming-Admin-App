@@ -95,7 +95,7 @@ class ReviewPage extends StatelessWidget {
                 children: [
                   CustomButtom(
                     buttonText: '통과로 표시',
-                    width: 125.0,
+                    width: 140.0,
                     height: 42.0,
                     backgroundColor: Colors.black,
                     fontSize: 19.0,
@@ -106,7 +106,7 @@ class ReviewPage extends StatelessWidget {
                   SizedBox(width: 8.0.w),
                   CustomButtom(
                     buttonText: '피드백 전송',
-                    width: 125.0,
+                    width: 140.0,
                     height: 42.0,
                     backgroundColor: Color(0xffF2F2F2),
                     fontSize: 19.0,
@@ -119,7 +119,7 @@ class ReviewPage extends StatelessWidget {
               SizedBox(height: 8.0.h),
               CustomButtom(
                 buttonText: '마감으로 표시',
-                width: 143.0,
+                width: 150.0,
                 height: 42.0,
                 backgroundColor: Color(0xffF2F2F2),
                 fontSize: 19.0,
