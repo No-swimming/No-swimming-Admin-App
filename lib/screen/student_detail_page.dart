@@ -55,7 +55,7 @@ class StudentDetailPage extends StatelessWidget {
             ),
             SizedBox(height: 20.0.h),
             const Divider(
-              thickness: 1,
+              thickness: 1.5,
               color: Color(0xffBFBFBF),
             ),
             SizedBox(
