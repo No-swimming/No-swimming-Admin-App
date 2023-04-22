@@ -83,9 +83,12 @@ class ReviewPage extends StatelessWidget {
                   borderRadius: const BorderRadius.all(Radius.circular(8)),
                   border: Border.all(width: 1, color: Colors.black12),
                 ),
-                child: const TextField(
-                  decoration: InputDecoration(
-                    border: InputBorder.none,
+                child: Padding(
+                  padding: EdgeInsets.only(left: 15.0.w),
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      border: InputBorder.none,
+                    ),
                   ),
                 ),
               ),
