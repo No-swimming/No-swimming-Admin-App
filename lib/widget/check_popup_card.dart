@@ -17,6 +17,7 @@ void checkPopupCard(context, title, bodyText, Function func) {
             width: 372.0.w,
             height: 195.0.h,
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   title,
