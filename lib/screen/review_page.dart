@@ -12,8 +12,8 @@ class ReviewPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.only(top: 70.0.h, left: 20.0.w, right: 20.0.w),
+        child: Container(
+          margin: EdgeInsets.only(left: 20.0.w, top: 70.0.h, right: 20.0.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
