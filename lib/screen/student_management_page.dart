@@ -69,7 +69,6 @@ class StudentManagementPage extends StatelessWidget {
                   const Divider(
                     thickness: 1,
                     color: Color(0xffBFBFBF),
-                    endIndent: 20,
                   ),
                   SizedBox(
                     width: 380.0.w,
