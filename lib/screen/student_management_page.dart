@@ -70,9 +70,7 @@ class StudentManagementPage extends StatelessWidget {
                     thickness: 1.5,
                     color: Color(0xffBFBFBF),
                   ),
-                  SizedBox(
-                    width: 380.0.w,
-                    height: 668.0.h,
+                  Expanded(
                     child: ScrollConfiguration(
                       behavior:
                           const ScrollBehavior().copyWith(overscroll: false),
