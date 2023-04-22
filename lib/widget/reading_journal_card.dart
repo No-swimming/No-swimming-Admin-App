@@ -17,11 +17,12 @@ class ReadingJournalCard extends StatelessWidget {
         color: Colors.white,
       ),
       width: 380.0.w,
-      height: 195.0.h,
+      height: 200.0.h,
       child: Padding(
         padding: EdgeInsets.all(9.0.r),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             BookCard(),
             SizedBox(height: 8.0.h),
