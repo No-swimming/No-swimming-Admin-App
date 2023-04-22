@@ -19,8 +19,8 @@ class StudentDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Padding(
-        padding: EdgeInsets.only(top: 70.0.h, left: 20.0.w, right: 20.0.w),
+      body: Container(
+        margin: EdgeInsets.only(left: 20.0.w, top: 70.0.h, right: 20.0.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
