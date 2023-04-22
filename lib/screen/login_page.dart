@@ -128,9 +128,11 @@ class _LoginPageState extends State<LoginPage> {
                                     });
                                   },
                                   icon: isClicked
-                                      ? const Icon(FluentIcons.eye_24_regular)
+                                      ? const Icon(FluentIcons.eye_24_regular,
+                                          color: Colors.grey)
                                       : const Icon(
-                                          FluentIcons.eye_off_24_regular),
+                                          FluentIcons.eye_off_24_regular,
+                                          color: Colors.grey),
                                 ),
                               ),
                             ),
