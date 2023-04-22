@@ -18,8 +18,8 @@ class ReadingJournalCard extends StatelessWidget {
       ),
       width: 380.0.w,
       height: 205.0.h,
-      child: Padding(
-        padding: EdgeInsets.all(9.0.r),
+      child: Container(
+        margin: EdgeInsets.all(9.0.r),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
