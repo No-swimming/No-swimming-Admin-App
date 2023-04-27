@@ -6,12 +6,11 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:no_swimming_admin_app/model/login_response.dart';
 import 'package:no_swimming_admin_app/screen/student_management_page.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:no_swimming_admin_app/service/get_student_list.dart';
 import 'package:no_swimming_admin_app/widget/custom_button.dart';
 import 'package:http/http.dart' as http;
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:no_swimming_admin_app/provider/school_list_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -24,6 +23,7 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController idController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   bool isClicked = true;
+  var storage = const FlutterSecureStorage();
 
   @override
   Widget build(BuildContext context) {
@@ -143,34 +143,35 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   SizedBox(height: 40.0.h),
                   CustomButtom(
-                      buttonText: '로그인',
-                      width: 380.0,
-                      height: 38.0,
-                      backgroundColor: Colors.black,
-                      fontSize: 17.0,
-                      textColor: Colors.white,
-                      func: () async {
-                        // var deviceToken =
-                        //     await FirebaseMessaging.instance.getToken();
-                        // var data = {
-                        //   "email": idController.text,
-                        //   "password": passwordController.text,
-                        //   "device_token": deviceToken
-                        // };
-                        // var body = json.encode(data);
-                        // final response = await http.post(
-                        //     Uri.parse('$baseurl/teacher/device-token'),
-                        //     headers: {"Content-Type": "application/json"},
-                        //     body: body);
-                        // print(response.body);
-                        //if (response.statusCode == 200) {
-                        //   LoginResponse loginResponse;
-                        //   loginResponse =
-                        //       LoginResponse.fromJson(jsonDecode(response.body));
-                        //   SharedPreferences pref =
-                        //       await SharedPreferences.getInstance();
-                        //   pref.setString('access_token',
-                        //       loginResponse.accessToken.toString());
+                    buttonText: '로그인',
+                    width: 380.0,
+                    height: 38.0,
+                    backgroundColor: Colors.black,
+                    fontSize: 17.0,
+                    textColor: Colors.white,
+                    func: () async {
+                      // var deviceToken =
+                      //     await FirebaseMessaging.instance.getToken();
+                      // var data = {
+                      //   "email": idController.text,
+                      //   "password": passwordController.text,
+                      //   "device_token": deviceToken
+                      // };
+                      // var body = json.encode(data);
+                      // final response = await http.post(
+                      //     Uri.parse('$baseurl/teacher/device-token'),
+                      //     headers: {"Content-Type": "application/json"},
+                      //     body: body);
+                      // print(response.body);
+                      // if (response.statusCode == 200) {
+                      //   LoginResponse loginResponse =
+                      //       LoginResponse.fromJson(jsonDecode(response.body));
+                      //   storage.write(
+                      //       key: 'accessToken',
+                      //       value: loginResponse.accessToken);
+                      //   storage.write(
+                      //       key: 'access_token_exp',
+                      //       value: loginResponse.accessTokenExp);
                         SchoolListProvider schoolListProvider =
                             Provider.of<SchoolListProvider>(context,
                                 listen: false);
@@ -180,9 +181,9 @@ class _LoginPageState extends State<LoginPage> {
                             MaterialPageRoute(
                                 builder: (context) => StudentManagementPage()),
                             (route) => false);
-                      }
-                      // },
-                      ),
+                      //}
+                    },
+                  ),
                   const Padding(
                     padding: EdgeInsets.only(top: 32.0),
                     child: Center(
