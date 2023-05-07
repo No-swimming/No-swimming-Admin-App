@@ -151,7 +151,7 @@ class _LoginPageState extends State<LoginPage> {
                     backgroundColor: Colors.black,
                     fontSize: 17.0,
                     textColor: Colors.white,
-                    func: () async {
+                    func: () {
                       // var deviceToken =
                       //     await FirebaseMessaging.instance.getToken();
                       // var data = {
@@ -178,7 +178,7 @@ class _LoginPageState extends State<LoginPage> {
                       Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const StudentManagementPage()),
+                              builder: (context) => StudentManagementPage()),
                           (route) => false);
                       //}
                     },

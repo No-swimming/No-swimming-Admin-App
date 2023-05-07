@@ -4,22 +4,22 @@ import 'package:no_swimming_admin_app/View/Widget/school_year_button.dart';
 import 'package:no_swimming_admin_app/View/Widget/school_room_button.dart';
 import 'package:no_swimming_admin_app/View/Widget/student_card.dart';
 import 'package:provider/provider.dart';
-import 'package:no_swimming_admin_app/provider/school_list_provider.dart';
+import 'package:no_swimming_admin_app/ViewModel/student_list_view_model.dart';
 
 class StudentManagementPage extends StatelessWidget {
   StudentManagementPage({Key? key}) : super(key: key);
 
+  late StudentListViewModel viewModel;
+
   @override
   Widget build(BuildContext context) {
+    viewModel = Provider.of<StudentListViewModel>(context);
     return Scaffold(
       backgroundColor: Colors.white,
       body: Container(
         margin: EdgeInsets.only(left: 20.0.w, top: 70.0.h, right: 20.0.w),
-        child: FutureBuilder(
-          future: Provider.of<SchoolListProvider>(context).studentList,
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              return Column(
+        child: viewModel.studentList.isNotEmpty
+            ? Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
@@ -30,41 +30,41 @@ class StudentManagementPage extends StatelessWidget {
                         fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 12.0.h),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SchoolYearButton(
-                        categoryText: "1학년",
-                        categoryNum: 1,
-                        studentLength: snapshot.data!.studentList!.length,
-                      ),
-                      SizedBox(width: 12.0.w),
-                      SchoolYearButton(
-                        categoryText: "2학년",
-                        categoryNum: 2,
-                        studentLength: snapshot.data!.studentList!.length,
-                      ),
-                      SizedBox(width: 12.0.w),
-                      SchoolYearButton(
-                        categoryText: "3학년",
-                        categoryNum: 3,
-                        studentLength: snapshot.data!.studentList!.length,
-                      ),
-                    ],
-                  ),
+                  // Row(
+                  //   crossAxisAlignment: CrossAxisAlignment.start,
+                  //   children: [
+                  //     SchoolYearButton(
+                  //       categoryText: "1학년",
+                  //       categoryNum: 1,
+                  //       studentLength: 0,
+                  //     ),
+                  //     SizedBox(width: 12.0.w),
+                  //     SchoolYearButton(
+                  //       categoryText: "2학년",
+                  //       categoryNum: 2,
+                  //       studentLength: 0,
+                  //     ),
+                  //     SizedBox(width: 12.0.w),
+                  //     SchoolYearButton(
+                  //       categoryText: "3학년",
+                  //       categoryNum: 3,
+                  //       studentLength: 0,
+                  //     ),
+                  //   ],
+                  // ),
                   SizedBox(height: 12.0.h),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SchoolRoomButton(categoryText: "1반", categoryNum: 1),
-                      SizedBox(width: 12.0.w),
-                      SchoolRoomButton(categoryText: "2반", categoryNum: 2),
-                      SizedBox(width: 12.0.w),
-                      SchoolRoomButton(categoryText: "3반", categoryNum: 3),
-                      SizedBox(width: 12.0.w),
-                      SchoolRoomButton(categoryText: "4반", categoryNum: 4),
-                    ],
-                  ),
+                  // Row(
+                  //   crossAxisAlignment: CrossAxisAlignment.start,
+                  //   children: [
+                  //     SchoolRoomButton(categoryText: "1반", categoryNum: 1),
+                  //     SizedBox(width: 12.0.w),
+                  //     SchoolRoomButton(categoryText: "2반", categoryNum: 2),
+                  //     SizedBox(width: 12.0.w),
+                  //     SchoolRoomButton(categoryText: "3반", categoryNum: 3),
+                  //     SizedBox(width: 12.0.w),
+                  //     SchoolRoomButton(categoryText: "4반", categoryNum: 4),
+                  //   ],
+                  // ),
                   SizedBox(height: 20.0.h),
                   const Divider(
                     thickness: 1.5,
@@ -75,21 +75,19 @@ class StudentManagementPage extends StatelessWidget {
                       behavior:
                           const ScrollBehavior().copyWith(overscroll: false),
                       child: ListView.builder(
-                        itemCount: snapshot.data!.studentList!.length,
+                        itemCount: viewModel.studentList.length,
                         itemBuilder: (context, index) {
                           return Column(
                             children: [
                               StudentCard(
-                                  name: snapshot.data!.studentList![index].name
+                                  name: viewModel.studentList[index].name
                                       .toString(),
-                                  gradeNum: snapshot
-                                      .data!.studentList![index].grade!
+                                  gradeNum: viewModel.studentList[index].grade!
                                       .toInt(),
-                                  classNum: snapshot
-                                      .data!.studentList![index].classNum!
+                                  classNum: viewModel
+                                      .studentList[index].classNum!
                                       .toInt(),
-                                  number: snapshot
-                                      .data!.studentList![index].number!
+                                  number: viewModel.studentList[index].number!
                                       .toInt()),
                               SizedBox(height: 12.0.h),
                             ],
@@ -99,13 +97,8 @@ class StudentManagementPage extends StatelessWidget {
                     ),
                   ),
                 ],
-              );
-            }
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          },
-        ),
+              )
+            : const Center(child: CircularProgressIndicator()),
       ),
     );
   }
