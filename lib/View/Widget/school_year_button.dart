@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:no_swimming_admin_app/ViewModel/student_list_view_model.dart';
-import 'package:no_swimming_admin_app/provider/school_list_provider.dart';
 import 'package:no_swimming_admin_app/service/get_student_list.dart';
 import 'package:provider/provider.dart';
 
