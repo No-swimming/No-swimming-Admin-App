@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:no_swimming_admin_app/screen/review_page.dart';
-import 'package:no_swimming_admin_app/widget/book_card.dart';
-import 'package:no_swimming_admin_app/widget/custom_button.dart';
-import 'package:no_swimming_admin_app/widget/check_popup_card.dart';
+import 'package:no_swimming_admin_app/View/Screen/review_page.dart';
+import 'package:no_swimming_admin_app/View/Widget/book_card.dart';
+import 'package:no_swimming_admin_app/View/Widget/custom_button.dart';
+import 'package:no_swimming_admin_app/View/Widget/check_popup_card.dart';
 
 class ReadingJournalCard extends StatelessWidget {
   const ReadingJournalCard({Key? key}) : super(key: key);

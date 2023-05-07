@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:no_swimming_admin_app/widget/check_popup_card.dart';
-import 'package:no_swimming_admin_app/widget/reading_journal_card.dart';
+import 'package:no_swimming_admin_app/View/Widget/check_popup_card.dart';
+import 'package:no_swimming_admin_app/View/Widget/reading_journal_card.dart';
 
 class StudentDetailPage extends StatelessWidget {
   StudentDetailPage(

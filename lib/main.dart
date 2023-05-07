@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
 import 'firebase_options.dart';
-import 'package:no_swimming_admin_app/screen/login_page.dart';
+import 'package:no_swimming_admin_app/View/Screen/login_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:no_swimming_admin_app/provider/school_list_provider.dart';

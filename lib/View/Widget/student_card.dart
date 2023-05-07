@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:no_swimming_admin_app/screen/student_detail_page.dart';
+import 'package:no_swimming_admin_app/View/Screen/student_detail_page.dart';
 
 class StudentCard extends StatelessWidget {
   StudentCard(
