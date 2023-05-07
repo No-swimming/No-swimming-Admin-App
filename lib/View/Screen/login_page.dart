@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:no_swimming_admin_app/ViewModel/student_list_view_model.dart';
 import 'dart:convert';
 import 'package:no_swimming_admin_app/baseurl.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,7 +9,6 @@ import 'package:no_swimming_admin_app/View/Screen/student_management_page.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:no_swimming_admin_app/View/Widget/custom_button.dart';
 import 'package:http/http.dart' as http;
-import 'package:no_swimming_admin_app/provider/school_list_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
@@ -24,9 +24,11 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController passwordController = TextEditingController();
   bool isClicked = true;
   var storage = const FlutterSecureStorage();
+  late StudentListViewModel viewModel;
 
   @override
   Widget build(BuildContext context) {
+    viewModel = Provider.of<StudentListViewModel>(context);
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -172,15 +174,12 @@ class _LoginPageState extends State<LoginPage> {
                       //   storage.write(
                       //       key: 'access_token_exp',
                       //       value: loginResponse.accessTokenExp);
-                        SchoolListProvider schoolListProvider =
-                            Provider.of<SchoolListProvider>(context,
-                                listen: false);
-                        schoolListProvider.addStudentList();
-                        Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => StudentManagementPage()),
-                            (route) => false);
+                      viewModel.readStudentList();
+                      Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const StudentManagementPage()),
+                          (route) => false);
                       //}
                     },
                   ),

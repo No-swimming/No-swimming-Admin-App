@@ -11,7 +11,6 @@ class StudentListViewModel with ChangeNotifier {
 
   StudentListViewModel() {
     _repository = StudentListRepository();
-    readStudentList();
   }
 
   Future<void> readStudentList() async {
