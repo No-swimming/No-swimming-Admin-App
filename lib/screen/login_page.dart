@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:no_swimming_admin_app/baseurl.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
-import 'package:no_swimming_admin_app/model/login_response.dart';
+import 'package:no_swimming_admin_app/Model/login_response.dart';
 import 'package:no_swimming_admin_app/screen/student_management_page.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:no_swimming_admin_app/widget/custom_button.dart';

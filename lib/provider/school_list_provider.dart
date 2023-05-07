@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:no_swimming_admin_app/model/student_list.dart';
+import 'package:no_swimming_admin_app/Model/student_list.dart';
 import 'package:no_swimming_admin_app/service/get_student_list.dart';
 
 class SchoolListProvider with ChangeNotifier {
