@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:no_swimming_admin_app/ViewModel/student_list_view_model.dart';
 import 'package:no_swimming_admin_app/provider/school_list_provider.dart';
 import 'package:no_swimming_admin_app/service/get_student_list.dart';
 import 'package:provider/provider.dart';
@@ -19,30 +20,30 @@ class SchoolYearButton extends StatefulWidget {
 }
 
 class _SchoolYearButtonState extends State<SchoolYearButton> {
+  late StudentListViewModel viewModel;
+
   @override
   Widget build(BuildContext context) {
-    SchoolListProvider schoolListProvider =
-        Provider.of<SchoolListProvider>(context, listen: true);
-
+    viewModel = Provider.of<StudentListViewModel>(context);
     return InkWell(
       onTap: () {
         setState(() {
-          schoolListProvider.emptyGrageList();
-          schoolListProvider.addSelectedGradeList(widget.categoryNum);
-          schoolListProvider.selectedRoom.isEmpty
-              ? schoolListProvider.studentList =
-                  getStudentList(grade: widget.categoryNum)
-              : schoolListProvider.studentList = getStudentList(
-                  grade: widget.categoryNum,
-                  classNum: schoolListProvider.selectedRoom.first);
-          print("학년 : ${schoolListProvider.selectedGrade.first}");
-          if (schoolListProvider.selectedRoom.isNotEmpty) {
-            print("반 : ${schoolListProvider.selectedRoom.first}");
+          viewModel.emptyGrageList();
+          viewModel.addSelectedGradeList(widget.categoryNum);
+          // viewModel.selectedRoom.isEmpty
+          //     ? viewModel.studentList =
+          //         getStudentList(grade: widget.categoryNum)
+          //     : viewModel.studentList = getStudentList(
+          //         grade: widget.categoryNum,
+          //         classNum: viewModel.selectedRoom.first);
+          print("학년 : ${viewModel.selectedGrade.first}");
+          if (viewModel.selectedRoom.isNotEmpty) {
+            print("반 : ${viewModel.selectedRoom.first}");
           }
         });
       },
       child: Container(
-        width: schoolListProvider.selectedGrade.contains(widget.categoryNum)
+        width: viewModel.selectedGrade.contains(widget.categoryNum)
             ? 118.0.w
             : 72.0.w,
         height: 38.0.h,
@@ -51,11 +52,11 @@ class _SchoolYearButtonState extends State<SchoolYearButton> {
           borderRadius: const BorderRadius.all(Radius.circular(57)),
           border: Border.all(
               width:
-                  schoolListProvider.selectedGrade.contains(widget.categoryNum)
+                  viewModel.selectedGrade.contains(widget.categoryNum)
                       ? 2
                       : 1,
               color:
-                  schoolListProvider.selectedGrade.contains(widget.categoryNum)
+                  viewModel.selectedGrade.contains(widget.categoryNum)
                       ? Colors.black
                       : Colors.black12),
         ),
@@ -67,17 +68,17 @@ class _SchoolYearButtonState extends State<SchoolYearButton> {
                 widget.categoryText,
                 style: TextStyle(
                     fontFamily: 'LINE Seed Sans KR',
-                    color: schoolListProvider.selectedGrade
+                    color: viewModel.selectedGrade
                             .contains(widget.categoryNum)
                         ? Colors.black
                         : const Color(0xff7F7F7F),
                     fontSize: 16.0.sp,
-                    fontWeight: schoolListProvider.selectedGrade
+                    fontWeight: viewModel.selectedGrade
                             .contains(widget.categoryNum)
                         ? FontWeight.bold
                         : FontWeight.normal),
               ),
-              if (schoolListProvider.selectedGrade.contains(widget.categoryNum))
+              if (viewModel.selectedGrade.contains(widget.categoryNum))
                 Text(
                   "${widget.studentLength}명",
                   style: TextStyle(

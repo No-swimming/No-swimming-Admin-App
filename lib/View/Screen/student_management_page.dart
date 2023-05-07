@@ -30,41 +30,41 @@ class StudentManagementPage extends StatelessWidget {
                         fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 12.0.h),
-                  // Row(
-                  //   crossAxisAlignment: CrossAxisAlignment.start,
-                  //   children: [
-                  //     SchoolYearButton(
-                  //       categoryText: "1학년",
-                  //       categoryNum: 1,
-                  //       studentLength: 0,
-                  //     ),
-                  //     SizedBox(width: 12.0.w),
-                  //     SchoolYearButton(
-                  //       categoryText: "2학년",
-                  //       categoryNum: 2,
-                  //       studentLength: 0,
-                  //     ),
-                  //     SizedBox(width: 12.0.w),
-                  //     SchoolYearButton(
-                  //       categoryText: "3학년",
-                  //       categoryNum: 3,
-                  //       studentLength: 0,
-                  //     ),
-                  //   ],
-                  // ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SchoolYearButton(
+                        categoryText: "1학년",
+                        categoryNum: 1,
+                        studentLength: 0,
+                      ),
+                      SizedBox(width: 12.0.w),
+                      SchoolYearButton(
+                        categoryText: "2학년",
+                        categoryNum: 2,
+                        studentLength: 0,
+                      ),
+                      SizedBox(width: 12.0.w),
+                      SchoolYearButton(
+                        categoryText: "3학년",
+                        categoryNum: 3,
+                        studentLength: 0,
+                      ),
+                    ],
+                  ),
                   SizedBox(height: 12.0.h),
-                  // Row(
-                  //   crossAxisAlignment: CrossAxisAlignment.start,
-                  //   children: [
-                  //     SchoolRoomButton(categoryText: "1반", categoryNum: 1),
-                  //     SizedBox(width: 12.0.w),
-                  //     SchoolRoomButton(categoryText: "2반", categoryNum: 2),
-                  //     SizedBox(width: 12.0.w),
-                  //     SchoolRoomButton(categoryText: "3반", categoryNum: 3),
-                  //     SizedBox(width: 12.0.w),
-                  //     SchoolRoomButton(categoryText: "4반", categoryNum: 4),
-                  //   ],
-                  // ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SchoolRoomButton(categoryText: "1반", categoryNum: 1),
+                      SizedBox(width: 12.0.w),
+                      SchoolRoomButton(categoryText: "2반", categoryNum: 2),
+                      SizedBox(width: 12.0.w),
+                      SchoolRoomButton(categoryText: "3반", categoryNum: 3),
+                      SizedBox(width: 12.0.w),
+                      SchoolRoomButton(categoryText: "4반", categoryNum: 4),
+                    ],
+                  ),
                   SizedBox(height: 20.0.h),
                   const Divider(
                     thickness: 1.5,
