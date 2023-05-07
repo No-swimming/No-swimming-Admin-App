@@ -5,20 +5,10 @@ class StudentList {
 
   StudentList({this.studentList});
 
-  StudentList.fromJson(Map<String, dynamic> json) {
-    if (json['student_list'] != null) {
-      studentList = <Student>[];
-      json['student_list'].forEach((v) {
-        studentList!.add(Student.fromJson(v));
-      });
-    }
-  }
+  factory StudentList.fromJson(List<dynamic> json) {
+    List<Student> studentList = <Student>[];
+    studentList = json.map((i) => Student.fromJson(i)).toList();
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    if (studentList != null) {
-      data['student_list'] = studentList!.map((v) => v.toJson()).toList();
-    }
-    return data;
+    return StudentList(studentList: studentList);
   }
 }
