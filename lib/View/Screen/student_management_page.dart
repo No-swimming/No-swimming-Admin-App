@@ -75,6 +75,7 @@ class StudentManagementPage extends StatelessWidget {
                       behavior:
                           const ScrollBehavior().copyWith(overscroll: false),
                       child: ListView.builder(
+                        padding: EdgeInsets.zero,
                         itemCount: viewModel.studentList.length,
                         itemBuilder: (context, index) {
                           return Column(
