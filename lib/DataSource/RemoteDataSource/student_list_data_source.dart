@@ -3,6 +3,7 @@ import 'package:no_swimming_admin_app/Model/student.dart';
 import 'package:no_swimming_admin_app/Model/student_list.dart';
 import 'package:no_swimming_admin_app/baseurl.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class StudentListDataSource {
   String url = "$baseurl/student/list";
@@ -16,8 +17,32 @@ class StudentListDataSource {
     }
   }
 
-  Future<List<Student>> readStudentList() async =>
-      _readStudentList().then((value) => value.studentList!);
+  Future<List<Student>> readStudentList({int? grade, int? classNum}) async {
+    int gradeNum, classNumNum;
+    final SharedPreferences preferences = await SharedPreferences.getInstance();
+    if (grade != null) {
+      if (classNum == null) {
+        url = "$url?grade=$grade";
+        classNumNum = 0;
+        gradeNum = grade;
+      } else {
+        url = "$url?grade=$grade&classNum=$classNum";
+        gradeNum = grade;
+        classNumNum = classNum;
+      }
+    } else {
+      gradeNum = classNumNum = 0;
+    }
+    print(url);
+    if ((preferences.getString('${gradeNum * 10 + classNumNum}')) != null) {
+      var studentList = StudentList.fromJson(
+          jsonDecode(preferences.getString('${gradeNum * 10 + classNumNum}')!));
+      return studentList.studentList!;
+    } else {
+      return _readStudentList().then((value) => value.studentList!);
+    }
+  }
+}
 
 //리스트 조회 후 로컬에 저장 하는 건 다음에 만들 예정
 // Future<StudentList> readStudentList1({int? grade, int? classNum}) async {
@@ -52,4 +77,4 @@ class StudentListDataSource {
 //     }
 //   }
 // }
-}
+//}
