@@ -62,6 +62,7 @@ class StudentDetailPage extends StatelessWidget {
               child: ScrollConfiguration(
                 behavior: const ScrollBehavior().copyWith(overscroll: false),
                 child: ListView.builder(
+                  padding: EdgeInsets.zero,
                   itemCount: 8,
                   itemBuilder: (context, index) {
                     return Column(
