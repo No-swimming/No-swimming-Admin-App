@@ -4,8 +4,27 @@ import 'package:no_swimming_admin_app/View/Widget/book_card.dart';
 import 'package:no_swimming_admin_app/View/Widget/check_popup_card.dart';
 import 'package:no_swimming_admin_app/View/Widget/custom_button.dart';
 
-class ReviewPage extends StatelessWidget {
+class ReviewPage extends StatefulWidget {
   const ReviewPage({Key? key}) : super(key: key);
+
+  @override
+  State<ReviewPage> createState() => _ReviewPageState();
+}
+
+class _ReviewPageState extends State<ReviewPage> {
+  late TextEditingController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    controller.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -86,6 +105,7 @@ class ReviewPage extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.only(left: 15.0.w),
                   child: TextFormField(
+                    controller: controller,
                     cursorColor: Colors.black,
                     decoration: const InputDecoration(
                       border: InputBorder.none,
