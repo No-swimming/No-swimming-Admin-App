@@ -33,23 +33,11 @@ class StudentManagementPage extends StatelessWidget {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SchoolYearButton(
-                        categoryText: "1학년",
-                        categoryNum: 1,
-                        studentLength: viewModel.studentList.length,
-                      ),
+                      SchoolYearButton(categoryText: "1학년", categoryNum: 1),
                       SizedBox(width: 12.0.w),
-                      SchoolYearButton(
-                        categoryText: "2학년",
-                        categoryNum: 2,
-                        studentLength: viewModel.studentList.length,
-                      ),
+                      SchoolYearButton(categoryText: "2학년", categoryNum: 2),
                       SizedBox(width: 12.0.w),
-                      SchoolYearButton(
-                        categoryText: "3학년",
-                        categoryNum: 3,
-                        studentLength: viewModel.studentList.length,
-                      ),
+                      SchoolYearButton(categoryText: "3학년", categoryNum: 3),
                     ],
                   ),
                   SizedBox(height: 12.0.h),

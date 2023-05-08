@@ -4,14 +4,14 @@ import 'package:no_swimming_admin_app/ViewModel/student_list_view_model.dart';
 import 'package:provider/provider.dart';
 
 class SchoolYearButton extends StatelessWidget {
-  SchoolYearButton(
-      {Key? key,
-      required this.categoryText,
-      required this.categoryNum,
-      required this.studentLength})
-      : super(key: key);
+  SchoolYearButton({
+    Key? key,
+    required this.categoryText,
+    required this.categoryNum,
+  }) : super(key: key);
+
   final String categoryText;
-  final int categoryNum, studentLength;
+  final int categoryNum;
 
   late StudentListViewModel viewModel;
 
@@ -63,7 +63,7 @@ class SchoolYearButton extends StatelessWidget {
               ),
               if (viewModel.selectedGrade.contains(categoryNum))
                 Text(
-                  "$studentLength명",
+                  "${viewModel.studentList.length}명",
                   style: TextStyle(
                       fontFamily: 'LINE Seed Sans KR',
                       color: const Color(0xff7F7F7F),
