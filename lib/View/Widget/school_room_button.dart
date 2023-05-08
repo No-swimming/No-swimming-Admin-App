@@ -19,35 +19,36 @@ class SchoolRoomButton extends StatelessWidget {
 
     return InkWell(
       onTap: () {
-        // viewModel.selectedGrade.isEmpty
-        //     ? null
-        //     : viewModel.selectedRoom.isEmpty
-        //         ? setState(() {
-        //             viewModel.emptyRoomList();
-        //             viewModel.addSelectedRoomList(widget.categoryNum);
-        //             // viewModel.studentList = getStudentList(
-        //             //     grade: viewModel.selectedGrade.first,
-        //             //     classNum: widget.categoryNum);
-        //             print("학년 : ${viewModel.selectedGrade.first}");
-        //             print("반 : ${widget.categoryNum}");
-        //           })
-        //         : widget.categoryNum == viewModel.selectedRoom.first
-        //             ? setState(() {
-        //                 viewModel.emptyRoomList();
-        //                 // viewModel.studentList = getStudentList(
-        //                 //     grade: viewModel.selectedGrade.first);
-        //                 print("학년 : ${viewModel.selectedGrade.first}");
-        //                 print("반 리스트 비우기: ${viewModel.selectedRoom.isEmpty}");
-        //               })
-        //             : setState(() {
-        //                 viewModel.emptyRoomList();
-        //                 viewModel.addSelectedRoomList(widget.categoryNum);
-        //                 // viewModel.studentList = getStudentList(
-        //                 //     grade: viewModel.selectedGrade.first,
-        //                 //     classNum: widget.categoryNum);
-        //                 print("학년 : ${viewModel.selectedGrade.first}");
-        //                 print("반 : ${widget.categoryNum}");
-        //               });
+        viewModel.selectedGrade.isEmpty
+            ? null
+            : viewModel.selectedRoom.isEmpty
+                ? {
+                    viewModel.emptyRoomList(),
+                    viewModel.addSelectedRoomList(categoryNum),
+                    viewModel.readStudentList(
+                        grade: viewModel.selectedGrade.first,
+                        classNum: categoryNum),
+                    debugPrint("학년 : ${viewModel.selectedGrade.first}"),
+                    debugPrint("반 : $categoryNum")
+                  }
+                : categoryNum == viewModel.selectedRoom.first
+                    ? {
+                        viewModel.emptyRoomList(),
+                        viewModel.readStudentList(
+                            grade: viewModel.selectedGrade.first),
+                        debugPrint("학년 : ${viewModel.selectedGrade.first}"),
+                        debugPrint(
+                            "반 리스트 비우기: ${viewModel.selectedRoom.isEmpty}"),
+                      }
+                    : {
+                        viewModel.emptyRoomList(),
+                        viewModel.addSelectedRoomList(categoryNum),
+                        viewModel.readStudentList(
+                            grade: viewModel.selectedGrade.first,
+                            classNum: categoryNum),
+                        debugPrint("학년 : ${viewModel.selectedGrade.first}"),
+                        debugPrint("반 : $categoryNum"),
+                      };
       },
       child: Container(
         width: 50.0.w,
@@ -56,8 +57,7 @@ class SchoolRoomButton extends StatelessWidget {
           color: Colors.white,
           borderRadius: const BorderRadius.all(Radius.circular(57)),
           border: Border.all(
-              width:
-                  viewModel.selectedRoom.contains(categoryNum) ? 2 : 1,
+              width: viewModel.selectedRoom.contains(categoryNum) ? 2 : 1,
               color: viewModel.selectedRoom.contains(categoryNum)
                   ? Colors.black
                   : Colors.black12),
@@ -74,10 +74,9 @@ class SchoolRoomButton extends StatelessWidget {
                         ? Colors.black
                         : const Color(0xff7F7F7F),
                     fontSize: 16.0.sp,
-                    fontWeight:
-                        viewModel.selectedRoom.contains(categoryNum)
-                            ? FontWeight.bold
-                            : FontWeight.normal),
+                    fontWeight: viewModel.selectedRoom.contains(categoryNum)
+                        ? FontWeight.bold
+                        : FontWeight.normal),
               ),
             ],
           ),
