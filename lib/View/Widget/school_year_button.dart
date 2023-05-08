@@ -28,10 +28,6 @@ class SchoolYearButton extends StatelessWidget {
                 grade: categoryNum,
                 classNum: viewModel.selectedRoom.first,
               );
-        print("학년 : ${viewModel.selectedGrade.first}");
-        if (viewModel.selectedRoom.isNotEmpty) {
-          print("반 : ${viewModel.selectedRoom.first}");
-        }
       },
       child: Container(
         width: viewModel.selectedGrade.contains(categoryNum) ? 118.0.w : 72.0.w,

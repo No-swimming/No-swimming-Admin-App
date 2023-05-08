@@ -28,17 +28,12 @@ class SchoolRoomButton extends StatelessWidget {
                     viewModel.readStudentList(
                         grade: viewModel.selectedGrade.first,
                         classNum: categoryNum),
-                    debugPrint("학년 : ${viewModel.selectedGrade.first}"),
-                    debugPrint("반 : $categoryNum")
                   }
                 : categoryNum == viewModel.selectedRoom.first
                     ? {
                         viewModel.emptyRoomList(),
                         viewModel.readStudentList(
                             grade: viewModel.selectedGrade.first),
-                        debugPrint("학년 : ${viewModel.selectedGrade.first}"),
-                        debugPrint(
-                            "반 리스트 비우기: ${viewModel.selectedRoom.isEmpty}"),
                       }
                     : {
                         viewModel.emptyRoomList(),
@@ -46,8 +41,6 @@ class SchoolRoomButton extends StatelessWidget {
                         viewModel.readStudentList(
                             grade: viewModel.selectedGrade.first,
                             classNum: categoryNum),
-                        debugPrint("학년 : ${viewModel.selectedGrade.first}"),
-                        debugPrint("반 : $categoryNum"),
                       };
       },
       child: Container(
