@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:no_swimming_admin_app/widget/custom_button.dart';
+import 'package:no_swimming_admin_app/View/Widget/custom_button.dart';
 
 void checkPopupCard(context, title, bodyText, Function func) {
   showDialog(

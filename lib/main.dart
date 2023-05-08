@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
 import 'firebase_options.dart';
-import 'package:no_swimming_admin_app/screen/login_page.dart';
+import 'package:no_swimming_admin_app/ViewModel/student_list_view_model.dart';
+import 'package:no_swimming_admin_app/View/Screen/login_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:no_swimming_admin_app/provider/school_list_provider.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -63,8 +63,8 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(420, 930),
       builder: (context, child) {
-        return ChangeNotifierProvider<SchoolListProvider>(
-          create: (context) => SchoolListProvider(),
+        return ChangeNotifierProvider(
+          create: (context) => StudentListViewModel(),
           child: const MaterialApp(
             debugShowCheckedModeBanner: false,
             home: LoginPage(),
