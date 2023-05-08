@@ -66,6 +66,7 @@ class MyApp extends StatelessWidget {
         return ChangeNotifierProvider(
           create: (context) => StudentListViewModel(),
           child: const MaterialApp(
+            debugShowCheckedModeBanner: false,
             home: LoginPage(),
           ),
         );
