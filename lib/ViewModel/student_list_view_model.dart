@@ -16,12 +16,13 @@ class StudentListViewModel with ChangeNotifier {
     _repository = StudentListRepository();
   }
 
-  Future<void> readStudentList() async {
-    _studentList = await _repository.readStudentList();
+  Future<void> readStudentList({int? grade, int? classNum}) async {
+    _studentList =
+        await _repository.readStudentList(grade: grade, classNum: classNum);
     notifyListeners();
   }
 
-  void emptyGrageList() {
+  void emptyGradeList() {
     selectedGrade = List.empty(growable: true);
     notifyListeners();
   }

@@ -20,14 +20,14 @@ class SchoolYearButton extends StatelessWidget {
     viewModel = Provider.of<StudentListViewModel>(context);
     return InkWell(
       onTap: () {
-        viewModel.emptyGrageList();
+        viewModel.emptyGradeList();
         viewModel.addSelectedGradeList(categoryNum);
-        // viewModel.selectedRoom.isEmpty
-        //     ? viewModel.studentList =
-        //         getStudentList(grade: widget.categoryNum)
-        //     : viewModel.studentList = getStudentList(
-        //         grade: widget.categoryNum,
-        //         classNum: viewModel.selectedRoom.first);
+        viewModel.selectedRoom.isEmpty
+            ? viewModel.readStudentList(grade: categoryNum)
+            : viewModel.readStudentList(
+                grade: categoryNum,
+                classNum: viewModel.selectedRoom.first,
+              );
         print("학년 : ${viewModel.selectedGrade.first}");
         if (viewModel.selectedRoom.isNotEmpty) {
           print("반 : ${viewModel.selectedRoom.first}");
