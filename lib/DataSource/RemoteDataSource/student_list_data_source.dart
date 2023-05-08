@@ -32,7 +32,6 @@ class StudentListDataSource {
     } else {
       gradeNum = classNumNum = 0;
     }
-    print(url);
     if ((preferences.getString('${gradeNum * 10 + classNumNum}')) != null) {
       var studentList = StudentList.fromJson(
           jsonDecode(preferences.getString('${gradeNum * 10 + classNumNum}')!));

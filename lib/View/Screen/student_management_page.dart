@@ -18,7 +18,7 @@ class StudentManagementPage extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Container(
         margin: EdgeInsets.only(left: 20.0.w, top: 70.0.h, right: 20.0.w),
-        child: viewModel.studentList.isNotEmpty
+        child: viewModel.studentList != null
             ? Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
