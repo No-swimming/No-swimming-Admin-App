@@ -6,9 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class StudentListDataSource {
-  String url = "$baseurl/student/list";
-
-  Future<StudentList> _readStudentList() async {
+  Future<StudentList> _readStudentList(String url) async {
     final response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
       return StudentList.fromJson(jsonDecode(utf8.decode(response.bodyBytes)));
@@ -19,6 +17,7 @@ class StudentListDataSource {
 
   Future<List<Student>> readStudentList({int? grade, int? classNum}) async {
     int gradeNum, classNumNum;
+    String url = "$baseurl/student/list";
     final SharedPreferences preferences = await SharedPreferences.getInstance();
     if (grade != null) {
       if (classNum == null) {
@@ -39,7 +38,7 @@ class StudentListDataSource {
           jsonDecode(preferences.getString('${gradeNum * 10 + classNumNum}')!));
       return studentList.studentList!;
     } else {
-      return _readStudentList().then((value) => value.studentList!);
+      return _readStudentList(url).then((value) => value.studentList!);
     }
   }
 }
