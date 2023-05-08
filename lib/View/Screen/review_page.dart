@@ -86,6 +86,7 @@ class ReviewPage extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.only(left: 15.0.w),
                   child: TextFormField(
+                    cursorColor: Colors.black,
                     decoration: const InputDecoration(
                       border: InputBorder.none,
                     ),
