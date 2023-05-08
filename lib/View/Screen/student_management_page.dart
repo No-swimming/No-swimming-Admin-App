@@ -36,19 +36,19 @@ class StudentManagementPage extends StatelessWidget {
                       SchoolYearButton(
                         categoryText: "1학년",
                         categoryNum: 1,
-                        studentLength: 0,
+                        studentLength: viewModel.studentList.length,
                       ),
                       SizedBox(width: 12.0.w),
                       SchoolYearButton(
                         categoryText: "2학년",
                         categoryNum: 2,
-                        studentLength: 0,
+                        studentLength: viewModel.studentList.length,
                       ),
                       SizedBox(width: 12.0.w),
                       SchoolYearButton(
                         categoryText: "3학년",
                         categoryNum: 3,
-                        studentLength: 0,
+                        studentLength: viewModel.studentList.length,
                       ),
                     ],
                   ),
