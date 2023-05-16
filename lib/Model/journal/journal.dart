@@ -1,24 +1,36 @@
-import 'package:no_swimming_admin_app/Model/journal/journal_list.dart';
-
 class Journal {
-  List<JournalList>? journalList;
+  int? bookId;
+  int? bookNum;
+  String? title;
+  bool? recordReject;
+  String? readingJournalType;
+  int? readingJournalId;
 
-  Journal({this.journalList});
+  Journal(
+      {this.bookId,
+      this.bookNum,
+      this.title,
+      this.recordReject,
+      this.readingJournalType,
+      this.readingJournalId});
 
   Journal.fromJson(Map<String, dynamic> json) {
-    if (json['journal_list'] != null) {
-      journalList = <JournalList>[];
-      json['journal_list'].forEach((v) {
-        journalList!.add(JournalList.fromJson(v));
-      });
-    }
+    bookId = json['book_id'];
+    bookNum = json['book_num'];
+    title = json['title'];
+    recordReject = json['record_reject'];
+    readingJournalType = json['reading_journal_type'];
+    readingJournalId = json['reading_journal_id'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    if (journalList != null) {
-      data['journal_list'] = journalList!.map((v) => v.toJson()).toList();
-    }
+    data['book_id'] = bookId;
+    data['book_num'] = bookNum;
+    data['title'] = title;
+    data['record_reject'] = recordReject;
+    data['reading_journal_type'] = readingJournalType;
+    data['reading_journal_id'] = readingJournalId;
     return data;
   }
 }
