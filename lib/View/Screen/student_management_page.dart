@@ -69,15 +69,16 @@ class StudentManagementPage extends StatelessWidget {
                           return Column(
                             children: [
                               StudentCard(
-                                  name: viewModel.studentList[index].name
-                                      .toString(),
-                                  gradeNum: viewModel.studentList[index].grade!
-                                      .toInt(),
-                                  classNum: viewModel
-                                      .studentList[index].classNum!
-                                      .toInt(),
-                                  number: viewModel.studentList[index].number!
-                                      .toInt()),
+                                name: viewModel.studentList[index].name
+                                    .toString(),
+                                gradeNum:
+                                    viewModel.studentList[index].grade!.toInt(),
+                                classNum: viewModel.studentList[index].classNum!
+                                    .toInt(),
+                                number: viewModel.studentList[index].number!
+                                    .toInt(),
+                                userId: viewModel.studentList[index].userId!.toInt(),
+                              ),
                               SizedBox(height: 12.0.h),
                             ],
                           );
