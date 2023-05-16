@@ -1,0 +1,21 @@
+import 'dart:convert';
+
+import 'package:http/http.dart' as http;
+import 'package:no_swimming_admin_app/Model/journal/journal_list.dart';
+import 'package:no_swimming_admin_app/Model/journal/journal.dart';
+import 'package:no_swimming_admin_app/baseurl.dart';
+
+class SearchJournalListDataSource {
+  Future<JournalList> _searchJournalList(int userId) async {
+    final response = await http
+        .get(Uri.parse("$baseurl/teacher/student/journal?userId=$userId"));
+    if (response.statusCode == 200) {
+      return JournalList.fromJson(jsonDecode(response.body));
+    } else {
+      throw Exception("학생 리스트 불러 오기 실패");
+    }
+  }
+
+  Future<List<Journal>> searchJournalList(int userId) async =>
+      await _searchJournalList(userId).then((value) => value.journalList!);
+}
