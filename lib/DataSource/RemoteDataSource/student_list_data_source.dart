@@ -1,6 +1,6 @@
 import 'dart:convert';
-import 'package:no_swimming_admin_app/Model/student.dart';
-import 'package:no_swimming_admin_app/Model/student_list.dart';
+import 'package:no_swimming_admin_app/Model/student/student.dart';
+import 'package:no_swimming_admin_app/Model/student/student_list.dart';
 import 'package:no_swimming_admin_app/baseurl.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
