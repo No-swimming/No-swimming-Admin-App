@@ -2,14 +2,16 @@ class Student {
   int? grade;
   int? classNum;
   int? number;
+  int? userId;
   String? name;
 
-  Student({this.grade, this.classNum, this.number, this.name});
+  Student({this.grade, this.classNum, this.number, this.userId, this.name});
 
   Student.fromJson(Map<String, dynamic> json) {
     grade = json['grade'];
     classNum = json['class_num'];
     number = json['number'];
+    userId = json['user_id'];
     name = json['name'];
   }
 
@@ -17,6 +19,7 @@ class Student {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['grade'] = grade;
     data['class_num'] = classNum;
+    data['user_id'] = userId;
     data['number'] = number;
     data['name'] = name;
     return data;
