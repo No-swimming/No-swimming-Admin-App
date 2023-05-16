@@ -8,11 +8,12 @@ class StudentCard extends StatelessWidget {
       required this.name,
       required this.gradeNum,
       required this.classNum,
-      required this.number})
+      required this.number,
+      required this.userId})
       : super(key: key);
 
   String name;
-  int gradeNum, classNum, number;
+  int gradeNum, classNum, number, userId;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +26,7 @@ class StudentCard extends StatelessWidget {
                 studentName: name,
                 gradeNum: gradeNum,
                 classNum: classNum,
+                userId: userId,
                 number: number),
           ),
         );
