@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:no_swimming_admin_app/View/Widget/check_popup_card.dart';
 import 'package:no_swimming_admin_app/View/Widget/reading_journal_card.dart';
+import 'package:provider/provider.dart';
+import 'package:no_swimming_admin_app/ViewModel/search_journal_list_view_model.dart';
 
 class StudentDetailPage extends StatelessWidget {
   StudentDetailPage(
@@ -9,14 +11,18 @@ class StudentDetailPage extends StatelessWidget {
       required this.studentName,
       required this.gradeNum,
       required this.classNum,
-      required this.number})
+      required this.number,
+      required this.userId})
       : super(key: key);
 
   String studentName;
-  int gradeNum, classNum, number;
+  int gradeNum, classNum, number, userId;
+  late SearchJournalListViewModel viewModel;
 
   @override
   Widget build(BuildContext context) {
+    viewModel = Provider.of<SearchJournalListViewModel>(context);
+    viewModel.searchJournalList(userId);
     return Scaffold(
       backgroundColor: Colors.white,
       body: Container(
@@ -45,7 +51,7 @@ class StudentDetailPage extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  ' 8건',
+                  "${viewModel.journalList.length}건",
                   style: TextStyle(
                       fontFamily: 'LINE Seed Sans KR',
                       fontSize: 30.0.sp,
