@@ -51,7 +51,7 @@ class StudentDetailPage extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "${viewModel.journalList.length}건",
+                  " ${viewModel.journalList.length}건",
                   style: TextStyle(
                       fontFamily: 'LINE Seed Sans KR',
                       fontSize: 30.0.sp,
@@ -69,11 +69,13 @@ class StudentDetailPage extends StatelessWidget {
                 behavior: const ScrollBehavior().copyWith(overscroll: false),
                 child: ListView.builder(
                   padding: EdgeInsets.zero,
-                  itemCount: 8,
+                  itemCount: 1,
                   itemBuilder: (context, index) {
                     return Column(
                       children: [
-                        ReadingJournalCard(),
+                        ReadingJournalCard(
+                          title: "what",
+                        ),
                         SizedBox(height: 12.0.h),
                       ],
                     );
