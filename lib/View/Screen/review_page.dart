@@ -5,7 +5,9 @@ import 'package:no_swimming_admin_app/View/Widget/check_popup_card.dart';
 import 'package:no_swimming_admin_app/View/Widget/custom_button.dart';
 
 class ReviewPage extends StatefulWidget {
-  const ReviewPage({Key? key}) : super(key: key);
+  const ReviewPage({Key? key, required this.title}) : super(key: key);
+
+  final String title;
 
   @override
   State<ReviewPage> createState() => _ReviewPageState();
@@ -53,7 +55,7 @@ class _ReviewPageState extends State<ReviewPage> {
                   color: Color(0xff7F7F7F),
                 ),
               ),
-              BookCard(),
+              BookCard(title: widget.title),
               SizedBox(height: 11.0.h),
               Text(
                 ' 담당 선생님',

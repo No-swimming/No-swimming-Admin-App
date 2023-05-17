@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BookCard extends StatelessWidget {
-  const BookCard({Key? key}) : super(key: key);
+  BookCard({Key? key, required this.title}) : super(key: key);
+
+  String title;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,7 @@ class BookCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    '프로젝트 헤일메리',
+                    title,
                     style: TextStyle(
                         fontSize: 16.0.sp,
                         fontFamily: 'LINE Seed Sans KR',

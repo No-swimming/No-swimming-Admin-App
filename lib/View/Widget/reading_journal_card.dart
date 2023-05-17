@@ -6,14 +6,16 @@ import 'package:no_swimming_admin_app/View/Widget/custom_button.dart';
 import 'package:no_swimming_admin_app/View/Widget/check_popup_card.dart';
 
 class ReadingJournalCard extends StatelessWidget {
-  const ReadingJournalCard({Key? key}) : super(key: key);
+  ReadingJournalCard({Key? key, required this.title}) : super(key: key);
+
+  String title;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(8)),
-        border: Border.all(color: Color(0xffF2F2F2)),
+        borderRadius: const BorderRadius.all(Radius.circular(8)),
+        border: Border.all(color: const Color(0xffF2F2F2)),
         color: Colors.white,
       ),
       width: 380.0.w,
@@ -24,7 +26,9 @@ class ReadingJournalCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            BookCard(),
+            BookCard(
+              title: title,
+            ),
             SizedBox(height: 8.0.h),
             Row(
               children: [
@@ -67,8 +71,12 @@ class ReadingJournalCard extends StatelessWidget {
                   backgroundColor: Colors.black,
                   fontSize: 14.0,
                   textColor: Colors.white,
-                  func: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => ReviewPage())),
+                  func: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ReviewPage(
+                                title: title,
+                              ))),
                 ),
                 SizedBox(width: 8.0.w),
                 CustomButtom(
