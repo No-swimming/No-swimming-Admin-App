@@ -4,19 +4,26 @@ import 'package:no_swimming_admin_app/View/Screen/review_page.dart';
 import 'package:no_swimming_admin_app/View/Widget/book_card.dart';
 import 'package:no_swimming_admin_app/View/Widget/custom_button.dart';
 import 'package:no_swimming_admin_app/View/Widget/check_popup_card.dart';
+import 'package:no_swimming_admin_app/ViewModel/journal_view_model.dart';
+import 'package:provider/provider.dart';
 
 class ReadingJournalCard extends StatelessWidget {
   ReadingJournalCard({
     Key? key,
     required this.title,
     required this.readingJournalType,
+    required this.readingJournalId,
   }) : super(key: key);
 
   String title;
   String readingJournalType;
+  int readingJournalId;
+
+  late JournalViewModel viewModel;
 
   @override
   Widget build(BuildContext context) {
+    viewModel = Provider.of<JournalViewModel>(context);
     return Container(
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(8)),
@@ -91,8 +98,13 @@ class ReadingJournalCard extends StatelessWidget {
                   backgroundColor: Color(0xffF2F2F2),
                   fontSize: 14.0,
                   textColor: Colors.black,
-                  func: () => checkPopupCard(context, '마감으로 표시',
-                      '마감으로 표시된 뒤에는 독서록을 수정할 수 없습니다.', func),
+                  func: () => checkPopupCard(
+                      context: context,
+                      title: '마감으로 표시',
+                      bodyText: '마감으로 표시된 뒤에는 독서록을 수정할 수 없습니다.',
+                      func: () {
+                        viewModel.closeUpJournal(readingJournalId);
+                      }),
                 ),
               ],
             ),
