@@ -2,7 +2,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
-import 'package:no_swimming_admin_app/ViewModel/search_journal_list_view_model.dart';
+import 'package:no_swimming_admin_app/ViewModel/journal_view_model.dart';
 import 'firebase_options.dart';
 import 'package:no_swimming_admin_app/ViewModel/student_list_view_model.dart';
 import 'package:no_swimming_admin_app/View/Screen/login_page.dart';
@@ -67,8 +67,7 @@ class MyApp extends StatelessWidget {
         return MultiProvider(
           providers: [
             ChangeNotifierProvider(create: (context) => StudentListViewModel()),
-            ChangeNotifierProvider(
-                create: (context) => SearchJournalListViewModel()),
+            ChangeNotifierProvider(create: (context) => JournalViewModel()),
           ],
           child: const MaterialApp(
             debugShowCheckedModeBanner: false,

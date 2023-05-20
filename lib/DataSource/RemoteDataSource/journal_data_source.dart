@@ -5,7 +5,7 @@ import 'package:no_swimming_admin_app/Model/journal/journal_list.dart';
 import 'package:no_swimming_admin_app/Model/journal/journal.dart';
 import 'package:no_swimming_admin_app/baseurl.dart';
 
-class SearchJournalListDataSource {
+class JournalDataSource {
   Future<JournalList> _searchJournalList(int userId) async {
     final response = await http
         .get(Uri.parse("$baseurl/teacher/student/journal?userId=$userId"));

@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:no_swimming_admin_app/View/Widget/check_popup_card.dart';
 import 'package:no_swimming_admin_app/View/Widget/reading_journal_card.dart';
 import 'package:provider/provider.dart';
-import 'package:no_swimming_admin_app/ViewModel/search_journal_list_view_model.dart';
+import 'package:no_swimming_admin_app/ViewModel/journal_view_model.dart';
 
 class StudentDetailPage extends StatelessWidget {
   StudentDetailPage(
@@ -17,11 +17,11 @@ class StudentDetailPage extends StatelessWidget {
 
   String studentName;
   int gradeNum, classNum, number, userId;
-  late SearchJournalListViewModel viewModel;
+  late JournalViewModel viewModel;
 
   @override
   Widget build(BuildContext context) {
-    viewModel = Provider.of<SearchJournalListViewModel>(context);
+    viewModel = Provider.of<JournalViewModel>(context);
     viewModel.searchJournalList(userId);
     return Scaffold(
       backgroundColor: Colors.white,
