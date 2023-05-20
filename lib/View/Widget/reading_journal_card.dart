@@ -6,9 +6,14 @@ import 'package:no_swimming_admin_app/View/Widget/custom_button.dart';
 import 'package:no_swimming_admin_app/View/Widget/check_popup_card.dart';
 
 class ReadingJournalCard extends StatelessWidget {
-  ReadingJournalCard({Key? key, required this.title}) : super(key: key);
+  ReadingJournalCard({
+    Key? key,
+    required this.title,
+    required this.readingJournalType,
+  }) : super(key: key);
 
   String title;
+  String readingJournalType;
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +58,7 @@ class ReadingJournalCard extends StatelessWidget {
                         fontSize: 16.0.sp,
                         fontWeight: FontWeight.bold)),
                 Text(
-                  ' 통과',
+                  "  $readingJournalType",
                   style: TextStyle(
                     fontFamily: 'LINE Seed Sans KR',
                     fontSize: 16.0.sp,

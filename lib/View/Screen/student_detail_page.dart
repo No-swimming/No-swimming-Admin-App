@@ -75,6 +75,9 @@ class StudentDetailPage extends StatelessWidget {
                       children: [
                         ReadingJournalCard(
                           title: viewModel.journalList[index].title.toString(),
+                          readingJournalType: viewModel
+                              .journalList[index].readingJournalType
+                              .toString(),
                         ),
                         SizedBox(height: 12.0.h),
                       ],
