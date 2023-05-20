@@ -5,5 +5,8 @@ class JournalRepository {
   final JournalDataSource _dataSource = JournalDataSource();
 
   Future<List<Journal>> searchJournalList(int userId) async =>
-      _dataSource.searchJournalList(userId);
+      await _dataSource.searchJournalList(userId);
+
+  Future<void> closeUpJournal(int readingJournalId) async =>
+      await _dataSource.closeUpJournal(readingJournalId);
 }

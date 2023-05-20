@@ -18,4 +18,12 @@ class JournalDataSource {
 
   Future<List<Journal>> searchJournalList(int userId) async =>
       await _searchJournalList(userId).then((value) => value.journalList!);
+
+  Future<void> closeUpJournal(int readingJournalId) async {
+    final response =
+        await http.patch(Uri.parse("$baseurl/journal/end/$readingJournalId"));
+    if (response.statusCode == 404) {
+      throw Exception(response.body);
+    }
+  }
 }
