@@ -127,7 +127,10 @@ class _ReviewPageState extends State<ReviewPage> {
                     fontSize: 19.0,
                     textColor: Colors.white,
                     func: () => checkPopupCard(
-                        context, '통과로 표시', '독서록 상태를 통과로 표시할까요?', func),
+                        context: context,
+                        title: '통과로 표시',
+                        bodyText: '독서록 상태를 통과로 표시할까요?',
+                        func: func),
                   ),
                   SizedBox(width: 8.0.w),
                   CustomButtom(
@@ -138,7 +141,10 @@ class _ReviewPageState extends State<ReviewPage> {
                     fontSize: 19.0,
                     textColor: Colors.black,
                     func: () => checkPopupCard(
-                        context, '피드백 전송', '학생에게 피드백을 전송할까요?', func),
+                        context: context,
+                        title: '피드백 전송',
+                        bodyText: '학생에게 피드백을 전송할까요?',
+                        func: func),
                   ),
                 ],
               ),
@@ -151,7 +157,10 @@ class _ReviewPageState extends State<ReviewPage> {
                 fontSize: 19.0,
                 textColor: Colors.black,
                 func: () => checkPopupCard(
-                    context, '마감으로 표시', '마감으로 표시된 뒤에는 독서록을 수정할 수 없습니다.', func),
+                    context: context,
+                    title: '마감으로 표시',
+                    bodyText: '마감으로 표시된 뒤에는 독서록을 수정할 수 없습니다.',
+                    func: func),
               ),
             ],
           ),

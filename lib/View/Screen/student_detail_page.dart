@@ -78,6 +78,9 @@ class StudentDetailPage extends StatelessWidget {
                           readingJournalType: viewModel
                               .journalList[index].readingJournalType
                               .toString(),
+                          readingJournalId: viewModel
+                              .journalList[index].readingJournalId!
+                              .toInt(),
                         ),
                         SizedBox(height: 12.0.h),
                       ],
@@ -101,7 +104,9 @@ class StudentDetailPage extends StatelessWidget {
               )),
           onPressed: () {
             checkPopupCard(
-                context, '모두 마감으로 표시', '마감으로 표시된 뒤에는 독서록을 수정할 수 없습니다.', func);
+                context: context,
+                title: '모두 마감으로 표시',
+                bodyText: '마감으로 표시된 뒤에는 독서록을 수정할 수 없습니다.');
           },
           child: Text(
             '모두 마감으로 표시',
