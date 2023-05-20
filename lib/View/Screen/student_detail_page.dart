@@ -69,12 +69,12 @@ class StudentDetailPage extends StatelessWidget {
                 behavior: const ScrollBehavior().copyWith(overscroll: false),
                 child: ListView.builder(
                   padding: EdgeInsets.zero,
-                  itemCount: 1,
+                  itemCount: viewModel.journalList.length,
                   itemBuilder: (context, index) {
                     return Column(
                       children: [
                         ReadingJournalCard(
-                          title: "what",
+                          title: viewModel.journalList[index].title.toString(),
                         ),
                         SizedBox(height: 12.0.h),
                       ],
