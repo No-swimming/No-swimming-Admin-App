@@ -2,6 +2,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
+import 'package:no_swimming_admin_app/ViewModel/feedback_view_model.dart';
 import 'package:no_swimming_admin_app/ViewModel/journal_view_model.dart';
 import 'firebase_options.dart';
 import 'package:no_swimming_admin_app/ViewModel/student_list_view_model.dart';
@@ -68,6 +69,7 @@ class MyApp extends StatelessWidget {
           providers: [
             ChangeNotifierProvider(create: (context) => StudentListViewModel()),
             ChangeNotifierProvider(create: (context) => JournalViewModel()),
+            ChangeNotifierProvider(create: (context) => FeedbackViewModel()),
           ],
           child: const MaterialApp(
             debugShowCheckedModeBanner: false,
