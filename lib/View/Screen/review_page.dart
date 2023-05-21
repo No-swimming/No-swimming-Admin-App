@@ -3,11 +3,18 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:no_swimming_admin_app/View/Widget/book_card.dart';
 import 'package:no_swimming_admin_app/View/Widget/check_popup_card.dart';
 import 'package:no_swimming_admin_app/View/Widget/custom_button.dart';
+import 'package:provider/provider.dart';
+import 'package:no_swimming_admin_app/ViewModel/journal_view_model.dart';
 
 class ReviewPage extends StatefulWidget {
-  const ReviewPage({Key? key, required this.title}) : super(key: key);
+  const ReviewPage({
+    Key? key,
+    required this.title,
+    required this.readingJournalId,
+  }) : super(key: key);
 
   final String title;
+  final int readingJournalId;
 
   @override
   State<ReviewPage> createState() => _ReviewPageState();
@@ -15,6 +22,7 @@ class ReviewPage extends StatefulWidget {
 
 class _ReviewPageState extends State<ReviewPage> {
   late TextEditingController controller;
+  late JournalViewModel viewModel;
 
   @override
   void initState() {
@@ -30,6 +38,7 @@ class _ReviewPageState extends State<ReviewPage> {
 
   @override
   Widget build(BuildContext context) {
+    viewModel = Provider.of<JournalViewModel>(context);
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -52,7 +61,7 @@ class _ReviewPageState extends State<ReviewPage> {
                 style: TextStyle(
                   fontFamily: 'LINE Seed Sans KR',
                   fontSize: 16.0.sp,
-                  color: Color(0xff7F7F7F),
+                  color: const Color(0xff7F7F7F),
                 ),
               ),
               BookCard(title: widget.title),
@@ -62,7 +71,7 @@ class _ReviewPageState extends State<ReviewPage> {
                 style: TextStyle(
                   fontFamily: 'LINE Seed Sans KR',
                   fontSize: 16.0.sp,
-                  color: Color(0xff7F7F7F),
+                  color: const Color(0xff7F7F7F),
                 ),
               ),
               Text(
@@ -95,7 +104,7 @@ class _ReviewPageState extends State<ReviewPage> {
                 style: TextStyle(
                   fontFamily: 'LINE Seed Sans KR',
                   fontSize: 16.0.sp,
-                  color: Color(0xff7F7F7F),
+                  color: const Color(0xff7F7F7F),
                 ),
               ),
               Container(
@@ -127,17 +136,18 @@ class _ReviewPageState extends State<ReviewPage> {
                     fontSize: 19.0,
                     textColor: Colors.white,
                     func: () => checkPopupCard(
-                        context: context,
-                        title: '통과로 표시',
-                        bodyText: '독서록 상태를 통과로 표시할까요?',
-                        func: func),
+                      context: context,
+                      title: '통과로 표시',
+                      bodyText: '독서록 상태를 통과로 표시할까요?',
+                      func: func,
+                    ),
                   ),
                   SizedBox(width: 8.0.w),
                   CustomButtom(
                     buttonText: '피드백 전송',
                     width: 140.0,
                     height: 42.0,
-                    backgroundColor: Color(0xffF2F2F2),
+                    backgroundColor: const Color(0xffF2F2F2),
                     fontSize: 19.0,
                     textColor: Colors.black,
                     func: () => checkPopupCard(
@@ -153,14 +163,16 @@ class _ReviewPageState extends State<ReviewPage> {
                 buttonText: '마감으로 표시',
                 width: 150.0,
                 height: 42.0,
-                backgroundColor: Color(0xffF2F2F2),
+                backgroundColor: const Color(0xffF2F2F2),
                 fontSize: 19.0,
                 textColor: Colors.black,
                 func: () => checkPopupCard(
                     context: context,
                     title: '마감으로 표시',
                     bodyText: '마감으로 표시된 뒤에는 독서록을 수정할 수 없습니다.',
-                    func: func),
+                    func: () {
+                      viewModel.closeUpJournal(widget.readingJournalId);
+                    }),
               ),
             ],
           ),
