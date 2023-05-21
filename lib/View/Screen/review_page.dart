@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:no_swimming_admin_app/View/Widget/book_card.dart';
 import 'package:no_swimming_admin_app/View/Widget/check_popup_card.dart';
 import 'package:no_swimming_admin_app/View/Widget/custom_button.dart';
+import 'package:no_swimming_admin_app/ViewModel/feedback_view_model.dart';
 import 'package:provider/provider.dart';
 import 'package:no_swimming_admin_app/ViewModel/journal_view_model.dart';
 
@@ -22,7 +23,8 @@ class ReviewPage extends StatefulWidget {
 
 class _ReviewPageState extends State<ReviewPage> {
   late TextEditingController controller;
-  late JournalViewModel viewModel;
+  late JournalViewModel journalViewModel;
+  late FeedbackViewModel feedbackViewModel;
 
   @override
   void initState() {
@@ -38,7 +40,8 @@ class _ReviewPageState extends State<ReviewPage> {
 
   @override
   Widget build(BuildContext context) {
-    viewModel = Provider.of<JournalViewModel>(context);
+    journalViewModel = Provider.of<JournalViewModel>(context);
+    feedbackViewModel = Provider.of<FeedbackViewModel>(context);
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -154,7 +157,10 @@ class _ReviewPageState extends State<ReviewPage> {
                         context: context,
                         title: '피드백 전송',
                         bodyText: '학생에게 피드백을 전송할까요?',
-                        func: func),
+                        func: () {
+                          feedbackViewModel.sendJournalFeedback(
+                              widget.readingJournalId, controller.text);
+                        }),
                   ),
                 ],
               ),
@@ -171,7 +177,7 @@ class _ReviewPageState extends State<ReviewPage> {
                     title: '마감으로 표시',
                     bodyText: '마감으로 표시된 뒤에는 독서록을 수정할 수 없습니다.',
                     func: () {
-                      viewModel.closeUpJournal(widget.readingJournalId);
+                      journalViewModel.closeUpJournal(widget.readingJournalId);
                     }),
               ),
             ],
