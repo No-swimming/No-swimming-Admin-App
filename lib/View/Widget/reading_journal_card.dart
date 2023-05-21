@@ -15,9 +15,8 @@ class ReadingJournalCard extends StatelessWidget {
     required this.readingJournalId,
   }) : super(key: key);
 
-  String title;
-  String readingJournalType;
-  int readingJournalId;
+  final String title, readingJournalType;
+  final int readingJournalId;
 
   late JournalViewModel viewModel;
 
@@ -84,11 +83,14 @@ class ReadingJournalCard extends StatelessWidget {
                   fontSize: 14.0,
                   textColor: Colors.white,
                   func: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => ReviewPage(
-                                title: title,
-                              ))),
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ReviewPage(
+                        title: title,
+                        readingJournalId: readingJournalId,
+                      ),
+                    ),
+                  ),
                 ),
                 SizedBox(width: 8.0.w),
                 CustomButtom(
