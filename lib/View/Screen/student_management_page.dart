@@ -77,7 +77,11 @@ class StudentManagementPage extends StatelessWidget {
                                     .toInt(),
                                 number: viewModel.studentList[index].number!
                                     .toInt(),
-                                userId: viewModel.studentList[index].userId!.toInt(),
+                                userId: viewModel.studentList[index].userId!
+                                    .toInt(),
+                                profileNum: viewModel
+                                    .studentList[index].profileNum!
+                                    .toInt(),
                               ),
                               SizedBox(height: 12.0.h),
                             ],

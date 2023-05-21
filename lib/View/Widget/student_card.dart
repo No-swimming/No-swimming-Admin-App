@@ -3,17 +3,18 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:no_swimming_admin_app/View/Screen/student_detail_page.dart';
 
 class StudentCard extends StatelessWidget {
-  StudentCard(
-      {Key? key,
-      required this.name,
-      required this.gradeNum,
-      required this.classNum,
-      required this.number,
-      required this.userId})
-      : super(key: key);
+  const StudentCard({
+    Key? key,
+    required this.name,
+    required this.gradeNum,
+    required this.classNum,
+    required this.number,
+    required this.userId,
+    required this.profileNum,
+  }) : super(key: key);
 
-  String name;
-  int gradeNum, classNum, number, userId;
+  final String name;
+  final int gradeNum, classNum, number, userId, profileNum;
 
   @override
   Widget build(BuildContext context) {
@@ -37,15 +38,17 @@ class StudentCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: const BorderRadius.all(Radius.circular(8)),
-          border: Border.all(color: Color(0xffF2F2F2)),
+          border: Border.all(color: const Color(0xffF2F2F2)),
         ),
         child: Padding(
           padding: EdgeInsets.only(left: 8.0.w, top: 12.0.h),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset('assets/images/noSwimmingIcon.png',
-                  width: 42.0.w, height: 42.0.h),
+              Image.asset(
+                  'assets/images/studentProfile/profile_$profileNum.png',
+                  width: 50.0.w,
+                  height: 50.0.h),
               SizedBox(width: 8.0.w),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
