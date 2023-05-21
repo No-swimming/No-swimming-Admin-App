@@ -22,4 +22,9 @@ class JournalViewModel with ChangeNotifier {
     await _repository.closeUpJournal(readingJournalId);
     notifyListeners();
   }
+
+  Future<void> closeUpAllJournalList(List<int> list) async {
+    await _repository.closeUpAllJournalList(list);
+    notifyListeners();
+  }
 }

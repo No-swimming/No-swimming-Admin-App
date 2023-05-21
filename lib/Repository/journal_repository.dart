@@ -9,4 +9,7 @@ class JournalRepository {
 
   Future<void> closeUpJournal(int readingJournalId) async =>
       await _dataSource.closeUpJournal(readingJournalId);
+
+  Future<void> closeUpAllJournalList(List<int> list) async =>
+      await _dataSource.closeUpAllJournalList(list);
 }

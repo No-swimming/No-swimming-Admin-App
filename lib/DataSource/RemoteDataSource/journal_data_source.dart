@@ -26,4 +26,12 @@ class JournalDataSource {
       throw Exception(response.body);
     }
   }
+
+  Future<void> closeUpAllJournalList(List<int> list) async {
+    final response = await http.put(Uri.parse("$baseurl/journal/all"),
+        body: jsonEncode({"reading_journal_id_list": list}));
+    if (response.statusCode == 404) {
+      throw Exception(response.body);
+    }
+  }
 }
