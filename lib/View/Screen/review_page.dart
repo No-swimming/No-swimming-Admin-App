@@ -98,6 +98,24 @@ class _ReviewPageState extends State<ReviewPage> {
                     fontSize: 24.0.sp,
                     fontWeight: FontWeight.bold),
               ),
+              Padding(
+                padding: EdgeInsets.only(top: 10.0.h, bottom: 10.0.h),
+                child: Row(
+                  children: [
+                    Image.asset(
+                      "assets/images/studentProfile/profile_${widget.profileNum}.png",
+                      width: 28.0.r,
+                      height: 28.0.r,
+                    ),
+                    SizedBox(width: 20.0.w),
+                    Text(
+                      widget.name,
+                      style: TextStyle(
+                          fontSize: 20.0.sp, fontFamily: "LINE Seed Sans KR"),
+                    ),
+                  ],
+                ),
+              ),
               SizedBox(
                 width: 381.0.w,
                 height: 171.0.h,
