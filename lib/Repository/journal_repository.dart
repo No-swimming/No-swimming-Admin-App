@@ -1,5 +1,6 @@
 import 'package:no_swimming_admin_app/DataSource/RemoteDataSource/journal_data_source.dart';
 import 'package:no_swimming_admin_app/Model/journal/journal.dart';
+import 'package:no_swimming_admin_app/Model/journal/detail_journal.dart';
 
 class JournalRepository {
   final JournalDataSource _dataSource = JournalDataSource();
@@ -12,4 +13,7 @@ class JournalRepository {
 
   Future<void> closeUpAllJournalList(List<int> list) async =>
       await _dataSource.closeUpAllJournalList(list);
+
+  Future<DetailJournal> getStudentDetailJournal(int readingJournalId) async =>
+      await _dataSource.getStudentDetailJournal(readingJournalId);
 }

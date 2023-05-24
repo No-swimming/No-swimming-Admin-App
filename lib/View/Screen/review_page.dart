@@ -42,6 +42,7 @@ class _ReviewPageState extends State<ReviewPage> {
   Widget build(BuildContext context) {
     journalViewModel = Provider.of<JournalViewModel>(context);
     feedbackViewModel = Provider.of<FeedbackViewModel>(context);
+    journalViewModel.getStudentDetailJournal(widget.readingJournalId);
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -78,7 +79,7 @@ class _ReviewPageState extends State<ReviewPage> {
                 ),
               ),
               Text(
-                '박생선(saengSun88)',
+                journalViewModel.detailJournal.teacherName.toString(),
                 style: TextStyle(
                   fontFamily: 'LINE Seed Sans KR',
                   fontSize: 20.0.sp,
@@ -95,7 +96,7 @@ class _ReviewPageState extends State<ReviewPage> {
                     fontSize: 24.0.sp,
                     fontWeight: FontWeight.bold),
               ),
-              Text('대충 학생이 써놓은 글'),
+              Text(journalViewModel.detailJournal.content.toString()),
               Text('7단어 44글자 공백 제외 36글자'),
               const Divider(
                 thickness: 1,

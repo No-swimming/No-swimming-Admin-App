@@ -1,9 +1,9 @@
 import 'dart:convert';
-
 import 'package:http/http.dart' as http;
 import 'package:no_swimming_admin_app/Model/journal/journal_list.dart';
 import 'package:no_swimming_admin_app/Model/journal/journal.dart';
 import 'package:no_swimming_admin_app/baseurl.dart';
+import 'package:no_swimming_admin_app/Model/journal/detail_journal.dart';
 
 class JournalDataSource {
   Future<JournalList> _searchJournalList(int userId) async {
@@ -33,5 +33,15 @@ class JournalDataSource {
     if (response.statusCode == 404) {
       throw Exception(response.body);
     }
+  }
+
+  Future<DetailJournal> getStudentDetailJournal(int readingJournalId) async {
+    final response =
+        await http.get(Uri.parse("$baseurl/journal/$readingJournalId"));
+    if (response.statusCode == 200) {
+      return DetailJournal.fromJson(
+          jsonDecode(utf8.decode(response.bodyBytes)));
+    }
+    throw Exception(response.body);
   }
 }
