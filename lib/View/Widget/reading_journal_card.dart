@@ -13,10 +13,12 @@ class ReadingJournalCard extends StatelessWidget {
     required this.title,
     required this.readingJournalType,
     required this.readingJournalId,
+    required this.name,
+    required this.profileNum,
   }) : super(key: key);
 
-  final String title, readingJournalType;
-  final int readingJournalId;
+  final String title, readingJournalType, name;
+  final int readingJournalId, profileNum;
 
   late JournalViewModel viewModel;
 
@@ -87,6 +89,8 @@ class ReadingJournalCard extends StatelessWidget {
                     MaterialPageRoute(
                       builder: (context) => ReviewPage(
                         title: title,
+                        profileNum: profileNum,
+                        name: name,
                         readingJournalId: readingJournalId,
                       ),
                     ),

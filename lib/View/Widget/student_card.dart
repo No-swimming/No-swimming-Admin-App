@@ -28,6 +28,7 @@ class StudentCard extends StatelessWidget {
                 gradeNum: gradeNum,
                 classNum: classNum,
                 userId: userId,
+                profileNum: profileNum,
                 number: number),
           ),
         );

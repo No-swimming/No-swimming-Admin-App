@@ -12,11 +12,12 @@ class StudentDetailPage extends StatelessWidget {
       required this.gradeNum,
       required this.classNum,
       required this.number,
+      required this.profileNum,
       required this.userId})
       : super(key: key);
 
   String studentName;
-  int gradeNum, classNum, number, userId;
+  int gradeNum, classNum, number, userId, profileNum;
   late JournalViewModel viewModel;
 
   @override
@@ -81,6 +82,8 @@ class StudentDetailPage extends StatelessWidget {
                           readingJournalId: viewModel
                               .journalList[index].readingJournalId!
                               .toInt(),
+                          name: studentName,
+                          profileNum: profileNum,
                         ),
                         SizedBox(height: 12.0.h),
                       ],

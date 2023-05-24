@@ -12,10 +12,12 @@ class ReviewPage extends StatefulWidget {
     Key? key,
     required this.title,
     required this.readingJournalId,
+    required this.profileNum,
+    required this.name,
   }) : super(key: key);
 
-  final String title;
-  final int readingJournalId;
+  final String title, name;
+  final int readingJournalId, profileNum;
 
   @override
   State<ReviewPage> createState() => _ReviewPageState();
@@ -96,7 +98,19 @@ class _ReviewPageState extends State<ReviewPage> {
                     fontSize: 24.0.sp,
                     fontWeight: FontWeight.bold),
               ),
-              Text(journalViewModel.detailJournal.content.toString()),
+              SizedBox(
+                width: 381.0.w,
+                height: 171.0.h,
+                child: ListView(
+                  padding: EdgeInsets.zero,
+                  children: [
+                    Text(
+                      journalViewModel.detailJournal.content.toString(),
+                      style: TextStyle(fontSize: 20.0.sp),
+                    ),
+                  ],
+                ),
+              ),
               Text('7단어 44글자 공백 제외 36글자'),
               const Divider(
                 thickness: 1,
