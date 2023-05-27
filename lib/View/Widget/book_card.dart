@@ -38,7 +38,7 @@ class BookCard extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 16.0.sp,
                       fontFamily: 'LINE Seed Sans KR',
-                      color: Color(0xff7F7F7F),
+                      color: const Color(0xff7F7F7F),
                     ),
                   ),
                 ],
