@@ -19,24 +19,40 @@ class JournalViewModel with ChangeNotifier {
     _detailJournal = DetailJournal();
   }
 
-  Future<void> searchJournalList(int userId) async {
-    _journalList = await _repository.searchJournalList(userId);
-    notifyListeners();
+  void searchJournalList(int userId) {
+    List<Journal> list = List.empty(growable: true);
+    list.add(Journal(
+        bookId: 1,
+        bookNum: 1,
+        title: "이펙티브 코틀린",
+        readingJournalType: "SAVE",
+        readingJournalId: 1,
+        recordReject: false));
+    list.add(Journal(
+        bookId: 2,
+        bookNum: 124,
+        title: "돼지책",
+        readingJournalType: "SAVE",
+        readingJournalId: 2,
+        recordReject: false));
+    _journalList = list;
+    //_journalList = await _repository.searchJournalList(userId);
+    //notifyListeners();
   }
 
   Future<void> closeUpJournal(int readingJournalId) async {
     await _repository.closeUpJournal(readingJournalId);
-    notifyListeners();
+    //notifyListeners();
   }
 
   Future<void> closeUpAllJournalList(List<int> list) async {
     await _repository.closeUpAllJournalList(list);
-    notifyListeners();
+    //notifyListeners();
   }
 
   Future<void> getStudentDetailJournal(int readingJournalId) async {
     _detailJournal =
         await _repository.getStudentDetailJournal(readingJournalId);
-    notifyListeners();
+    //notifyListeners();
   }
 }

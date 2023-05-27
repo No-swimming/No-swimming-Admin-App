@@ -11,6 +11,6 @@ class FeedbackViewModel with ChangeNotifier {
   Future<void> sendJournalFeedback(
       int readingJournalId, String feedback) async {
     _repository.sendJournalFeedback(readingJournalId, feedback);
-    notifyListeners();
+    //notifyListeners();
   }
 }

@@ -19,7 +19,7 @@ class StudentListViewModel with ChangeNotifier {
   Future<void> readStudentList({int? grade, int? classNum}) async {
     _studentList =
         await _repository.readStudentList(grade: grade, classNum: classNum);
-    notifyListeners();
+    //notifyListeners();
   }
 
   void emptyGradeList() {
