@@ -5,17 +5,16 @@ import 'package:no_swimming_admin_app/Repository/book_repository.dart';
 class BookViewModel with ChangeNotifier {
   late final BookRepository _repository;
 
-  late Book _book;
+  final List<Book> _bookList = List.empty(growable: true);
 
-  Book get book => _book;
+  List<Book> get bookList => _bookList;
 
   BookViewModel() {
     _repository = BookRepository();
-    _book = Book();
   }
 
   Future<void> getStudentChoiceBook(String bookName) async {
-    _book = await _repository.getStudentChoiceBook(bookName);
+    _bookList.add(await _repository.getStudentChoiceBook(bookName));
     notifyListeners();
   }
 }
