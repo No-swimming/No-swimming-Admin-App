@@ -16,8 +16,8 @@ class StudentDetailPage extends StatelessWidget {
       required this.userId})
       : super(key: key);
 
-  String studentName;
-  int gradeNum, classNum, number, userId, profileNum;
+  final String studentName;
+  final int gradeNum, classNum, number, userId, profileNum;
   late JournalViewModel viewModel;
 
   @override
