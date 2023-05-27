@@ -25,7 +25,8 @@ class BookCard extends StatelessWidget {
           children: [
             Consumer<BookViewModel>(
                 builder: (context, value, child) => Image.network(
-                    value.book.items![bookIndex].image.toString(),
+                    value.book.items?[bookIndex].image.toString() ??
+                        "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA0MjZfMTU5%2FMDAxNjgyNTA0MTU5NTQw.LF-cPalh36QjHEHiF9dn-9HXPIoOwGLjJZHXHR2LOqUg.PsG5jgbUB1RcFwOe9qySMG_21RVVBTkffH_S7ywdpVYg.JPEG.hyelstar030%2FIMG_2010.JPG&type=sc960_832",
                     width: 41.0.w,
                     height: 60.0.h)),
             Padding(
