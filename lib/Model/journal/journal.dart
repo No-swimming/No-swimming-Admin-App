@@ -5,6 +5,8 @@ class Journal {
   bool? recordReject;
   String? readingJournalType;
   int? readingJournalId;
+  int? userId;
+  String? createdAt;
 
   Journal(
       {this.bookId,
@@ -12,7 +14,9 @@ class Journal {
       this.title,
       this.recordReject,
       this.readingJournalType,
-      this.readingJournalId});
+      this.readingJournalId,
+      this.userId,
+      this.createdAt});
 
   Journal.fromJson(Map<String, dynamic> json) {
     bookId = json['book_id'];
@@ -21,6 +25,8 @@ class Journal {
     recordReject = json['record_reject'];
     readingJournalType = json['reading_journal_type'];
     readingJournalId = json['reading_journal_id'];
+    userId = json['user_id'];
+    createdAt = json['created_at'];
   }
 
   Map<String, dynamic> toJson() {
@@ -31,6 +37,8 @@ class Journal {
     data['record_reject'] = recordReject;
     data['reading_journal_type'] = readingJournalType;
     data['reading_journal_id'] = readingJournalId;
+    data['user_id'] = userId;
+    data['created_at'] = createdAt;
     return data;
   }
 }
