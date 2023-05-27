@@ -9,17 +9,18 @@ import 'package:no_swimming_admin_app/ViewModel/journal_view_model.dart';
 import 'package:provider/provider.dart';
 
 class ReadingJournalCard extends StatelessWidget {
-  ReadingJournalCard({
-    Key? key,
-    required this.title,
-    required this.readingJournalType,
-    required this.readingJournalId,
-    required this.name,
-    required this.profileNum,
-    required this.bookIndex,
-  }) : super(key: key);
+  ReadingJournalCard(
+      {Key? key,
+      required this.title,
+      required this.readingJournalType,
+      required this.readingJournalId,
+      required this.name,
+      required this.profileNum,
+      required this.bookIndex,
+      required this.createdAt})
+      : super(key: key);
 
-  final String title, readingJournalType, name;
+  final String title, readingJournalType, name, createdAt;
   final int readingJournalId, profileNum, bookIndex;
 
   late BookViewModel viewModel;
@@ -57,7 +58,7 @@ class ReadingJournalCard extends StatelessWidget {
                         fontSize: 16.0.sp,
                         fontWeight: FontWeight.bold)),
                 Text(
-                  ' 2023/02/23 14:22',
+                  ' $createdAt',
                   style: TextStyle(
                       fontFamily: 'LINE Seed Sans KR', fontSize: 16.0.sp),
                 ),

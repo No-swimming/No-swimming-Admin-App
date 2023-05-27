@@ -79,7 +79,7 @@ class StudentDetailPage extends StatelessWidget {
                         children: [
                           ReadingJournalCard(
                             title: value.journalList[index].title.toString(),
-                            bookIndex : index,
+                            bookIndex: index,
                             readingJournalType: value
                                 .journalList[index].readingJournalType
                                 .toString(),
@@ -87,6 +87,8 @@ class StudentDetailPage extends StatelessWidget {
                                 .journalList[index].readingJournalId!
                                 .toInt(),
                             name: studentName,
+                            createdAt:
+                                value.journalList[index].createdAt.toString(),
                             profileNum: profileNum,
                           ),
                           SizedBox(height: 12.0.h),
