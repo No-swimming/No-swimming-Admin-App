@@ -14,10 +14,12 @@ class ReviewPage extends StatefulWidget {
       required this.readingJournalId,
       required this.profileNum,
       required this.name,
-      required this.bookIndex})
+      required this.bookIndex,
+      required this.author,
+      required this.pubDate})
       : super(key: key);
 
-  final String title, name;
+  final String title, name, author, pubDate;
   final int readingJournalId, profileNum, bookIndex;
 
   @override
@@ -74,6 +76,8 @@ class _ReviewPageState extends State<ReviewPage> {
               BookCard(
                 title: widget.title,
                 bookIndex: widget.bookIndex,
+                pubDate: widget.pubDate,
+                author: widget.author,
               ),
               SizedBox(height: 11.0.h),
               Text(

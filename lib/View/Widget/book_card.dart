@@ -4,10 +4,15 @@ import 'package:no_swimming_admin_app/ViewModel/book_view_model.dart';
 import 'package:provider/provider.dart';
 
 class BookCard extends StatelessWidget {
-  const BookCard({Key? key, required this.title, required this.bookIndex})
+  const BookCard(
+      {Key? key,
+      required this.title,
+      required this.author,
+      required this.bookIndex,
+      required this.pubDate})
       : super(key: key);
 
-  final String title;
+  final String title, author, pubDate;
   final int bookIndex;
 
   @override
@@ -50,7 +55,7 @@ class BookCard extends StatelessWidget {
                         fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    '앤디 위어 | 2021',
+                    '$author | $pubDate',
                     style: TextStyle(
                       fontSize: 16.0.sp,
                       fontFamily: 'LINE Seed Sans KR',
