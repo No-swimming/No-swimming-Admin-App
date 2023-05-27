@@ -97,12 +97,14 @@ class _ReviewPageState extends State<ReviewPage> {
                 thickness: 1,
                 color: Color(0xffBFBFBF),
               ),
-              Text(
-                '나의 라임',
-                style: TextStyle(
-                    fontFamily: 'LINE Seed Sans KR',
-                    fontSize: 24.0.sp,
-                    fontWeight: FontWeight.bold),
+              Consumer<JournalViewModel>(
+                builder: (context, value, child) => Text(
+                  value.detailJournal.title.toString(),
+                  style: TextStyle(
+                      fontFamily: 'LINE Seed Sans KR',
+                      fontSize: 24.0.sp,
+                      fontWeight: FontWeight.bold),
+                ),
               ),
               Padding(
                 padding: EdgeInsets.only(top: 10.0.h, bottom: 10.0.h),
