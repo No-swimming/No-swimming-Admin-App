@@ -22,7 +22,7 @@ class StudentDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    viewModel = Provider.of<JournalViewModel>(context);
+    viewModel = Provider.of<JournalViewModel>(context, listen: false);
     viewModel.searchJournalList(userId);
     return Scaffold(
       backgroundColor: Colors.white,
@@ -51,12 +51,14 @@ class StudentDetailPage extends StatelessWidget {
                     fontSize: 30.0.sp,
                   ),
                 ),
-                Text(
-                  " ${viewModel.journalList.length}건",
-                  style: TextStyle(
-                      fontFamily: 'LINE Seed Sans KR',
-                      fontSize: 30.0.sp,
-                      color: const Color(0xff7F7F7F)),
+                Consumer<JournalViewModel>(
+                  builder: (context, value, child) => Text(
+                    " ${value.journalList.length}건",
+                    style: TextStyle(
+                        fontFamily: 'LINE Seed Sans KR',
+                        fontSize: 30.0.sp,
+                        color: const Color(0xff7F7F7F)),
+                  ),
                 ),
               ],
             ),
@@ -68,27 +70,29 @@ class StudentDetailPage extends StatelessWidget {
             Expanded(
               child: ScrollConfiguration(
                 behavior: const ScrollBehavior().copyWith(overscroll: false),
-                child: ListView.builder(
-                  padding: EdgeInsets.zero,
-                  itemCount: viewModel.journalList.length,
-                  itemBuilder: (context, index) {
-                    return Column(
-                      children: [
-                        ReadingJournalCard(
-                          title: viewModel.journalList[index].title.toString(),
-                          readingJournalType: viewModel
-                              .journalList[index].readingJournalType
-                              .toString(),
-                          readingJournalId: viewModel
-                              .journalList[index].readingJournalId!
-                              .toInt(),
-                          name: studentName,
-                          profileNum: profileNum,
-                        ),
-                        SizedBox(height: 12.0.h),
-                      ],
-                    );
-                  },
+                child: Consumer<JournalViewModel>(
+                  builder: (context, value, child) => ListView.builder(
+                    padding: EdgeInsets.zero,
+                    itemCount: value.journalList.length,
+                    itemBuilder: (context, index) {
+                      return Column(
+                        children: [
+                          ReadingJournalCard(
+                            title: value.journalList[index].title.toString(),
+                            readingJournalType: value
+                                .journalList[index].readingJournalType
+                                .toString(),
+                            readingJournalId: value
+                                .journalList[index].readingJournalId!
+                                .toInt(),
+                            name: studentName,
+                            profileNum: profileNum,
+                          ),
+                          SizedBox(height: 12.0.h),
+                        ],
+                      );
+                    },
+                  ),
                 ),
               ),
             )
@@ -98,31 +102,33 @@ class StudentDetailPage extends StatelessWidget {
       floatingActionButton: SizedBox(
         width: 183.0.w,
         height: 42.0.h,
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-              elevation: 0.0,
-              backgroundColor: Colors.black,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(99),
-              )),
-          onPressed: () {
-            checkPopupCard(
-              context: context,
-              title: '모두 마감으로 표시',
-              bodyText: '마감으로 표시된 뒤에는 독서록을 수정할 수 없습니다.',
-              func: () {
-                List<int> list = List.empty(growable: true);
-                for (var a in viewModel.journalList) {
-                  list.add(a.readingJournalId!.toInt());
-                }
-                viewModel.closeUpAllJournalList(list);
-              },
-            );
-          },
-          child: Text(
-            '모두 마감으로 표시',
-            style:
-                TextStyle(fontFamily: 'LINE Seed Sans KR', fontSize: 18.0.sp),
+        child: Consumer<JournalViewModel>(
+          builder: (context, value, child) => ElevatedButton(
+            style: ElevatedButton.styleFrom(
+                elevation: 0.0,
+                backgroundColor: Colors.black,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(99),
+                )),
+            onPressed: () {
+              checkPopupCard(
+                context: context,
+                title: '모두 마감으로 표시',
+                bodyText: '마감으로 표시된 뒤에는 독서록을 수정할 수 없습니다.',
+                func: () {
+                  List<int> list = List.empty(growable: true);
+                  for (var a in value.journalList) {
+                    list.add(a.readingJournalId!.toInt());
+                  }
+                  value.closeUpAllJournalList(list);
+                },
+              );
+            },
+            child: Text(
+              '모두 마감으로 표시',
+              style:
+                  TextStyle(fontFamily: 'LINE Seed Sans KR', fontSize: 18.0.sp),
+            ),
           ),
         ),
       ),
