@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:no_swimming_admin_app/View/Widget/check_popup_card.dart';
 import 'package:no_swimming_admin_app/View/Widget/reading_journal_card.dart';
+import 'package:no_swimming_admin_app/ViewModel/book_view_model.dart';
 import 'package:provider/provider.dart';
 import 'package:no_swimming_admin_app/ViewModel/journal_view_model.dart';
 
-class StudentDetailPage extends StatelessWidget {
+class StudentDetailPage extends StatefulWidget {
   StudentDetailPage(
       {Key? key,
       required this.studentName,
@@ -18,12 +19,27 @@ class StudentDetailPage extends StatelessWidget {
 
   final String studentName;
   final int gradeNum, classNum, number, userId, profileNum;
+
+  @override
+  State<StudentDetailPage> createState() => _StudentDetailPageState();
+}
+
+class _StudentDetailPageState extends State<StudentDetailPage> {
   late JournalViewModel viewModel;
+  late BookViewModel bookViewModel;
+
+  @override
+  void dispose() {
+    super.dispose();
+    viewModel.journalList.clear();
+    bookViewModel.bookList.clear();
+  }
 
   @override
   Widget build(BuildContext context) {
     viewModel = Provider.of<JournalViewModel>(context, listen: false);
-    viewModel.searchJournalList(userId);
+    bookViewModel = Provider.of<BookViewModel>(context, listen: false);
+    viewModel.searchJournalList(widget.userId);
     return Scaffold(
       backgroundColor: Colors.white,
       body: Container(
@@ -32,9 +48,9 @@ class StudentDetailPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              number > 9
-                  ? '$studentName($gradeNum$classNum$number)'
-                  : '$studentName($gradeNum${classNum}0$number)',
+              widget.number > 9
+                  ? '${widget.studentName}(${widget.gradeNum}${widget.classNum}${widget.number})'
+                  : '${widget.studentName}(${widget.gradeNum}${widget.classNum}0${widget.number})',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontFamily: 'LINE Seed Sans KR',
@@ -86,10 +102,10 @@ class StudentDetailPage extends StatelessWidget {
                             readingJournalId: value
                                 .journalList[index].readingJournalId!
                                 .toInt(),
-                            name: studentName,
+                            name: widget.studentName,
                             createdAt:
                                 value.journalList[index].createdAt.toString(),
-                            profileNum: profileNum,
+                            profileNum: widget.profileNum,
                           ),
                           SizedBox(height: 12.0.h),
                         ],
@@ -98,7 +114,7 @@ class StudentDetailPage extends StatelessWidget {
                   ),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
