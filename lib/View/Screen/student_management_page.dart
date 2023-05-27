@@ -62,31 +62,33 @@ class StudentManagementPage extends StatelessWidget {
                     child: ScrollConfiguration(
                       behavior:
                           const ScrollBehavior().copyWith(overscroll: false),
-                      child: ListView.builder(
-                        padding: EdgeInsets.zero,
-                        itemCount: viewModel.studentList.length,
-                        itemBuilder: (context, index) {
-                          return Column(
-                            children: [
-                              StudentCard(
-                                name: viewModel.studentList[index].name
-                                    .toString(),
-                                gradeNum:
-                                    viewModel.studentList[index].grade!.toInt(),
-                                classNum: viewModel.studentList[index].classNum!
-                                    .toInt(),
-                                number: viewModel.studentList[index].number!
-                                    .toInt(),
-                                userId: viewModel.studentList[index].userId!
-                                    .toInt(),
-                                profileNum: viewModel
-                                    .studentList[index].profileNum!
-                                    .toInt(),
-                              ),
-                              SizedBox(height: 12.0.h),
-                            ],
-                          );
-                        },
+                      child: Consumer<StudentListViewModel>(
+                        builder: (context, value, child) => ListView.builder(
+                          padding: EdgeInsets.zero,
+                          itemCount: value.studentList.length,
+                          itemBuilder: (context, index) {
+                            return Column(
+                              children: [
+                                StudentCard(
+                                  name:
+                                      value.studentList[index].name.toString(),
+                                  gradeNum:
+                                      value.studentList[index].grade!.toInt(),
+                                  classNum: value.studentList[index].classNum!
+                                      .toInt(),
+                                  number:
+                                      value.studentList[index].number!.toInt(),
+                                  userId:
+                                      value.studentList[index].userId!.toInt(),
+                                  profileNum: value
+                                      .studentList[index].profileNum!
+                                      .toInt(),
+                                ),
+                                SizedBox(height: 12.0.h),
+                              ],
+                            );
+                          },
+                        ),
                       ),
                     ),
                   ),
