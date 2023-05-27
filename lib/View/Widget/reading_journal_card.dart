@@ -31,100 +31,119 @@ class ReadingJournalCard extends StatelessWidget {
     viewModel = Provider.of<BookViewModel>(context, listen: false);
     journalViewModel = Provider.of<JournalViewModel>(context, listen: false);
     viewModel.getStudentChoiceBook(title);
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(Radius.circular(8)),
-        border: Border.all(color: const Color(0xffF2F2F2)),
-        color: Colors.white,
-      ),
-      width: 380.0.w,
-      height: 205.0.h,
-      child: Container(
-        margin: EdgeInsets.all(9.0.r),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            BookCard(
-              title: title,
-              bookIndex: bookIndex,
-            ),
-            SizedBox(height: 8.0.h),
-            Row(
-              children: [
-                Text('제출일',
-                    style: TextStyle(
-                        fontFamily: 'LINE Seed Sans KR',
-                        fontSize: 16.0.sp,
-                        fontWeight: FontWeight.bold)),
-                Text(
-                  ' $createdAt',
-                  style: TextStyle(
-                      fontFamily: 'LINE Seed Sans KR', fontSize: 16.0.sp),
+    return Consumer<BookViewModel>(
+      builder: (context, value, child) {
+        return journalViewModel.journalList.length == value.bookList.length
+            ? Container(
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(Radius.circular(8)),
+                  border: Border.all(color: const Color(0xffF2F2F2)),
+                  color: Colors.white,
                 ),
-              ],
-            ),
-            SizedBox(height: 8.0.h),
-            Row(
-              children: [
-                Text('제출 상태',
-                    style: TextStyle(
-                        fontFamily: 'LINE Seed Sans KR',
-                        fontSize: 16.0.sp,
-                        fontWeight: FontWeight.bold)),
-                Text(
-                  "  $readingJournalType",
-                  style: TextStyle(
-                    fontFamily: 'LINE Seed Sans KR',
-                    fontSize: 16.0.sp,
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: 8.0.h),
-            Row(
-              children: [
-                CustomButtom(
-                  buttonText: '내용 열기',
-                  width: 95.0,
-                  height: 33.0,
-                  backgroundColor: Colors.black,
-                  fontSize: 14.0,
-                  textColor: Colors.white,
-                  func: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ReviewPage(
+                width: 380.0.w,
+                height: 205.0.h,
+                child: Container(
+                  margin: EdgeInsets.all(9.0.r),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      BookCard(
                         title: title,
-                        profileNum: profileNum,
-                        name: name,
-                        readingJournalId: readingJournalId,
                         bookIndex: bookIndex,
+                        author: value.bookList[bookIndex].items!.first.author
+                            .toString(),
+                        pubDate: value.bookList[bookIndex].items!.first.pubDate
+                            .toString(),
                       ),
-                    ),
+                      SizedBox(height: 8.0.h),
+                      Row(
+                        children: [
+                          Text('제출일',
+                              style: TextStyle(
+                                  fontFamily: 'LINE Seed Sans KR',
+                                  fontSize: 16.0.sp,
+                                  fontWeight: FontWeight.bold)),
+                          Text(
+                            ' $createdAt',
+                            style: TextStyle(
+                                fontFamily: 'LINE Seed Sans KR',
+                                fontSize: 16.0.sp),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 8.0.h),
+                      Row(
+                        children: [
+                          Text('제출 상태',
+                              style: TextStyle(
+                                  fontFamily: 'LINE Seed Sans KR',
+                                  fontSize: 16.0.sp,
+                                  fontWeight: FontWeight.bold)),
+                          Text(
+                            "  $readingJournalType",
+                            style: TextStyle(
+                              fontFamily: 'LINE Seed Sans KR',
+                              fontSize: 16.0.sp,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 8.0.h),
+                      Row(
+                        children: [
+                          CustomButtom(
+                            buttonText: '내용 열기',
+                            width: 95.0,
+                            height: 33.0,
+                            backgroundColor: Colors.black,
+                            fontSize: 14.0,
+                            textColor: Colors.white,
+                            func: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ReviewPage(
+                                  title: title,
+                                  profileNum: profileNum,
+                                  name: name,
+                                  readingJournalId: readingJournalId,
+                                  bookIndex: bookIndex,
+                                  author: value
+                                      .bookList[bookIndex].items!.first.author
+                                      .toString(),
+                                  pubDate: value
+                                      .bookList[bookIndex].items!.first.pubDate
+                                      .toString(),
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 8.0.w),
+                          CustomButtom(
+                            buttonText: '마감으로 표시',
+                            width: 120.0,
+                            height: 33.0,
+                            backgroundColor: const Color(0xffF2F2F2),
+                            fontSize: 14.0,
+                            textColor: Colors.black,
+                            func: () => checkPopupCard(
+                              context: context,
+                              title: '마감으로 표시',
+                              bodyText: '마감으로 표시된 뒤에는 독서록을 수정할 수 없습니다.',
+                              func: () {
+                                journalViewModel
+                                    .closeUpJournal(readingJournalId);
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
-                SizedBox(width: 8.0.w),
-                CustomButtom(
-                  buttonText: '마감으로 표시',
-                  width: 120.0,
-                  height: 33.0,
-                  backgroundColor: const Color(0xffF2F2F2),
-                  fontSize: 14.0,
-                  textColor: Colors.black,
-                  func: () => checkPopupCard(
-                      context: context,
-                      title: '마감으로 표시',
-                      bodyText: '마감으로 표시된 뒤에는 독서록을 수정할 수 없습니다.',
-                      func: () {
-                        journalViewModel.closeUpJournal(readingJournalId);
-                      }),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
+              )
+            : const Center(child: CircularProgressIndicator());
+      },
     );
   }
 }
