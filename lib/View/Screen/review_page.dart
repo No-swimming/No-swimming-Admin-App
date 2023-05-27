@@ -8,16 +8,17 @@ import 'package:provider/provider.dart';
 import 'package:no_swimming_admin_app/ViewModel/journal_view_model.dart';
 
 class ReviewPage extends StatefulWidget {
-  const ReviewPage({
-    Key? key,
-    required this.title,
-    required this.readingJournalId,
-    required this.profileNum,
-    required this.name,
-  }) : super(key: key);
+  const ReviewPage(
+      {Key? key,
+      required this.title,
+      required this.readingJournalId,
+      required this.profileNum,
+      required this.name,
+      required this.bookIndex})
+      : super(key: key);
 
   final String title, name;
-  final int readingJournalId, profileNum;
+  final int readingJournalId, profileNum, bookIndex;
 
   @override
   State<ReviewPage> createState() => _ReviewPageState();
@@ -42,8 +43,8 @@ class _ReviewPageState extends State<ReviewPage> {
 
   @override
   Widget build(BuildContext context) {
-    journalViewModel = Provider.of<JournalViewModel>(context);
-    feedbackViewModel = Provider.of<FeedbackViewModel>(context);
+    journalViewModel = Provider.of<JournalViewModel>(context, listen: false);
+    feedbackViewModel = Provider.of<FeedbackViewModel>(context, listen: false);
     journalViewModel.getStudentDetailJournal(widget.readingJournalId);
     return Scaffold(
       backgroundColor: Colors.white,
@@ -70,7 +71,10 @@ class _ReviewPageState extends State<ReviewPage> {
                   color: const Color(0xff7F7F7F),
                 ),
               ),
-              BookCard(title: widget.title),
+              BookCard(
+                title: widget.title,
+                bookIndex: widget.bookIndex,
+              ),
               SizedBox(height: 11.0.h),
               Text(
                 ' 담당 선생님',
@@ -80,11 +84,13 @@ class _ReviewPageState extends State<ReviewPage> {
                   color: const Color(0xff7F7F7F),
                 ),
               ),
-              Text(
-                journalViewModel.detailJournal.teacherName.toString(),
-                style: TextStyle(
-                  fontFamily: 'LINE Seed Sans KR',
-                  fontSize: 20.0.sp,
+              Consumer<JournalViewModel>(
+                builder: (context, value, child) => Text(
+                  value.detailJournal.teacherName.toString(),
+                  style: TextStyle(
+                    fontFamily: 'LINE Seed Sans KR',
+                    fontSize: 20.0.sp,
+                  ),
                 ),
               ),
               const Divider(
@@ -122,9 +128,11 @@ class _ReviewPageState extends State<ReviewPage> {
                 child: ListView(
                   padding: EdgeInsets.zero,
                   children: [
-                    Text(
-                      journalViewModel.detailJournal.content.toString(),
-                      style: TextStyle(fontSize: 20.0.sp),
+                    Consumer<JournalViewModel>(
+                      builder: (context, value, child) => Text(
+                        value.detailJournal.content.toString(),
+                        style: TextStyle(fontSize: 20.0.sp),
+                      ),
                     ),
                   ],
                 ),

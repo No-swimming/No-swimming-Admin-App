@@ -4,6 +4,7 @@ import 'package:no_swimming_admin_app/View/Screen/review_page.dart';
 import 'package:no_swimming_admin_app/View/Widget/book_card.dart';
 import 'package:no_swimming_admin_app/View/Widget/custom_button.dart';
 import 'package:no_swimming_admin_app/View/Widget/check_popup_card.dart';
+import 'package:no_swimming_admin_app/ViewModel/book_view_model.dart';
 import 'package:no_swimming_admin_app/ViewModel/journal_view_model.dart';
 import 'package:provider/provider.dart';
 
@@ -15,16 +16,20 @@ class ReadingJournalCard extends StatelessWidget {
     required this.readingJournalId,
     required this.name,
     required this.profileNum,
+    required this.bookIndex,
   }) : super(key: key);
 
   final String title, readingJournalType, name;
-  final int readingJournalId, profileNum;
+  final int readingJournalId, profileNum, bookIndex;
 
-  late JournalViewModel viewModel;
+  late BookViewModel viewModel;
+  late JournalViewModel journalViewModel;
 
   @override
   Widget build(BuildContext context) {
-    viewModel = Provider.of<JournalViewModel>(context);
+    viewModel = Provider.of<BookViewModel>(context, listen: false);
+    journalViewModel = Provider.of<JournalViewModel>(context, listen: false);
+    viewModel.getStudentChoiceBook(title);
     return Container(
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(8)),
@@ -41,6 +46,7 @@ class ReadingJournalCard extends StatelessWidget {
           children: [
             BookCard(
               title: title,
+              bookIndex: bookIndex,
             ),
             SizedBox(height: 8.0.h),
             Row(
@@ -92,6 +98,7 @@ class ReadingJournalCard extends StatelessWidget {
                         profileNum: profileNum,
                         name: name,
                         readingJournalId: readingJournalId,
+                        bookIndex: bookIndex,
                       ),
                     ),
                   ),
@@ -101,7 +108,7 @@ class ReadingJournalCard extends StatelessWidget {
                   buttonText: '마감으로 표시',
                   width: 120.0,
                   height: 33.0,
-                  backgroundColor: Color(0xffF2F2F2),
+                  backgroundColor: const Color(0xffF2F2F2),
                   fontSize: 14.0,
                   textColor: Colors.black,
                   func: () => checkPopupCard(
@@ -109,7 +116,7 @@ class ReadingJournalCard extends StatelessWidget {
                       title: '마감으로 표시',
                       bodyText: '마감으로 표시된 뒤에는 독서록을 수정할 수 없습니다.',
                       func: () {
-                        viewModel.closeUpJournal(readingJournalId);
+                        journalViewModel.closeUpJournal(readingJournalId);
                       }),
                 ),
               ],
