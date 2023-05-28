@@ -8,7 +8,7 @@ class BookDataSource {
   Future<Book> getStudentChoiceBook(String bookName) async {
     final response = await http.get(
         Uri.parse(
-            "$naverOpenAPIUrl/v1/search/book.json?display=1&query=$bookName"),
+            "$naverOpenAPIUrl/v1/search/book_adv.json?display=1&d_titl=$bookName"),
         headers: {
           "X-Naver-Client-Id": clientId,
           "X-Naver-Client-Secret": clientSecret
