@@ -90,6 +90,8 @@ class _StudentDetailPageState extends State<StudentDetailPage> {
                   padding: EdgeInsets.zero,
                   itemCount: viewModel.journalList.length,
                   itemBuilder: (context, index) {
+                    bookViewModel.getStudentChoiceBook(
+                        viewModel.journalList[index].title.toString());
                     return Column(
                       children: [
                         Consumer<JournalViewModel>(

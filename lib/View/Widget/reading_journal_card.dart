@@ -30,7 +30,7 @@ class ReadingJournalCard extends StatelessWidget {
   Widget build(BuildContext context) {
     viewModel = Provider.of<BookViewModel>(context, listen: false);
     journalViewModel = Provider.of<JournalViewModel>(context, listen: false);
-    viewModel.getStudentChoiceBook(title);
+    //viewModel.getStudentChoiceBook(title);
     return Consumer<BookViewModel>(
       builder: (context, value, child) {
         return journalViewModel.journalList.length == value.bookList.length
