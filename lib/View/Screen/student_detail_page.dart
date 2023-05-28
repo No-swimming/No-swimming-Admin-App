@@ -86,14 +86,15 @@ class _StudentDetailPageState extends State<StudentDetailPage> {
             Expanded(
               child: ScrollConfiguration(
                 behavior: const ScrollBehavior().copyWith(overscroll: false),
-                child: Consumer<JournalViewModel>(
-                  builder: (context, value, child) => ListView.builder(
-                    padding: EdgeInsets.zero,
-                    itemCount: value.journalList.length,
-                    itemBuilder: (context, index) {
-                      return Column(
-                        children: [
-                          ReadingJournalCard(
+                child: ListView.builder(
+                  padding: EdgeInsets.zero,
+                  itemCount: viewModel.journalList.length,
+                  itemBuilder: (context, index) {
+                    return Column(
+                      children: [
+                        Consumer<JournalViewModel>(
+                          builder: (context, value, child) =>
+                              ReadingJournalCard(
                             title: value.journalList[index].title.toString(),
                             bookIndex: index,
                             readingJournalType: value
@@ -107,11 +108,11 @@ class _StudentDetailPageState extends State<StudentDetailPage> {
                                 value.journalList[index].createdAt.toString(),
                             profileNum: widget.profileNum,
                           ),
-                          SizedBox(height: 12.0.h),
-                        ],
-                      );
-                    },
-                  ),
+                        ),
+                        SizedBox(height: 12.0.h),
+                      ],
+                    );
+                  },
                 ),
               ),
             ),
