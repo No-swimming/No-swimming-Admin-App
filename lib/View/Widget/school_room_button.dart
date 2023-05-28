@@ -15,7 +15,7 @@ class SchoolRoomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    viewModel = Provider.of<StudentListViewModel>(context);
+    viewModel = Provider.of<StudentListViewModel>(context, listen: false);
 
     return InkWell(
       onTap: () {
