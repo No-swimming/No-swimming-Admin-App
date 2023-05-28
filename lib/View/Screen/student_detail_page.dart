@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:no_swimming_admin_app/ViewModel/journal_view_model.dart';
 
 class StudentDetailPage extends StatefulWidget {
-  StudentDetailPage(
+  const StudentDetailPage(
       {Key? key,
       required this.studentName,
       required this.gradeNum,
